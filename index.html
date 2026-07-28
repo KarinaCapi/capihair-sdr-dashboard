@@ -416,7 +416,7 @@ table.mtbl tr:hover td{background:var(--surface2);}
 <div class="insights-grid" id="insights-grid"></div>
 
 <div class="meta-row" style="margin-top:36px;justify-content:center;">
-  <span class="meta-chip">📌 Dados: Seg 27/07/2026 · Verificado em 28/07/2026</span>
+  <span class="meta-chip">📌 Dados: Seg 27/07/2026 · Verificado/atualizado em 28/07/2026</span>
   <span class="meta-chip">↕ Ref. vertical: Sex 24/07</span>
   <span class="meta-chip">↔ Ref. horizontal: Sex 26/06 (27/06 caiu num sábado)</span>
   <span class="meta-chip">🎯 Meta comparecimento: 65%</span>
@@ -433,7 +433,7 @@ let CF='all';
 const DHOJE={
   Botafogo:{rotina:{Joyce:0,Jordana:23,Luana:26,Fabi:25,Waleska:2},novos:{Joyce:0,Jordana:6,Luana:8,Fabi:6,Waleska:0},ligacoes:{Joyce:0,Jordana:121,Luana:102,Fabi:42,Waleska:2},at_tel:{Joyce:0,Jordana:2,Luana:33,Fabi:4,Waleska:0},at_msg:{Joyce:0,Jordana:1,Luana:4,Fabi:4,Waleska:0},agendadas:{Joyce:1,Jordana:2,Luana:2,Fabi:2,Waleska:0},realizadas:{Joyce:1,Jordana:2,Luana:0,Fabi:0,Waleska:0},fec_leads:{Joyce:1,Jordana:1,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
   Barra:{rotina:{Joyce:0,Jordana:2,Luana:3,Fabi:0,Waleska:2},novos:{Joyce:0,Jordana:3,Luana:0,Fabi:0,Waleska:0},ligacoes:{Joyce:0,Jordana:26,Luana:0,Fabi:0,Waleska:2},at_tel:{Joyce:0,Jordana:1,Luana:0,Fabi:0,Waleska:0},at_msg:{Joyce:0,Jordana:1,Luana:0,Fabi:0,Waleska:0},agendadas:{Joyce:0,Jordana:1,Luana:0,Fabi:0,Waleska:0},realizadas:{Joyce:0,Jordana:1,Luana:1,Fabi:0,Waleska:0},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:1,Luana:0,Fabi:0,Waleska:0}},
-  Goiania:{rotina:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:11},novos:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:8},ligacoes:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:141},at_tel:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:5},at_msg:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:3},agendadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:2},realizadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:1},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
+  Goiania:{rotina:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:11},novos:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:8},ligacoes:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:141},at_tel:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:5},at_msg:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:3},agendadas:{Joyce:0,Jordana:0,Luana:0,Fabi:1,Waleska:2},realizadas:{Joyce:0,Jordana:0,Luana:0,Fabi:1,Waleska:1},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:1,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
 };
 const DANT={
   Botafogo:{rotina:{Joyce:0,Jordana:23,Luana:29,Fabi:24,Waleska:0},novos:{Joyce:0,Jordana:30,Luana:22,Fabi:17,Waleska:0},ligacoes:{Joyce:0,Jordana:193,Luana:160,Fabi:61,Waleska:0},at_tel:{Joyce:0,Jordana:9,Luana:17,Fabi:4,Waleska:0},at_msg:{Joyce:0,Jordana:3,Luana:8,Fabi:4,Waleska:0},agendadas:{Joyce:0,Jordana:8,Luana:5,Fabi:2,Waleska:0},realizadas:{Joyce:0,Jordana:1,Luana:2,Fabi:2,Waleska:0},fec_leads:{Joyce:2,Jordana:1,Luana:0,Fabi:1,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
@@ -449,20 +449,20 @@ const MONTH_ACC={
   Joyce:{rotina:255,novos:129,at_tel:176,at_msg:99,agendadas:59,realizadas:24,fec_leads:15,fec_indic:0},
   Jordana:{rotina:407,novos:103,at_tel:56,at_msg:31,agendadas:45,realizadas:21,fec_leads:3,fec_indic:4},
   Luana:{rotina:402,novos:153,at_tel:138,at_msg:115,agendadas:40,realizadas:30,fec_leads:12,fec_indic:2},
-  Fabi:{rotina:120,novos:187,at_tel:77,at_msg:78,agendadas:45,realizadas:25,fec_leads:17,fec_indic:3},
+  Fabi:{rotina:120,novos:187,at_tel:77,at_msg:78,agendadas:46,realizadas:26,fec_leads:18,fec_indic:3},
   Waleska:{rotina:314,novos:246,at_tel:74,at_msg:66,agendadas:29,realizadas:23,fec_leads:6,fec_indic:2},
 };
 const WEEK_SDR={
   Joyce:{rotina:0,novos:0,at_tel:0,at_msg:0,agendadas:1,realizadas:1,fec_leads:1,fec_indic:0},
   Jordana:{rotina:25,novos:9,at_tel:3,at_msg:2,agendadas:3,realizadas:3,fec_leads:1,fec_indic:1},
   Luana:{rotina:29,novos:8,at_tel:33,at_msg:4,agendadas:2,realizadas:1,fec_leads:0,fec_indic:0},
-  Fabi:{rotina:25,novos:6,at_tel:4,at_msg:4,agendadas:2,realizadas:0,fec_leads:0,fec_indic:0},
+  Fabi:{rotina:25,novos:6,at_tel:4,at_msg:4,agendadas:3,realizadas:1,fec_leads:1,fec_indic:0},
   Waleska:{rotina:15,novos:8,at_tel:5,at_msg:3,agendadas:2,realizadas:1,fec_leads:0,fec_indic:0},
 };
 const WEEK_FILIAL={
   Botafogo:{rotina:76,novos:20,ligacoes:267,at_tel:39,at_msg:9,agendadas:7,realizadas:3,fec_leads:2,fec_indic:0},
   Barra:{rotina:7,novos:3,ligacoes:28,at_tel:1,at_msg:1,agendadas:1,realizadas:2,fec_leads:0,fec_indic:1},
-  Goiania:{rotina:11,novos:8,ligacoes:141,at_tel:5,at_msg:3,agendadas:2,realizadas:1,fec_leads:0,fec_indic:0},
+  Goiania:{rotina:11,novos:8,ligacoes:141,at_tel:5,at_msg:3,agendadas:3,realizadas:2,fec_leads:1,fec_indic:0},
 };
 const CHART_S4={
   labels:['Seg 27/07'],
@@ -470,7 +470,7 @@ const CHART_S4={
   pct:[187.1],
   Botafogo:{ligacoes:[267],agendadas:[7],realizadas:[3]},
   Barra:{ligacoes:[28],agendadas:[1],realizadas:[2]},
-  Goiania:{ligacoes:[141],agendadas:[2],realizadas:[1]},
+  Goiania:{ligacoes:[141],agendadas:[3],realizadas:[2]},
 };
 
 // Vendas fechadas pelos Closers (equipe de vendas, após handoff da SDR)
@@ -841,14 +841,14 @@ function renderInsights(){
   const ligDelta=lig-ligP;
 
   const ins=[
-    {type:'info',icon:'📋',title:'Contexto do Dia',body:`Dados verificados de <strong>Seg 27/07/2026</strong>, primeiro dia útil da última semana de julho e dia mais recente com lançamento completo na planilha até o momento desta análise (28/07 ainda não preenchido). Comparativo vertical: Sex 24/07 (dia útil anterior). Horizontal: 27/06 caiu num sábado — usado Sex 26/06 (dia útil anterior do mês passado).`},
-    {type:'warn',icon:'🎯',title:'Meta de Comparecimento Quase Atingida',body:`Taxa consolidada: <strong>60,0%</strong> (6/10) vs meta de 65% — faltou <strong>1 comparecimento</strong>. Melhor que sexta (54,5%, 12/22) e bem acima do horizontal de 26/06 (36,4%, 4/11).`},
+    {type:'info',icon:'📋',title:'Contexto do Dia',body:`Dados verificados de <strong>Seg 27/07/2026</strong>, primeiro dia útil da última semana de julho (dados reextraídos da planilha em 28/07, incluindo um lançamento retroativo de Fabi em Goiânia). Comparativo vertical: Sex 24/07 (dia útil anterior). Horizontal: 27/06 caiu num sábado — usado Sex 26/06 (dia útil anterior do mês passado).`},
+    {type:'warn',icon:'🎯',title:'Meta de Comparecimento Quase Atingida',body:`Taxa consolidada: <strong>63,6%</strong> (7/11) vs meta de 65% — faltou <strong>1 comparecimento</strong>. Melhor que sexta (54,5%, 12/22) e bem acima do horizontal de 26/06 (36,4%, 4/11).`},
     {type:'info',icon:'📉',title:'Normalização Após Pico de Sexta',body:`Leads Novos recuaram para <strong>31</strong>, -70% vs sexta (104) e -66% vs 26/06 (91) — volta ao patamar típico após o pico de importação em lote de sexta-feira. Leads Total: <strong>125</strong> (rotina 94 + novos 31), -42% vs sexta e -38% vs 26/06. Ligações também recuaram: <strong>436</strong>, -44% vs sexta (784), mas ainda +59% vs 26/06 (274).`},
     {type:'info',icon:'📊',title:'%At./Novos Alto Por Base Menor de Leads',body:`Com a base de leads novos bem menor, a taxa %At./Novos subiu para <strong>187,1%</strong> (Tel 45 + Msg 13 sobre 31 novos) — bem acima de sexta (68,3%) e do horizontal de 26/06 (61,5%). At. Telefone (45) caiu apenas 10% vs sexta, sinal de que a equipe seguiu trabalhando a base represada de leads.`},
-    {type:'warn',icon:'🏆',title:'Fechamentos Recuam Fortemente vs Sexta, mas Superam Junho',body:`<strong>3 fechamentos de SDR</strong> (2 por leads + 1 por indicação), -67% vs sexta (9), mas +50% vs 26/06 (2). Distribuição: Botafogo 2 (Joyce 1, Jordana 1), Barra 1 indicação (Jordana), Goiânia sem fechamento hoje.`},
-    {type:'info',icon:'🏢',title:'Filiais Operam com Poucas SDRs — Segunda Típica',body:`Waleska seguiu sozinha em Goiânia (rotina 11, novos 8, 2 agendamentos, 1 comparecimento). Fabi e Luana atuaram só em Botafogo, sem lançamentos em Barra hoje. Joyce, que na sexta trabalhou só em Barra, hoje apareceu apenas em Botafogo (1 agendamento, 1 comparecimento, 1 fechamento).`},
-    {type:'good',icon:'⭐',title:'Destaque — Jordana',body:`Jordana lidera o dia atuando em duas filiais: Botafogo (rotina 23, novos 6, 2 agendamentos, 2 comparecimentos, 1 fechamento por leads) e Barra (rotina 2, novos 3, 1 fechamento por indicação) — único fechamento de SDR fora de Botafogo/Goiânia no dia. Luana chama atenção com <strong>33 atendidas por telefone</strong> em Botafogo, pico atípico frente aos demais indicadores do dia (rotina 26, novos 8).`},
-    {type:'info',icon:'📅',title:'Acumulado Julho (até 27/07)',body:`Agendamentos: <strong>218</strong> · Comparecimentos: <strong>123</strong> (taxa 56,4%, abaixo da meta de 65%) · Fechamentos (SDR): <strong>64</strong> — acumulado de 19 dias úteis do mês (01 a 27/07, das 3 filiais). Fabi segue na liderança de fechamentos acumulados (20: 17 leads + 3 indicação), seguida por Joyce (15, todos por leads) e Luana (14: 12 leads + 2 indicação).`}
+    {type:'good',icon:'🏆',title:'Fechamentos em 3 Filiais',body:`<strong>4 fechamentos de SDR</strong> (3 por leads + 1 por indicação), -56% vs sexta (9), mas +100% vs 26/06 (2). Distribuição: Botafogo 2 (Joyce 1, Jordana 1), Barra 1 indicação (Jordana), Goiânia 1 por leads (Fabi) — as três filiais fecharam no dia.`},
+    {type:'info',icon:'🏢',title:'Filiais Operam com Poucas SDRs — Segunda Típica',body:`Waleska seguiu sozinha em Goiânia na rotina do dia (rotina 11, novos 8, 2 agendamentos, 1 comparecimento), mas foi Fabi quem fechou por lá (1 agendamento, 1 comparecimento, 1 fechamento por leads — lançamento retroativo). Luana atuou só em Botafogo, sem lançamentos em Barra hoje. Joyce, que na sexta trabalhou só em Barra, hoje apareceu apenas em Botafogo (1 agendamento, 1 comparecimento, 1 fechamento).`},
+    {type:'good',icon:'⭐',title:'Destaque — Jordana',body:`Jordana lidera o dia atuando em duas filiais: Botafogo (rotina 23, novos 6, 2 agendamentos, 2 comparecimentos, 1 fechamento por leads) e Barra (rotina 2, novos 3, 1 fechamento por indicação) — participou de 2 dos 4 fechamentos do dia. Luana chama atenção com <strong>33 atendidas por telefone</strong> em Botafogo, pico atípico frente aos demais indicadores do dia (rotina 26, novos 8).`},
+    {type:'info',icon:'📅',title:'Acumulado Julho (até 27/07)',body:`Agendamentos: <strong>219</strong> · Comparecimentos: <strong>124</strong> (taxa 56,6%, abaixo da meta de 65%) · Fechamentos (SDR): <strong>65</strong> — acumulado de 19 dias úteis do mês (01 a 27/07, das 3 filiais). Fabi segue na liderança de fechamentos acumulados (21: 18 leads + 3 indicação), seguida por Joyce (15, todos por leads) e Luana (14: 12 leads + 2 indicação).`}
   ];
   document.getElementById('insights-grid').innerHTML=ins.map(i=>`
     <div class="ins ${i.type}">
