@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SDR Performance · CapiHair · 27/07/2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#09090f;--surface:rgba(255,255,255,.04);--surface2:rgba(255,255,255,.07);
+  --border:rgba(255,255,255,.08);--border2:rgba(255,255,255,.14);
+  --text:#f0f2ff;--text2:#8b92b8;--text3:#4a5078;
+  --purple:#818cf8;--purple-d:#6366f1;--purple-glow:rgba(99,102,241,.25);
+  --green:#34d399;--green-d:#10b981;--green-glow:rgba(16,185,129,.2);
+  --blue:#60a5fa;--blue-d:#3b82f6;--amber:#fbbf24;--rose:#fb7185;
+  --teal:#2dd4bf;
+  --r:16px;--r2:12px;--r3:8px;
+  --shadow:0 4px 24px rgba(0,0,0,.4),0 1px 4px rgba(0,0,0,.3);
+  --shadow-glow:0 0 40px rgba(99,102,241,.15),0 4px 24px rgba(0,0,0,.4);
+}
+[data-theme="light"]{
+  --bg:#f0f1f8;--surface:rgba(255,255,255,.9);--surface2:rgba(255,255,255,1);
+  --border:rgba(0,0,0,.07);--border2:rgba(0,0,0,.12);
+  --text:#1a1f3a;--text2:#5a6080;--text3:#9098b8;
+  --purple-glow:rgba(99,102,241,.12);--green-glow:rgba(16,185,129,.1);
+  --shadow:0 2px 12px rgba(0,0,0,.08),0 1px 3px rgba(0,0,0,.06);
+  --shadow-glow:0 0 24px rgba(99,102,241,.1),0 2px 12px rgba(0,0,0,.08);
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);
+  min-height:100vh;line-height:1.5;overflow-x:hidden;
+}
+[data-theme="dark"] body::before{
+  content:'';position:fixed;inset:0;z-index:-1;
+  background:radial-gradient(ellipse 80% 60% at 20% 10%,rgba(99,102,241,.08) 0%,transparent 60%),
+             radial-gradient(ellipse 60% 40% at 80% 80%,rgba(16,185,129,.06) 0%,transparent 60%),
+             var(--bg);
+}
+
+/* ─── HEADER ─── */
+.hdr{
+  position:sticky;top:0;z-index:100;
+  background:rgba(9,9,15,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px;
+}
+[data-theme="light"] .hdr{background:rgba(240,241,248,.9);}
+.hdr-brand{display:flex;align-items:center;gap:12px;}
+.hdr-logo{
+  width:38px;height:38px;border-radius:10px;flex-shrink:0;
+  background:linear-gradient(135deg,#6366f1,#818cf8);
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+  box-shadow:0 0 16px rgba(99,102,241,.4);
+}
+.hdr-title{font-size:.95rem;font-weight:700;color:var(--text);letter-spacing:-.01em;}
+.hdr-sub{font-size:.72rem;color:var(--text2);margin-top:1px;}
+.hdr-center{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:center;}
+.pill-tab{
+  padding:6px 16px;border-radius:99px;border:1px solid var(--border);
+  background:transparent;color:var(--text2);font-size:.78rem;font-weight:600;
+  cursor:pointer;transition:all .2s;font-family:inherit;white-space:nowrap;
+}
+.pill-tab:hover{border-color:var(--purple);color:var(--purple);}
+.pill-tab.active{
+  background:linear-gradient(135deg,#6366f1,#818cf8);border-color:transparent;
+  color:#fff;box-shadow:0 0 16px rgba(99,102,241,.4);
+}
+.hdr-right{display:flex;align-items:center;gap:10px;}
+.icon-btn{
+  width:36px;height:36px;border-radius:9px;border:1px solid var(--border);
+  background:var(--surface);color:var(--text2);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-size:15px;
+  transition:all .2s;font-family:inherit;
+}
+.icon-btn:hover{border-color:var(--purple);color:var(--purple);background:var(--purple-glow);}
+.date-badge{
+  padding:5px 12px;border-radius:99px;background:var(--surface2);border:1px solid var(--border);
+  font-size:.72rem;font-weight:600;color:var(--text2);white-space:nowrap;
+}
+
+/* ─── LAYOUT ─── */
+.page{max-width:1400px;margin:0 auto;padding:28px 24px 60px;}
+.sec-hdr{
+  font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--text3);margin:36px 0 14px;display:flex;align-items:center;gap:10px;
+}
+.sec-hdr::after{content:'';flex:1;height:1px;background:var(--border);}
+
+/* ─── EXECUTIVE STRIP ─── */
+.exec-strip{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:4px;
+}
+.exec-card{
+  background:linear-gradient(135deg,var(--surface) 0%,var(--surface2) 100%);
+  border:1px solid var(--border);border-radius:var(--r);padding:22px 24px;
+  box-shadow:var(--shadow);position:relative;overflow:hidden;
+}
+.exec-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--grad);
+}
+.exec-card.c1{--grad:linear-gradient(90deg,#6366f1,#818cf8);}
+.exec-card.c2{--grad:linear-gradient(90deg,#10b981,#34d399);}
+.exec-card.c3{--grad:linear-gradient(90deg,#f43f5e,#fb7185);}
+.exec-icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:12px;}
+.exec-card.c1 .exec-icon{background:rgba(99,102,241,.15);}
+.exec-card.c2 .exec-icon{background:rgba(16,185,129,.15);}
+.exec-card.c3 .exec-icon{background:rgba(244,63,94,.15);}
+.exec-label{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--text2);margin-bottom:4px;}
+.exec-val{font-size:2.6rem;font-weight:900;line-height:1;letter-spacing:-.03em;color:var(--text);}
+.exec-meta{font-size:.78rem;color:var(--text2);margin-top:6px;display:flex;align-items:center;gap:6px;}
+.exec-bg-num{
+  position:absolute;right:-10px;bottom:-10px;font-size:7rem;font-weight:900;
+  color:rgba(255,255,255,.025);line-height:1;pointer-events:none;
+}
+
+/* ─── KPI GRID ─── */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px;}
+.kpi{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);
+  padding:16px;box-shadow:var(--shadow);transition:all .2s;cursor:default;
+  position:relative;overflow:hidden;
+}
+.kpi:hover{border-color:var(--border2);transform:translateY(-2px);box-shadow:var(--shadow-glow);}
+.kpi.kpi-alert{border-color:rgba(251,159,36,.3);}
+.kpi.kpi-danger{border-color:rgba(251,113,133,.3);}
+.kpi.kpi-good{border-color:rgba(52,211,153,.3);}
+.kpi.kpi-purple{border-color:rgba(129,140,248,.3);}
+.kpi-lbl{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text2);margin-bottom:8px;}
+.kpi-val{font-size:1.9rem;font-weight:800;line-height:1;letter-spacing:-.02em;color:var(--text);}
+.kpi-sub{font-size:.7rem;color:var(--text2);margin-top:5px;display:flex;align-items:center;gap:4px;flex-wrap:wrap;}
+.kpi-dot{width:6px;height:6px;border-radius:50%;background:var(--text3);flex-shrink:0;}
+.badge{display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:99px;font-size:.66rem;font-weight:700;}
+.badge-ok{background:rgba(52,211,153,.15);color:#34d399;}
+.badge-warn{background:rgba(251,191,36,.15);color:#fbbf24;}
+.badge-bad{background:rgba(251,113,133,.15);color:#fb7185;}
+.badge-neutral{background:var(--surface2);color:var(--text2);}
+
+/* ─── ANALYSIS ─── */
+.analysis-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:900px){.analysis-grid{grid-template-columns:1fr;}}
+.card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  overflow:hidden;box-shadow:var(--shadow);
+}
+.card-hdr{
+  padding:14px 20px;display:flex;align-items:center;gap:10px;
+  border-bottom:1px solid var(--border);
+}
+.card-hdr-icon{font-size:16px;}
+.card-hdr-title{font-size:.82rem;font-weight:700;color:var(--text);}
+.card-hdr-sub{font-size:.7rem;color:var(--text2);margin-left:auto;}
+.card-hdr.purple{background:linear-gradient(90deg,rgba(99,102,241,.12),transparent);}
+.card-hdr.blue{background:linear-gradient(90deg,rgba(59,130,246,.12),transparent);}
+table.t{width:100%;border-collapse:collapse;font-size:.78rem;}
+table.t th{padding:9px 16px;color:var(--text3);font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;text-align:right;border-bottom:1px solid var(--border);}
+table.t th:first-child{text-align:left;}
+table.t td{padding:9px 16px;border-bottom:1px solid var(--border);color:var(--text);text-align:right;}
+table.t td:first-child{text-align:left;font-weight:600;color:var(--text);}
+table.t tr.sub td{color:var(--text2);font-weight:400;}
+table.t tr.sub td:first-child{padding-left:30px;font-size:.72rem;}
+table.t tr:last-child td{border-bottom:none;}
+table.t tr:hover td{background:var(--surface2);}
+.up{color:#34d399;font-weight:700;}
+.dn{color:#fb7185;font-weight:700;}
+.eq{color:var(--text3);}
+
+/* ─── FUNNEL ─── */
+.funnel-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:24px 20px;box-shadow:var(--shadow);}
+.funnel-row{display:flex;gap:0;align-items:center;justify-content:center;flex-wrap:wrap;}
+.funnel-step{
+  text-align:center;padding:0 6px;flex:1;min-width:100px;position:relative;
+}
+.funnel-bar{
+  height:64px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;font-weight:900;color:#fff;letter-spacing:-.02em;
+  margin-bottom:8px;position:relative;overflow:hidden;transition:all .3s;
+}
+.funnel-bar::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.12),transparent);}
+.funnel-bar:hover{transform:scale(1.04);}
+.f1{background:linear-gradient(135deg,#6366f1,#818cf8);box-shadow:0 4px 16px rgba(99,102,241,.3);}
+.f2{background:linear-gradient(135deg,#3b82f6,#60a5fa);box-shadow:0 4px 16px rgba(59,130,246,.25);}
+.f3{background:linear-gradient(135deg,#06b6d4,#22d3ee);box-shadow:0 4px 16px rgba(6,182,212,.25);}
+.f4{background:linear-gradient(135deg,#10b981,#34d399);box-shadow:0 4px 16px rgba(16,185,129,.25);}
+.f5{background:linear-gradient(135deg,#f59e0b,#fbbf24);box-shadow:0 4px 16px rgba(245,158,11,.25);}
+.funnel-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text2);}
+.funnel-conv{font-size:.72rem;font-weight:700;color:var(--text3);margin-top:3px;}
+.funnel-arrow{font-size:1.2rem;color:var(--text3);flex-shrink:0;padding:0 2px;margin-top:-28px;}
+
+/* ─── CHART ─── */
+.chart-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px;box-shadow:var(--shadow);}
+.chart-card canvas{max-height:260px;}
+
+/* ─── RANKING ─── */
+.ranking-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;}
+.sdr-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);
+  padding:16px;box-shadow:var(--shadow);transition:all .2s;position:relative;overflow:hidden;
+}
+.sdr-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-glow);border-color:var(--border2);}
+.sdr-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--rank-grad);}
+.sdr-card.r1{--rank-grad:linear-gradient(90deg,#f59e0b,#fbbf24);}
+.sdr-card.r2{--rank-grad:linear-gradient(90deg,#94a3b8,#cbd5e1);}
+.sdr-card.r3{--rank-grad:linear-gradient(90deg,#cd7c3f,#e89a5e);}
+.sdr-card.r4,.sdr-card.r5{--rank-grad:linear-gradient(90deg,#6366f1,#818cf8);}
+.sdr-top{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.sdr-avatar{
+  width:40px;height:40px;border-radius:50%;background:var(--rank-grad);
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;color:#fff;flex-shrink:0;
+}
+.sdr-name{font-weight:700;font-size:.95rem;color:var(--text);}
+.sdr-score{font-size:.72rem;color:var(--text2);}
+.sdr-medal{font-size:1.3rem;margin-left:auto;}
+.sdr-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;}
+.sdr-stat{text-align:center;padding:6px 4px;background:var(--surface2);border-radius:8px;}
+.sdr-stat-n{font-size:1rem;font-weight:800;color:var(--text);line-height:1.2;}
+.sdr-stat-l{font-size:.6rem;text-transform:uppercase;letter-spacing:.05em;color:var(--text3);margin-top:1px;}
+.sdr-extra{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;}
+
+/* ─── FILIAL ─── */
+.filial-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;}
+.filial-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  overflow:hidden;box-shadow:var(--shadow);
+}
+.filial-hdr{
+  padding:16px 20px;display:flex;align-items:center;gap:12px;
+  background:linear-gradient(135deg,var(--fc1),var(--fc2));position:relative;overflow:hidden;
+}
+.filial-hdr::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.1),transparent);}
+.filial-hdr.bot{--fc1:#4338ca;--fc2:#6366f1;}
+.filial-hdr.bar{--fc1:#1d4ed8;--fc2:#3b82f6;}
+.filial-hdr.goi{--fc1:#0d9488;--fc2:#14b8a6;}
+.filial-nome{font-weight:800;font-size:1rem;color:#fff;z-index:1;}
+.filial-taxa{
+  margin-left:auto;z-index:1;padding:4px 10px;border-radius:99px;
+  font-size:.7rem;font-weight:800;
+}
+.taxa-ok{background:rgba(52,211,153,.3);color:#6effc7;}
+.taxa-mid{background:rgba(251,191,36,.3);color:#fef08a;}
+.taxa-bad{background:rgba(251,113,133,.3);color:#fecdd3;}
+table.ftbl{width:100%;border-collapse:collapse;font-size:.78rem;}
+table.ftbl tr{border-bottom:1px solid var(--border);transition:background .15s;}
+table.ftbl tr:last-child{border-bottom:none;}
+table.ftbl tr:hover{background:var(--surface2);}
+table.ftbl td{padding:8px 16px;color:var(--text);}
+table.ftbl td:last-child{text-align:right;font-weight:600;}
+table.ftbl td.sub{padding-left:30px;color:var(--text2);font-size:.72rem;}
+.dlt{font-size:.65rem;font-weight:700;margin-left:4px;}
+.dlt.up{color:#34d399;}.dlt.dn{color:#fb7185;}
+.ref{font-size:.65rem;color:var(--text3);margin-left:4px;}
+
+/* ─── MONTH TABLE ─── */
+.tbl-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);overflow-x:auto;}
+table.mtbl{width:100%;border-collapse:collapse;font-size:.77rem;white-space:nowrap;}
+table.mtbl th{padding:10px 14px;background:var(--surface2);color:var(--text3);font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;border-bottom:1px solid var(--border);text-align:center;}
+table.mtbl th:first-child{text-align:left;}
+table.mtbl td{padding:10px 14px;border-bottom:1px solid var(--border);text-align:center;color:var(--text);}
+table.mtbl td:first-child{text-align:left;font-weight:700;}
+table.mtbl tr:last-child td{font-weight:800;background:var(--surface2);border-bottom:none;}
+table.mtbl tr:hover td{background:var(--surface2);}
+.pct-chip{display:inline-block;padding:3px 10px;border-radius:99px;font-size:.68rem;font-weight:700;}
+.pct-hi{background:rgba(16,185,129,.15);color:#34d399;}
+.pct-mid{background:rgba(251,191,36,.15);color:#fbbf24;}
+.pct-lo{background:rgba(251,113,133,.15);color:#fb7185;}
+
+/* ─── INSIGHTS ─── */
+.insights-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;}
+.ins{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);
+  padding:16px;box-shadow:var(--shadow);border-left:3px solid var(--ins-color);
+  transition:all .2s;
+}
+.ins:hover{transform:translateY(-2px);border-color:var(--ins-color);box-shadow:var(--shadow-glow);}
+.ins.good{--ins-color:#34d399;}
+.ins.bad{--ins-color:#fb7185;}
+.ins.warn{--ins-color:#fbbf24;}
+.ins.info{--ins-color:#60a5fa;}
+.ins-icon{font-size:1.3rem;margin-bottom:8px;}
+.ins-title{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text2);margin-bottom:6px;}
+.ins-body{font-size:.8rem;color:var(--text);line-height:1.55;}
+.ins-body strong{color:var(--text);font-weight:700;}
+.ins-body .hl{color:var(--purple);}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.6;}}
+.anim{animation:fadeUp .45s ease both;}
+.anim-d1{animation-delay:.05s;}.anim-d2{animation-delay:.1s;}
+.anim-d3{animation-delay:.15s;}.anim-d4{animation-delay:.2s;}
+
+/* ─── DIVIDER / META ─── */
+.meta-row{display:flex;align-items:center;gap:8px;margin:24px 0 8px;flex-wrap:wrap;}
+.meta-chip{padding:4px 10px;background:var(--surface);border:1px solid var(--border);border-radius:99px;font-size:.68rem;color:var(--text2);font-weight:500;}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar{width:6px;height:6px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:99px;}
+::-webkit-scrollbar-thumb:hover{background:var(--text3);}
+</style>
+</head>
+<body>
+
+<!-- ─── HEADER ─── -->
+<header class="hdr">
+  <div class="hdr-brand">
+    <div class="hdr-logo">💇</div>
+    <div>
+      <div class="hdr-title">CapiHair · SDR Performance</div>
+      <div class="hdr-sub">Relatório Diário — Direção</div>
+    </div>
+  </div>
+  <div class="hdr-center" id="filial-tabs">
+    <button class="pill-tab active" onclick="setFilial('all',this)">Todas as Filiais</button>
+    <button class="pill-tab" onclick="setFilial('Botafogo',this)">🟣 Botafogo</button>
+    <button class="pill-tab" onclick="setFilial('Barra',this)">🔵 Barra</button>
+    <button class="pill-tab" onclick="setFilial('Goiania',this)">🩵 Goiânia</button>
+  </div>
+  <div class="hdr-right">
+    <div class="date-badge">📅 Seg 27/07/2026</div>
+    <button class="icon-btn" onclick="toggleTheme()" title="Alternar tema">☀️</button>
+  </div>
+</header>
+
+<main class="page">
+
+<!-- ─── EXEC STRIP ─── -->
+<div class="exec-strip anim">
+  <div class="exec-card c1">
+    <div class="exec-icon">📊</div>
+    <div class="exec-label">Total de Leads</div>
+    <div class="exec-val" id="ex-leads">—</div>
+    <div class="exec-meta"><span id="ex-leads-sub">—</span></div>
+    <div class="exec-bg-num" id="ex-leads-bg">—</div>
+  </div>
+  <div class="exec-card c2">
+    <div class="exec-icon">🎯</div>
+    <div class="exec-label">Taxa de Comparecimento</div>
+    <div class="exec-val" id="ex-taxa">—</div>
+    <div class="exec-meta" id="ex-taxa-sub">—</div>
+    <div class="exec-bg-num" id="ex-taxa-bg">—</div>
+  </div>
+  <div class="exec-card c3">
+    <div class="exec-icon">🏆</div>
+    <div class="exec-label">Fechamentos do Dia</div>
+    <div class="exec-val" id="ex-fec">—</div>
+    <div class="exec-meta" id="ex-fec-sub">—</div>
+    <div class="exec-bg-num" id="ex-fec-bg">—</div>
+  </div>
+</div>
+
+<!-- ─── KPIs ─── -->
+<div class="sec-hdr anim anim-d1">🎯 Indicadores — Seg 27/07/2026</div>
+<div class="kpi-grid anim anim-d2" id="kpi-grid"></div>
+
+<!-- ─── ANÁLISE ─── -->
+<div class="sec-hdr anim">📊 Análise Comparativa</div>
+<div class="analysis-grid anim anim-d1">
+  <div class="card">
+    <div class="card-hdr purple">
+      <span class="card-hdr-icon">↕</span>
+      <span class="card-hdr-title">Vertical — Seg 27/07 vs Sex 24/07</span>
+    </div>
+    <table class="t"><thead><tr><th>Métrica</th><th>Hoje</th><th>Sexta</th><th>Δ</th></tr></thead>
+    <tbody id="vert-tbody"></tbody></table>
+  </div>
+  <div class="card">
+    <div class="card-hdr blue">
+      <span class="card-hdr-icon">↔</span>
+      <span class="card-hdr-title">Horizontal — Seg 27/07 vs Sex 26/06</span>
+    </div>
+    <table class="t"><thead><tr><th>Métrica</th><th>Hoje</th><th>26/06</th><th>Δ</th></tr></thead>
+    <tbody id="horiz-tbody"></tbody></table>
+  </div>
+</div>
+
+<!-- ─── FUNIL ─── -->
+<div class="sec-hdr anim">🔻 Funil de Conversão</div>
+<div class="funnel-card anim anim-d1">
+  <div class="funnel-row" id="funnel-row"></div>
+</div>
+
+<!-- ─── CHART S1 ─── -->
+<div class="sec-hdr anim">📈 Semana Atual (27/07) — Leads Novos vs Atendidas & % Conversão</div>
+<div class="chart-card anim anim-d1">
+  <canvas id="chartS5"></canvas>
+</div>
+
+<!-- ─── RANKING SDR ─── -->
+<div class="sec-hdr anim">🏆 Ranking SDRs — Seg 27/07</div>
+<div class="ranking-grid" id="ranking-grid"></div>
+
+<!-- ─── POR FILIAL ─── -->
+<div class="sec-hdr anim">🏢 Resultados por Filial</div>
+<div class="filial-grid" id="filial-grid"></div>
+
+<!-- ─── ACUMULADO MÊS ─── -->
+<div class="sec-hdr anim">📅 Acumulado Julho — Por SDR <span style="font-size:.65rem;font-weight:500;text-transform:none;letter-spacing:0;color:var(--text2);margin-left:6px;">19 dias úteis do mês (até 27/07)</span></div>
+<div class="tbl-wrap anim anim-d1"><table class="mtbl" id="month-table"></table></div>
+
+<!-- ─── SEMANA S1 ─── -->
+<div class="sec-hdr anim">📅 Semana Atual Acumulada — Por SDR e Por Filial <span style="font-size:.65rem;font-weight:500;text-transform:none;letter-spacing:0;color:var(--text2);margin-left:6px;">27-31/07 (1 dia lançado)</span></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:4px" class="anim anim-d1">
+  <div class="tbl-wrap"><table class="mtbl" id="week-sdr-table"></table></div>
+  <div class="tbl-wrap"><table class="mtbl" id="week-filial-table"></table></div>
+</div>
+
+<!-- ─── INSIGHTS ─── -->
+<div class="sec-hdr anim">💡 Insights para a Direção</div>
+<div class="insights-grid" id="insights-grid"></div>
+
+<div class="meta-row" style="margin-top:36px;justify-content:center;">
+  <span class="meta-chip">📌 Dados: Seg 27/07/2026 · Verificado em 28/07/2026</span>
+  <span class="meta-chip">↕ Ref. vertical: Sex 24/07</span>
+  <span class="meta-chip">↔ Ref. horizontal: Sex 26/06 (27/06 caiu num sábado)</span>
+  <span class="meta-chip">🎯 Meta comparecimento: 65%</span>
+</div>
+
+</main>
+
+<script>
+// ─── DATA ───────────────────────────────────────────────────
+const SDRS=['Joyce','Jordana','Luana','Fabi','Waleska'];
+const FILS=['Botafogo','Barra','Goiania'];
+let CF='all';
+
+const DHOJE={
+  Botafogo:{rotina:{Joyce:0,Jordana:23,Luana:26,Fabi:25,Waleska:2},novos:{Joyce:0,Jordana:6,Luana:8,Fabi:6,Waleska:0},ligacoes:{Joyce:0,Jordana:121,Luana:102,Fabi:42,Waleska:2},at_tel:{Joyce:0,Jordana:2,Luana:33,Fabi:4,Waleska:0},at_msg:{Joyce:0,Jordana:1,Luana:4,Fabi:4,Waleska:0},agendadas:{Joyce:1,Jordana:2,Luana:2,Fabi:2,Waleska:0},realizadas:{Joyce:1,Jordana:2,Luana:0,Fabi:0,Waleska:0},fec_leads:{Joyce:1,Jordana:1,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
+  Barra:{rotina:{Joyce:0,Jordana:2,Luana:3,Fabi:0,Waleska:2},novos:{Joyce:0,Jordana:3,Luana:0,Fabi:0,Waleska:0},ligacoes:{Joyce:0,Jordana:26,Luana:0,Fabi:0,Waleska:2},at_tel:{Joyce:0,Jordana:1,Luana:0,Fabi:0,Waleska:0},at_msg:{Joyce:0,Jordana:1,Luana:0,Fabi:0,Waleska:0},agendadas:{Joyce:0,Jordana:1,Luana:0,Fabi:0,Waleska:0},realizadas:{Joyce:0,Jordana:1,Luana:1,Fabi:0,Waleska:0},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:1,Luana:0,Fabi:0,Waleska:0}},
+  Goiania:{rotina:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:11},novos:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:8},ligacoes:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:141},at_tel:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:5},at_msg:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:3},agendadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:2},realizadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:1},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
+};
+const DANT={
+  Botafogo:{rotina:{Joyce:0,Jordana:23,Luana:29,Fabi:24,Waleska:0},novos:{Joyce:0,Jordana:30,Luana:22,Fabi:17,Waleska:0},ligacoes:{Joyce:0,Jordana:193,Luana:160,Fabi:61,Waleska:0},at_tel:{Joyce:0,Jordana:9,Luana:17,Fabi:4,Waleska:0},at_msg:{Joyce:0,Jordana:3,Luana:8,Fabi:4,Waleska:0},agendadas:{Joyce:0,Jordana:8,Luana:5,Fabi:2,Waleska:0},realizadas:{Joyce:0,Jordana:1,Luana:2,Fabi:2,Waleska:0},fec_leads:{Joyce:2,Jordana:1,Luana:0,Fabi:1,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
+  Barra:{rotina:{Joyce:17,Jordana:0,Luana:0,Fabi:0,Waleska:1},novos:{Joyce:2,Jordana:0,Luana:0,Fabi:0,Waleska:0},ligacoes:{Joyce:169,Jordana:0,Luana:0,Fabi:0,Waleska:1},at_tel:{Joyce:13,Jordana:0,Luana:0,Fabi:0,Waleska:0},at_msg:{Joyce:3,Jordana:0,Luana:0,Fabi:0,Waleska:0},agendadas:{Joyce:2,Jordana:0,Luana:0,Fabi:1,Waleska:1},realizadas:{Joyce:0,Jordana:0,Luana:0,Fabi:1,Waleska:0},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:1,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
+  Goiania:{rotina:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:17},novos:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:33},ligacoes:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:200},at_tel:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:7},at_msg:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:3},agendadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:3},realizadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:6},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:2},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:2}},
+};
+const DMESANT={
+  Botafogo:{rotina:{Joyce:22,Jordana:16,Luana:20,Fabi:0,Waleska:31},novos:{Joyce:15,Jordana:6,Luana:25,Fabi:0,Waleska:10},ligacoes:{Joyce:73,Jordana:35,Luana:48,Fabi:0,Waleska:62},at_tel:{Joyce:12,Jordana:2,Luana:3,Fabi:0,Waleska:4},at_msg:{Joyce:5,Jordana:2,Luana:4,Fabi:0,Waleska:2},agendadas:{Joyce:0,Jordana:1,Luana:1,Fabi:0,Waleska:4},realizadas:{Joyce:0,Jordana:1,Luana:0,Fabi:0,Waleska:0},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
+  Barra:{rotina:{Joyce:0,Jordana:5,Luana:3,Fabi:0,Waleska:3},novos:{Joyce:10,Jordana:2,Luana:8,Fabi:0,Waleska:11},ligacoes:{Joyce:0,Jordana:13,Luana:6,Fabi:0,Waleska:5},at_tel:{Joyce:0,Jordana:1,Luana:0,Fabi:0,Waleska:1},at_msg:{Joyce:0,Jordana:1,Luana:3,Fabi:0,Waleska:0},agendadas:{Joyce:0,Jordana:0,Luana:1,Fabi:0,Waleska:0},realizadas:{Joyce:0,Jordana:0,Luana:1,Fabi:0,Waleska:0},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:1,Fabi:0,Waleska:0}},
+  Goiania:{rotina:{Joyce:0,Jordana:0,Luana:0,Fabi:11,Waleska:0},novos:{Joyce:0,Jordana:0,Luana:0,Fabi:4,Waleska:0},ligacoes:{Joyce:0,Jordana:0,Luana:0,Fabi:32,Waleska:0},at_tel:{Joyce:0,Jordana:0,Luana:0,Fabi:5,Waleska:0},at_msg:{Joyce:0,Jordana:0,Luana:0,Fabi:11,Waleska:0},agendadas:{Joyce:1,Jordana:0,Luana:0,Fabi:3,Waleska:0},realizadas:{Joyce:0,Jordana:0,Luana:0,Fabi:2,Waleska:0},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:1,Waleska:0}},
+};
+const MONTH_ACC={
+  Joyce:{rotina:255,novos:129,at_tel:176,at_msg:99,agendadas:59,realizadas:24,fec_leads:15,fec_indic:0},
+  Jordana:{rotina:407,novos:103,at_tel:56,at_msg:31,agendadas:45,realizadas:21,fec_leads:3,fec_indic:4},
+  Luana:{rotina:402,novos:153,at_tel:138,at_msg:115,agendadas:40,realizadas:30,fec_leads:12,fec_indic:2},
+  Fabi:{rotina:120,novos:187,at_tel:77,at_msg:78,agendadas:45,realizadas:25,fec_leads:17,fec_indic:3},
+  Waleska:{rotina:314,novos:246,at_tel:74,at_msg:66,agendadas:29,realizadas:23,fec_leads:6,fec_indic:2},
+};
+const WEEK_SDR={
+  Joyce:{rotina:0,novos:0,at_tel:0,at_msg:0,agendadas:1,realizadas:1,fec_leads:1,fec_indic:0},
+  Jordana:{rotina:25,novos:9,at_tel:3,at_msg:2,agendadas:3,realizadas:3,fec_leads:1,fec_indic:1},
+  Luana:{rotina:29,novos:8,at_tel:33,at_msg:4,agendadas:2,realizadas:1,fec_leads:0,fec_indic:0},
+  Fabi:{rotina:25,novos:6,at_tel:4,at_msg:4,agendadas:2,realizadas:0,fec_leads:0,fec_indic:0},
+  Waleska:{rotina:15,novos:8,at_tel:5,at_msg:3,agendadas:2,realizadas:1,fec_leads:0,fec_indic:0},
+};
+const WEEK_FILIAL={
+  Botafogo:{rotina:76,novos:20,ligacoes:267,at_tel:39,at_msg:9,agendadas:7,realizadas:3,fec_leads:2,fec_indic:0},
+  Barra:{rotina:7,novos:3,ligacoes:28,at_tel:1,at_msg:1,agendadas:1,realizadas:2,fec_leads:0,fec_indic:1},
+  Goiania:{rotina:11,novos:8,ligacoes:141,at_tel:5,at_msg:3,agendadas:2,realizadas:1,fec_leads:0,fec_indic:0},
+};
+const CHART_S4={
+  labels:['Seg 27/07'],
+  novos:[31], at_tel:[45], at_msg:[13],
+  pct:[187.1],
+  Botafogo:{ligacoes:[267],agendadas:[7],realizadas:[3]},
+  Barra:{ligacoes:[28],agendadas:[1],realizadas:[2]},
+  Goiania:{ligacoes:[141],agendadas:[2],realizadas:[1]},
+};
+
+// Vendas fechadas pelos Closers (equipe de vendas, após handoff da SDR)
+const VENDAS_CLOSERS={
+  Botafogo:{},
+  Barra:{},
+  Goiania:{},
+};
+
+
+
+// ─── HELPERS ────────────────────────────────────────────────
+const sumSDR=o=>SDRS.reduce((a,s)=>a+(o[s]||0),0);
+const fils=()=>CF==='all'?FILS:[CF];
+const sC=m=>fils().reduce((a,f)=>a+sumSDR((DHOJE[f]||{})[m]||{}),0);
+const sP=m=>fils().reduce((a,f)=>a+sumSDR((DANT[f]||{})[m]||{}),0);
+const sM=m=>fils().reduce((a,f)=>a+sumSDR((DMESANT[f]||{})[m]||{}),0);
+const vendasTotal=()=>fils().reduce((a,f)=>a+Object.values(VENDAS_CLOSERS[f]||{}).reduce((x,y)=>x+y,0),0);
+const vendasBreakdown=()=>fils().flatMap(f=>Object.entries(VENDAS_CLOSERS[f]||{}).filter(([,v])=>v>0).map(([n,v])=>`${n} (${f==='Goiania'?'Goiânia':f}): ${v}`)).join(' · ')||'—';
+
+function fmt(n,d){return d>0?(n/d*100).toFixed(1)+'%':'—';}
+function fmtAN(t,m,n){return n>0?((t+m)/n*100).toFixed(1)+'%':'—';}
+function taxaCls(v){const n=parseFloat(v);return isNaN(n)?'badge-neutral':n>=65?'badge-ok':n>=40?'badge-warn':'badge-bad';}
+function pctCls(v){const n=parseFloat(v);return isNaN(n)?'pct-mid':n>=100?'pct-hi':n>=60?'pct-mid':'pct-lo';}
+function dlt(c,p){
+  if(p===0)return c>0?`<span class="up">▲ novo</span>`:`<span class="eq">—</span>`;
+  const d=c-p,pct=Math.abs(Math.round(d/p*100));
+  if(d>0)return `<span class="up">▲ +${d} <small>(${pct}%)</small></span>`;
+  if(d<0)return `<span class="dn">▼ ${d} <small>(${pct}%)</small></span>`;
+  return `<span class="eq">—</span>`;
+}
+function dltS(c,p){const d=c-p;if(!d)return `<span class="eq">—</span>`;return d>0?`<span class="up">▲ +${d}</span>`:`<span class="dn">▼ ${d}</span>`;}
+
+// Animated counter
+function animCount(el,target,suffix=''){
+  const isStr=isNaN(parseFloat(target));
+  if(isStr){el.textContent=target;return;}
+  const n=parseFloat(target),dur=800,steps=40;
+  let i=0;
+  const iv=setInterval(()=>{
+    i++;el.textContent=(n*(i/steps)).toFixed(n%1===0?0:1)+(suffix||'');
+    if(i>=steps){el.textContent=n+(suffix||'');clearInterval(iv);}
+  },dur/steps);
+}
+
+// ─── RENDERS ─────────────────────────────────────────────────
+function renderExec(){
+  const rot=sC('rotina'),nov=sC('novos'),lig=sC('ligacoes');
+  const agend=sC('agendadas'),real=sC('realizadas');
+  const fecL=sC('fec_leads'),fecI=sC('fec_indic'),fT=fecL+fecI;
+  const taxa=agend>0?(real/agend*100).toFixed(1)+'%':'—';
+  const taxaN=agend>0?real/agend*100:0;
+  const meta=agend>0?Math.ceil(agend*0.65):0;
+  const faltam=Math.max(0,meta-real);
+
+  document.getElementById('ex-leads').textContent=rot+nov;
+  document.getElementById('ex-leads-bg').textContent=rot+nov;
+  document.getElementById('ex-leads-sub').innerHTML=`<span style="color:var(--purple)">Rotina: ${rot}</span> · <span style="color:var(--teal)">Novos: ${nov}</span>`;
+
+  document.getElementById('ex-taxa').textContent=taxa;
+  document.getElementById('ex-taxa-bg').textContent=taxa;
+  const taxaEl=document.getElementById('ex-taxa-sub');
+  if(faltam>0) taxaEl.innerHTML=`<span class="badge badge-warn">⚠ ${faltam} abaixo da meta (65%)</span>`;
+  else taxaEl.innerHTML=`<span class="badge badge-ok">✓ Meta atingida</span>`;
+
+  document.getElementById('ex-fec').textContent=fT;
+  document.getElementById('ex-fec-bg').textContent=fT;
+  document.getElementById('ex-fec-sub').innerHTML=`Leads: ${fecL} · Indicação: <strong>${fecI}</strong>`;
+}
+
+function renderKPIs(){
+  const rot=sC('rotina'),nov=sC('novos'),lig=sC('ligacoes');
+  const tel=sC('at_tel'),msg=sC('at_msg'),agend=sC('agendadas');
+  const real=sC('realizadas'),fecL=sC('fec_leads'),fecI=sC('fec_indic'),fT=fecL+fecI;
+  const taxa=fmt(real,agend),taxaN=agend>0?real/agend*100:0;
+  const pAN=fmtAN(tel,msg,nov);
+  const tCls=taxaN>=65?'kpi-good':taxaN>=40?'kpi-alert':'kpi-danger';
+
+  const kpis=[
+    {l:'Leads Total',v:rot+nov,s:`Rotina ${rot} · Novos ${nov}`,c:'kpi-purple'},
+    {l:'Ligações',v:lig,s:`Sexta: ${sP('ligacoes')}`,c:lig>sP('ligacoes')?'kpi-good':''},
+    {l:'At. Telefone',v:tel,s:`Mensagem: ${msg}`,c:''},
+    {l:'% At./Novos',v:pAN,s:`(Tel+Msg) ÷ Novos`,c:parseFloat(pAN)>=60?'kpi-good':'kpi-alert'},
+    {l:'Agendamentos',v:agend,s:`Sexta: ${sP('agendadas')}`,c:agend>sP('agendadas')?'kpi-good':''},
+    {l:'Comparecimentos',v:real,s:`Taxa: ${taxa}`,c:tCls},
+    {l:'Taxa Comparec.',v:taxa,s:'Meta: 65%',c:tCls},
+    {l:'Fechamentos (SDR)',v:fT,s:`Leads ${fecL} · Indicação ${fecI}`,c:fT>0?'kpi-good':''},
+    {l:'Vendas (Closers)',v:vendasTotal(),s:vendasBreakdown(),c:vendasTotal()>0?'kpi-good':''},
+  ];
+
+  document.getElementById('kpi-grid').innerHTML=kpis.map(k=>`
+    <div class="kpi ${k.c}">
+      <div class="kpi-lbl">${k.l}</div>
+      <div class="kpi-val">${k.v}</div>
+      <div class="kpi-sub">${k.s}</div>
+    </div>`).join('');
+}
+
+function renderVertical(){
+  const rot=sC('rotina'),rP=sP('rotina'),nov=sC('novos'),nP=sP('novos');
+  const lig=sC('ligacoes'),lP=sP('ligacoes');
+  const tel=sC('at_tel'),tP=sP('at_tel'),msg=sC('at_msg'),mP=sP('at_msg');
+  const agend=sC('agendadas'),aP=sP('agendadas');
+  const real=sC('realizadas'),rP2=sP('realizadas');
+  const fL=sC('fec_leads'),fLP=sP('fec_leads'),fI=sC('fec_indic'),fIP=sP('fec_indic');
+  const fT=fL+fI,fTP=fLP+fIP;
+  const taxa=fmt(real,agend),taxaP=fmt(rP2,aP);
+  const pAN=fmtAN(tel,msg,nov),pANp=fmtAN(tP,mP,nP);
+
+  const rows=[
+    ['Ligações',lig,lP,dlt(lig,lP),false],
+    ['Leads Total',rot+nov,rP+nP,dlt(rot+nov,rP+nP),false],
+    ['↳ Rotina',rot,rP,dltS(rot,rP),true],['↳ Novos',nov,nP,dltS(nov,nP),true],
+    ['At. Telefone',tel,tP,dlt(tel,tP),false],['At. Mensagem',msg,mP,dlt(msg,mP),false],
+    ['% At./Novos',pAN,pANp,dltS(parseFloat(pAN)||0,parseFloat(pANp)||0),false],
+    ['Agendamentos',agend,aP,dlt(agend,aP),false],
+    ['Comparecimentos',real,rP2,dlt(real,rP2),false],
+    ['Fechamentos',fT,fTP,dlt(fT,fTP),false],
+    ['↳ por Leads',fL,fLP,dltS(fL,fLP),true],['↳ por Indicação',fI,fIP,dltS(fI,fIP),true],
+    ['Taxa Comparec.',taxa,taxaP,'',false],
+  ];
+  document.getElementById('vert-tbody').innerHTML=rows.map(([l,c,p,d,sub])=>{
+    const isT=l==='Taxa Comparec.';
+    return `<tr class="${sub?'sub':''}"><td>${l}</td>
+      <td>${isT?`<span class="badge ${taxaCls(c)}">${c}</span>`:c}</td>
+      <td style="color:var(--text2)">${p}</td><td>${d||''}</td></tr>`;
+  }).join('');
+}
+
+function renderHorizontal(){
+  const rot=sC('rotina'),rRef=sM('rotina'),nov=sC('novos'),nRef=sM('novos');
+  const lig=sC('ligacoes'),lRef=sM('ligacoes');
+  const tel=sC('at_tel'),tRef=sM('at_tel'),msg=sC('at_msg'),mRef=sM('at_msg');
+  const agend=sC('agendadas'),aRef=sM('agendadas');
+  const real=sC('realizadas'),reRef=sM('realizadas');
+  const fL=sC('fec_leads'),fLRef=sM('fec_leads'),fI=sC('fec_indic'),fIRef=sM('fec_indic');
+  const fT=fL+fI,fTRef=fLRef+fIRef;
+  const taxa=fmt(real,agend),taxaRef=fmt(reRef,aRef);
+  const pAN=fmtAN(tel,msg,nov),pANr=fmtAN(tRef,mRef,nRef);
+
+  const rows=[
+    ['Ligações',lig,lRef,dlt(lig,lRef),false],
+    ['Leads Total',rot+nov,rRef+nRef,dlt(rot+nov,rRef+nRef),false],
+    ['↳ Rotina',rot,rRef,dltS(rot,rRef),true],['↳ Novos',nov,nRef,dltS(nov,nRef),true],
+    ['At. Telefone',tel,tRef,dlt(tel,tRef),false],['At. Mensagem',msg,mRef,dlt(msg,mRef),false],
+    ['% At./Novos',pAN,pANr,dltS(parseFloat(pAN)||0,parseFloat(pANr)||0),false],
+    ['Agendamentos',agend,aRef,dlt(agend,aRef),false],
+    ['Comparecimentos',real,reRef,dlt(real,reRef),false],
+    ['Fechamentos',fT,fTRef,dlt(fT,fTRef),false],
+    ['↳ por Leads',fL,fLRef,dltS(fL,fLRef),true],['↳ por Indicação',fI,fIRef,dltS(fI,fIRef),true],
+    ['Taxa Comparec.',taxa,taxaRef,'',false],
+  ];
+  document.getElementById('horiz-tbody').innerHTML=rows.map(([l,c,p,d,sub])=>{
+    const isT=l==='Taxa Comparec.';
+    return `<tr class="${sub?'sub':''}"><td>${l}</td>
+      <td>${isT?`<span class="badge ${taxaCls(c)}">${c}</span>`:c}</td>
+      <td style="color:var(--text2)">${p}</td><td>${d||''}</td></tr>`;
+  }).join('');
+}
+
+function renderFunnel(){
+  const leads=sC('rotina')+sC('novos'),lig=sC('ligacoes');
+  const agend=sC('agendadas'),real=sC('realizadas'),fec=sC('fec_leads')+sC('fec_indic');
+  const p=(n,d)=>d>0?(n/d*100).toFixed(0)+'%':'—';
+  const steps=[
+    {l:'Leads',v:leads,p:'',cls:'f1',w:'20%'},
+    {l:'Ligações',v:lig,p:p(lig,leads),cls:'f2',w:'18%'},
+    {l:'Agendamentos',v:agend,p:p(agend,lig),cls:'f3',w:'16%'},
+    {l:'Comparec.',v:real,p:p(real,agend),cls:'f4',w:'14%'},
+    {l:'Fechamentos',v:fec,p:p(fec,real),cls:'f5',w:'12%'},
+  ];
+  document.getElementById('funnel-row').innerHTML=steps.map((s,i)=>
+    (i>0?`<div class="funnel-arrow">▶</div>`:'')+`
+    <div class="funnel-step">
+      <div class="funnel-bar ${s.cls}" style="width:${s.w};min-width:80px;max-width:160px;margin:0 auto">${s.v}</div>
+      <div class="funnel-label">${s.l}</div>
+      ${s.p?`<div class="funnel-conv">${s.p} conv.</div>`:'<div class="funnel-conv" style="opacity:0">—</div>'}
+    </div>`).join('');
+}
+
+let s4Chart=null;
+function renderChart(){
+  const ctx=document.getElementById('chartS5').getContext('2d');
+  if(s4Chart) s4Chart.destroy();
+  const isDark=document.documentElement.getAttribute('data-theme')==='dark';
+  const gridC=isDark?'rgba(255,255,255,.06)':'rgba(0,0,0,.06)';
+  const tickC=isDark?'#8b92b8':'#5a6080';
+
+  s4Chart=new Chart(ctx,{type:'bar',
+    data:{labels:CHART_S4.labels,datasets:[
+      {label:'Leads Novos',data:CHART_S4.novos,backgroundColor:'rgba(99,102,241,.2)',borderColor:'rgba(129,140,248,.8)',borderWidth:1.5,stack:'a',borderRadius:4},
+      {label:'At. Telefone',data:CHART_S4.at_tel,backgroundColor:'rgba(59,130,246,.6)',borderColor:'rgba(96,165,250,.9)',borderWidth:1.5,stack:'a',borderRadius:4},
+      {label:'At. Mensagem',data:CHART_S4.at_msg,backgroundColor:'rgba(16,185,129,.6)',borderColor:'rgba(52,211,153,.9)',borderWidth:1.5,stack:'a',borderRadius:4},
+      {label:'% At./Novos',data:CHART_S4.pct,type:'line',yAxisID:'y2',borderColor:'#fb7185',backgroundColor:'rgba(251,113,133,.1)',tension:.4,pointRadius:6,pointBackgroundColor:'#fb7185',fill:true,order:-1,borderWidth:2.5},
+    ]},
+    options:{responsive:true,maintainAspectRatio:true,
+      plugins:{
+        legend:{labels:{color:tickC,font:{size:11,family:'Inter'},boxRadius:4,padding:16}},
+        tooltip:{
+          backgroundColor:isDark?'rgba(15,20,40,.95)':'rgba(250,251,255,.98)',
+          titleColor:isDark?'#f0f2ff':'#1a1f3a',bodyColor:isDark?'#8b92b8':'#5a6080',
+          borderColor:isDark?'rgba(255,255,255,.1)':'rgba(0,0,0,.1)',borderWidth:1,
+          cornerRadius:10,padding:10,
+          callbacks:{label:c=>` ${c.dataset.label}: ${c.parsed.y}${c.datasetIndex===3?'%':''}`}
+        }
+      },
+      scales:{
+        x:{ticks:{color:tickC,font:{size:11,family:'Inter'}},grid:{color:gridC}},
+        y:{ticks:{color:tickC,font:{family:'Inter'}},grid:{color:gridC},title:{display:true,text:'Quantidade',color:tickC,font:{family:'Inter'}}},
+        y2:{position:'right',ticks:{color:'#fb7185',callback:v=>v+'%',font:{family:'Inter'}},grid:{display:false},title:{display:true,text:'% At./Novos',color:'#fb7185',font:{family:'Inter'}},suggestedMin:0,suggestedMax:200},
+      }
+    }
+  });
+}
+
+function renderRanking(){
+  const medals=['🥇','🥈','🥉','',''];
+  const scores=SDRS.map(s=>{
+    const fL=fils().reduce((a,f)=>a+(DHOJE[f].fec_leads[s]||0),0);
+    const fI=fils().reduce((a,f)=>a+(DHOJE[f].fec_indic[s]||0),0);
+    const re=fils().reduce((a,f)=>a+(DHOJE[f].realizadas[s]||0),0);
+    const ag=fils().reduce((a,f)=>a+(DHOJE[f].agendadas[s]||0),0);
+    const li=fils().reduce((a,f)=>a+(DHOJE[f].ligacoes[s]||0),0);
+    const te=fils().reduce((a,f)=>a+(DHOJE[f].at_tel[s]||0),0);
+    const ms=fils().reduce((a,f)=>a+(DHOJE[f].at_msg[s]||0),0);
+    const sc=((fL+fI)*10+re*3+ag*2+li*0.1).toFixed(1);
+    return {s,sc,fL,fI,re,ag,li,te,ms};
+  }).sort((a,b)=>b.sc-a.sc);
+
+  const cls=['r1','r2','r3','r4','r5'];
+  document.getElementById('ranking-grid').innerHTML=scores.map((r,i)=>`
+    <div class="sdr-card ${cls[i]}">
+      <div class="sdr-top">
+        <div class="sdr-avatar">${r.s[0]}</div>
+        <div>
+          <div class="sdr-name">${r.s}</div>
+          <div class="sdr-score">Score ${r.sc}</div>
+        </div>
+        <div class="sdr-medal">${medals[i]||'#'+(i+1)}</div>
+      </div>
+      <div class="sdr-stats">
+        <div class="sdr-stat"><div class="sdr-stat-n">${r.re}</div><div class="sdr-stat-l">Comp.</div></div>
+        <div class="sdr-stat"><div class="sdr-stat-n">${r.ag}</div><div class="sdr-stat-l">Agend.</div></div>
+        <div class="sdr-stat"><div class="sdr-stat-n">${r.fL+r.fI}</div><div class="sdr-stat-l">Fech.</div></div>
+      </div>
+      <div class="sdr-extra">
+        <span class="badge badge-neutral">📞 ${r.li} lig</span>
+        <span class="badge badge-neutral">Tel: ${r.te} · Msg: ${r.ms}</span>
+        <span class="badge ${r.fL+r.fI>0?'badge-ok':'badge-neutral'}">L:${r.fL} / I:${r.fI}</span>
+      </div>
+    </div>`).join('');
+}
+
+function renderFilial(){
+  const defs={Botafogo:{cls:'bot',nm:'🟣 Botafogo'},Barra:{cls:'bar',nm:'🔵 Barra'},Goiania:{cls:'goi',nm:'🩵 Goiânia'}};
+  document.getElementById('filial-grid').innerHTML=fils().map(f=>{
+    const c=DHOJE[f],p=DANT[f],m=DMESANT[f];
+    const cR=sumSDR(c.rotina),cN=sumSDR(c.novos),cL=sumSDR(c.ligacoes);
+    const cA=sumSDR(c.agendadas),cRe=sumSDR(c.realizadas);
+    const cFL=sumSDR(c.fec_leads),cFI=sumSDR(c.fec_indic),cFT=cFL+cFI;
+    const pR=sumSDR(p.rotina),pN=sumSDR(p.novos),pL=sumSDR(p.ligacoes);
+    const pA=sumSDR(p.agendadas),pRe=sumSDR(p.realizadas);
+    const pFL=sumSDR(p.fec_leads),pFI=sumSDR(p.fec_indic),pFT=pFL+pFI;
+    const mR=sumSDR(m.rotina),mN=sumSDR(m.novos),mL=sumSDR(m.ligacoes);
+    const mA=sumSDR(m.agendadas),mRe=sumSDR(m.realizadas);
+    const mFL=sumSDR(m.fec_leads),mFI=sumSDR(m.fec_indic),mFT=mFL+mFI;
+    const taxaN=cA>0?cRe/cA*100:0;
+    const taxaS=fmt(cRe,cA);
+    const tCls=taxaN>=65?'taxa-ok':taxaN>=40?'taxa-mid':'taxa-bad';
+    const dl=(c,p)=>{const d=c-p;return d===0?'':` <span class="dlt ${d>0?'up':'dn'}">${d>0?'+':''}${d}</span>`;};
+    return `<div class="filial-card">
+      <div class="filial-hdr ${defs[f].cls}">
+        <span class="filial-nome">${defs[f].nm}</span>
+        <span class="filial-taxa ${tCls}">Comparec. ${taxaS}</span>
+      </div>
+      <table class="ftbl">
+        <tr><td>Leads Total</td><td>${cR+cN}${dl(cR+cN,pR+pN)}<span class="ref">26/06: ${mR+mN}</span></td></tr>
+        <tr><td class="sub">↳ Rotina</td><td>${cR}${dl(cR,pR)}</td></tr>
+        <tr><td class="sub">↳ Novos</td><td>${cN}${dl(cN,pN)}</td></tr>
+        <tr><td>Ligações</td><td>${cL}${dl(cL,pL)}<span class="ref">26/06: ${mL}</span></td></tr>
+        <tr><td class="sub">↳ At. Telefone</td><td>${sumSDR(c.at_tel)}${dl(sumSDR(c.at_tel),sumSDR(p.at_tel))}</td></tr>
+        <tr><td class="sub">↳ At. Mensagem</td><td>${sumSDR(c.at_msg)}</td></tr>
+        <tr><td>Agendamentos</td><td>${cA}${dl(cA,pA)}<span class="ref">26/06: ${mA}</span></td></tr>
+        <tr><td>Comparecimentos</td><td>${cRe}${dl(cRe,pRe)}<span class="ref">26/06: ${mRe}</span></td></tr>
+        <tr><td>Fechamentos</td><td>${cFT}${dl(cFT,pFT)}<span class="ref">26/06: ${mFT}</span></td></tr>
+        <tr><td class="sub">↳ por Leads</td><td>${cFL}${dl(cFL,pFL)}</td></tr>
+        <tr><td class="sub">↳ por Indicação</td><td>${cFI}${dl(cFI,pFI)}</td></tr>
+      </table>
+    </div>`;
+  }).join('');
+}
+
+function renderMonthly(){
+  const cols=['Rot.','Novos','At.Tel','At.Msg','%At/Nov','Atend/Lead Novo','Agend','Comp','Fec.L','Fec.I','Total'];
+  let h=`<thead><tr><th>SDR</th>${cols.map(c=>`<th>${c}</th>`).join('')}</tr></thead><tbody>`;
+  const tot={rotina:0,novos:0,at_tel:0,at_msg:0,agendadas:0,realizadas:0,fec_leads:0,fec_indic:0};
+  const ratioCls=v=>v>=1?'pct-hi':v>=0.6?'pct-mid':'pct-lo';
+  const ratioFmt=v=>v.toFixed(2)+'x';
+  SDRS.forEach(s=>{
+    const r=MONTH_ACC[s];const pct=fmtAN(r.at_tel,r.at_msg,r.novos);const pc=pctCls(pct);
+    const ratio=r.novos>0?(r.at_tel+r.at_msg)/r.novos:0;
+    Object.keys(tot).forEach(k=>tot[k]+=r[k]||0);
+    h+=`<tr><td>${s}</td><td>${r.rotina}</td><td>${r.novos}</td><td>${r.at_tel}</td><td>${r.at_msg}</td>
+    <td><span class="pct-chip ${pc}">${pct}</span></td>
+    <td><span class="pct-chip ${ratioCls(ratio)}">${ratioFmt(ratio)}</span></td>
+    <td>${r.agendadas}</td><td>${r.realizadas}</td><td>${r.fec_leads}</td><td>${r.fec_indic}</td>
+    <td><strong>${r.fec_leads+r.fec_indic}</strong></td></tr>`;
+  });
+  const tp=fmtAN(tot.at_tel,tot.at_msg,tot.novos);
+  const totRatio=tot.novos>0?(tot.at_tel+tot.at_msg)/tot.novos:0;
+  h+=`<tr><td>TOTAL</td><td>${tot.rotina}</td><td>${tot.novos}</td><td>${tot.at_tel}</td><td>${tot.at_msg}</td>
+  <td><span class="pct-chip ${pctCls(tp)}">${tp}</span></td>
+  <td><span class="pct-chip ${ratioCls(totRatio)}"><strong>${ratioFmt(totRatio)}</strong></span></td>
+  <td>${tot.agendadas}</td><td>${tot.realizadas}</td><td>${tot.fec_leads}</td><td>${tot.fec_indic}</td>
+  <td><strong>${tot.fec_leads+tot.fec_indic}</strong></td></tr></tbody>`;
+  document.getElementById('month-table').innerHTML=h;
+}
+
+function renderWeek(){
+  const cols=['Rot.','Novos','At.Tel','At.Msg','%At/Nov','Atend/Lead Novo','Agend','Comp','Fec.L','Fec.I','Total'];
+  const ratioCls=v=>v>=1?'pct-hi':v>=0.6?'pct-mid':'pct-lo';
+  const ratioFmt=v=>v.toFixed(2)+'x';
+  // SDR table
+  let h=`<thead><tr><th>SDR</th>${cols.map(c=>`<th>${c}</th>`).join('')}</tr></thead><tbody>`;
+  const t={rotina:0,novos:0,at_tel:0,at_msg:0,agendadas:0,realizadas:0,fec_leads:0,fec_indic:0};
+  SDRS.forEach(s=>{const r=WEEK_SDR[s];Object.keys(t).forEach(k=>t[k]+=r[k]||0);
+    const pct=fmtAN(r.at_tel,r.at_msg,r.novos);const pc=pctCls(pct);
+    const ratio=r.novos>0?(r.at_tel+r.at_msg)/r.novos:0;
+    h+=`<tr><td>${s}</td><td>${r.rotina}</td><td>${r.novos}</td><td>${r.at_tel}</td><td>${r.at_msg}</td>
+    <td><span class="pct-chip ${pc}">${pct}</span></td>
+    <td><span class="pct-chip ${ratioCls(ratio)}">${ratioFmt(ratio)}</span></td>
+    <td>${r.agendadas}</td><td>${r.realizadas}</td><td>${r.fec_leads}</td><td>${r.fec_indic}</td><td><strong>${r.fec_leads+r.fec_indic}</strong></td></tr>`;});
+  const tp=fmtAN(t.at_tel,t.at_msg,t.novos);
+  const totRatio=t.novos>0?(t.at_tel+t.at_msg)/t.novos:0;
+  h+=`<tr><td>TOTAL</td><td>${t.rotina}</td><td>${t.novos}</td><td>${t.at_tel}</td><td>${t.at_msg}</td>
+  <td><span class="pct-chip ${pctCls(tp)}">${tp}</span></td>
+  <td><span class="pct-chip ${ratioCls(totRatio)}"><strong>${ratioFmt(totRatio)}</strong></span></td>
+  <td>${t.agendadas}</td><td>${t.realizadas}</td><td>${t.fec_leads}</td><td>${t.fec_indic}</td><td><strong>${t.fec_leads+t.fec_indic}</strong></td></tr></tbody>`;
+  document.getElementById('week-sdr-table').innerHTML=h;
+  // Filial table
+  let h2=`<thead><tr><th>Filial</th>${cols.map(c=>`<th>${c}</th>`).join('')}</tr></thead><tbody>`;
+  const t2={rotina:0,novos:0,at_tel:0,at_msg:0,agendadas:0,realizadas:0,fec_leads:0,fec_indic:0};
+  FILS.forEach(f=>{const r=WEEK_FILIAL[f];Object.keys(t2).forEach(k=>t2[k]+=(r[k]||0));const fT=(r.fec_leads||0)+(r.fec_indic||0);
+    const pct=fmtAN(r.at_tel,r.at_msg,r.novos);const pc=pctCls(pct);
+    const ratio=r.novos>0?(r.at_tel+r.at_msg)/r.novos:0;
+    h2+=`<tr><td>${f==='Goiania'?'Goiânia':f}</td><td>${r.rotina}</td><td>${r.novos}</td><td>${r.at_tel}</td><td>${r.at_msg}</td>
+    <td><span class="pct-chip ${pc}">${pct}</span></td>
+    <td><span class="pct-chip ${ratioCls(ratio)}">${ratioFmt(ratio)}</span></td>
+    <td>${r.agendadas}</td><td>${r.realizadas}</td><td>${r.fec_leads||0}</td><td>${r.fec_indic||0}</td><td><strong>${fT}</strong></td></tr>`;});
+  const tp2=fmtAN(t2.at_tel,t2.at_msg,t2.novos);
+  const totRatio2=t2.novos>0?(t2.at_tel+t2.at_msg)/t2.novos:0;
+  h2+=`<tr><td>TOTAL</td><td>${t2.rotina}</td><td>${t2.novos}</td><td>${t2.at_tel}</td><td>${t2.at_msg}</td>
+  <td><span class="pct-chip ${pctCls(tp2)}">${tp2}</span></td>
+  <td><span class="pct-chip ${ratioCls(totRatio2)}"><strong>${ratioFmt(totRatio2)}</strong></span></td>
+  <td>${t2.agendadas}</td><td>${t2.realizadas}</td><td>${t2.fec_leads}</td><td>${t2.fec_indic}</td><td><strong>${t2.fec_leads+t2.fec_indic}</strong></td></tr></tbody>`;
+  document.getElementById('week-filial-table').innerHTML=h2;
+}
+
+function renderInsights(){
+  const lig=sC('ligacoes'),ligP=sP('ligacoes');
+  const real=sC('realizadas'),agend=sC('agendadas');
+  const taxa=agend>0?(real/agend*100).toFixed(1):0;
+  const nov=sC('novos'),tel=sC('at_tel'),msg=sC('at_msg');
+  const pAN=nov>0?((tel+msg)/nov*100).toFixed(1):0;
+  const meta=agend>0?Math.ceil(agend*0.65):0;
+  const faltam=Math.max(0,meta-real);
+  const fT=sC('fec_leads')+sC('fec_indic');
+  const ligDelta=lig-ligP;
+
+  const ins=[
+    {type:'info',icon:'📋',title:'Contexto do Dia',body:`Dados verificados de <strong>Seg 27/07/2026</strong>, primeiro dia útil da última semana de julho e dia mais recente com lançamento completo na planilha até o momento desta análise (28/07 ainda não preenchido). Comparativo vertical: Sex 24/07 (dia útil anterior). Horizontal: 27/06 caiu num sábado — usado Sex 26/06 (dia útil anterior do mês passado).`},
+    {type:'warn',icon:'🎯',title:'Meta de Comparecimento Quase Atingida',body:`Taxa consolidada: <strong>60,0%</strong> (6/10) vs meta de 65% — faltou <strong>1 comparecimento</strong>. Melhor que sexta (54,5%, 12/22) e bem acima do horizontal de 26/06 (36,4%, 4/11).`},
+    {type:'info',icon:'📉',title:'Normalização Após Pico de Sexta',body:`Leads Novos recuaram para <strong>31</strong>, -70% vs sexta (104) e -66% vs 26/06 (91) — volta ao patamar típico após o pico de importação em lote de sexta-feira. Leads Total: <strong>125</strong> (rotina 94 + novos 31), -42% vs sexta e -38% vs 26/06. Ligações também recuaram: <strong>436</strong>, -44% vs sexta (784), mas ainda +59% vs 26/06 (274).`},
+    {type:'info',icon:'📊',title:'%At./Novos Alto Por Base Menor de Leads',body:`Com a base de leads novos bem menor, a taxa %At./Novos subiu para <strong>187,1%</strong> (Tel 45 + Msg 13 sobre 31 novos) — bem acima de sexta (68,3%) e do horizontal de 26/06 (61,5%). At. Telefone (45) caiu apenas 10% vs sexta, sinal de que a equipe seguiu trabalhando a base represada de leads.`},
+    {type:'warn',icon:'🏆',title:'Fechamentos Recuam Fortemente vs Sexta, mas Superam Junho',body:`<strong>3 fechamentos de SDR</strong> (2 por leads + 1 por indicação), -67% vs sexta (9), mas +50% vs 26/06 (2). Distribuição: Botafogo 2 (Joyce 1, Jordana 1), Barra 1 indicação (Jordana), Goiânia sem fechamento hoje.`},
+    {type:'info',icon:'🏢',title:'Filiais Operam com Poucas SDRs — Segunda Típica',body:`Waleska seguiu sozinha em Goiânia (rotina 11, novos 8, 2 agendamentos, 1 comparecimento). Fabi e Luana atuaram só em Botafogo, sem lançamentos em Barra hoje. Joyce, que na sexta trabalhou só em Barra, hoje apareceu apenas em Botafogo (1 agendamento, 1 comparecimento, 1 fechamento).`},
+    {type:'good',icon:'⭐',title:'Destaque — Jordana',body:`Jordana lidera o dia atuando em duas filiais: Botafogo (rotina 23, novos 6, 2 agendamentos, 2 comparecimentos, 1 fechamento por leads) e Barra (rotina 2, novos 3, 1 fechamento por indicação) — único fechamento de SDR fora de Botafogo/Goiânia no dia. Luana chama atenção com <strong>33 atendidas por telefone</strong> em Botafogo, pico atípico frente aos demais indicadores do dia (rotina 26, novos 8).`},
+    {type:'info',icon:'📅',title:'Acumulado Julho (até 27/07)',body:`Agendamentos: <strong>218</strong> · Comparecimentos: <strong>123</strong> (taxa 56,4%, abaixo da meta de 65%) · Fechamentos (SDR): <strong>64</strong> — acumulado de 19 dias úteis do mês (01 a 27/07, das 3 filiais). Fabi segue na liderança de fechamentos acumulados (20: 17 leads + 3 indicação), seguida por Joyce (15, todos por leads) e Luana (14: 12 leads + 2 indicação).`}
+  ];
+  document.getElementById('insights-grid').innerHTML=ins.map(i=>`
+    <div class="ins ${i.type}">
+      <div class="ins-icon">${i.icon}</div>
+      <div class="ins-title">${i.title}</div>
+      <div class="ins-body">${i.body}</div>
+    </div>`).join('');
+}
+
+// ─── THEME ──────────────────────────────────────────────────
+function toggleTheme(){
+  const html=document.documentElement;
+  const isDark=html.getAttribute('data-theme')==='dark';
+  html.setAttribute('data-theme',isDark?'light':'dark');
+  document.querySelector('.icon-btn').textContent=isDark?'🌙':'☀️';
+  if(s4Chart) renderChart();
+}
+
+// ─── FILIAL ─────────────────────────────────────────────────
+function setFilial(f,btn){
+  CF=f;
+  document.querySelectorAll('.pill-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderAll();
+}
+
+// ─── INIT ───────────────────────────────────────────────────
+function renderAll(){
+  renderExec();renderKPIs();renderVertical();renderHorizontal();
+  renderFunnel();renderChart();renderRanking();renderFilial();
+  renderMonthly();renderWeek();renderInsights();
+}
+
+renderAll();
+</script>
+</body>
+</html>
