@@ -268,6 +268,16 @@ table.mtbl tr:hover td{background:var(--surface2);}
 .pct-mid{background:rgba(251,191,36,.15);color:#fbbf24;}
 .pct-lo{background:rgba(251,113,133,.15);color:#fb7185;}
 
+/* ─── COMPACT COMPARISON TABLES (sem scroll, todos os campos visíveis) ─── */
+.tbl-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text2);margin-bottom:6px;padding-left:2px;}
+table.mtbl-compact{width:100%;table-layout:fixed;border-collapse:collapse;font-size:.7rem;}
+table.mtbl-compact th{padding:8px 6px;background:var(--surface2);color:var(--text3);font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--border);text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+table.mtbl-compact th:first-child{text-align:left;}
+table.mtbl-compact td{padding:8px 6px;border-bottom:1px solid var(--border);text-align:center;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+table.mtbl-compact td:first-child{text-align:left;font-weight:700;}
+table.mtbl-compact tr:last-child td{font-weight:800;background:var(--surface2);border-bottom:none;}
+table.mtbl-compact tr:hover td{background:var(--surface2);}
+
 /* ─── INSIGHTS ─── */
 .insights-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;}
 .ins{
@@ -380,6 +390,27 @@ table.mtbl tr:hover td{background:var(--surface2);}
   </div>
 </div>
 
+<!-- ─── COMPARAÇÃO SEMANAL: MESMO DIA ─── -->
+<div class="sec-hdr anim">📊 Comparação Semanal — Mesmo Dia (Quarta) da Semana Passada vs Atual</div>
+<div class="analysis-grid anim anim-d1">
+  <div class="card">
+    <div class="card-hdr purple">
+      <span class="card-hdr-icon">↕</span>
+      <span class="card-hdr-title">Semana Passada — Qua 22/07 vs Ter 21/07</span>
+    </div>
+    <table class="t"><thead><tr><th>Métrica</th><th>Qua 22/07</th><th>Ter 21/07</th><th>Δ</th></tr></thead>
+    <tbody id="vert-lw-tbody"></tbody></table>
+  </div>
+  <div class="card">
+    <div class="card-hdr blue">
+      <span class="card-hdr-icon">↕</span>
+      <span class="card-hdr-title">Semana Atual — Qua 29/07 vs Ter 28/07</span>
+    </div>
+    <table class="t"><thead><tr><th>Métrica</th><th>Qua 29/07</th><th>Ter 28/07</th><th>Δ</th></tr></thead>
+    <tbody id="vert-cw-tbody"></tbody></table>
+  </div>
+</div>
+
 <!-- ─── FUNIL ─── -->
 <div class="sec-hdr anim">🔻 Funil de Conversão</div>
 <div class="funnel-card anim anim-d1">
@@ -409,6 +440,29 @@ table.mtbl tr:hover td{background:var(--surface2);}
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:4px" class="anim anim-d1">
   <div class="tbl-wrap"><table class="mtbl" id="week-sdr-table"></table></div>
   <div class="tbl-wrap"><table class="mtbl" id="week-filial-table"></table></div>
+</div>
+
+<!-- ─── SEMANA ACUMULADA: SEMANA PASSADA VS ATUAL ─── -->
+<div class="sec-hdr anim">📅 Semana Acumulada — Semana Passada vs Semana Atual <span style="font-size:.65rem;font-weight:500;text-transform:none;letter-spacing:0;color:var(--text2);margin-left:6px;">ambas com 3 dias lançados (Seg-Qua), para comparação de ritmo</span></div>
+<div class="anim anim-d1" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:12px">
+  <div>
+    <div class="tbl-label">SEMANA PASSADA (20-22/07) — POR SDR</div>
+    <div class="tbl-wrap"><table class="mtbl-compact" id="cmp-sdr-lw-table"></table></div>
+  </div>
+  <div>
+    <div class="tbl-label">SEMANA ATUAL (27-29/07) — POR SDR</div>
+    <div class="tbl-wrap"><table class="mtbl-compact" id="cmp-sdr-cw-table"></table></div>
+  </div>
+</div>
+<div class="anim anim-d1" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+  <div>
+    <div class="tbl-label">SEMANA PASSADA (20-22/07) — POR FILIAL</div>
+    <div class="tbl-wrap"><table class="mtbl-compact" id="cmp-fil-lw-table"></table></div>
+  </div>
+  <div>
+    <div class="tbl-label">SEMANA ATUAL (27-29/07) — POR FILIAL</div>
+    <div class="tbl-wrap"><table class="mtbl-compact" id="cmp-fil-cw-table"></table></div>
+  </div>
 </div>
 
 <!-- ─── INSIGHTS ─── -->
@@ -478,6 +532,32 @@ const VENDAS_CLOSERS={
   Botafogo:{},
   Barra:{},
   Goiania:{},
+};
+
+// ─── COMPARAÇÃO SEMANAL: mesmo dia (Qua) da semana passada, D1/D2 por filial/SDR ───
+const D1_LASTWEEK={
+  Botafogo:{rotina:{Joyce:0,Jordana:21,Luana:18,Fabi:22,Waleska:1},novos:{Joyce:0,Jordana:4,Luana:9,Fabi:9,Waleska:0},ligacoes:{Joyce:0,Jordana:118,Luana:90,Fabi:45,Waleska:1},at_tel:{Joyce:0,Jordana:3,Luana:4,Fabi:4,Waleska:0},at_msg:{Joyce:0,Jordana:2,Luana:2,Fabi:4,Waleska:0},agendadas:{Joyce:0,Jordana:3,Luana:2,Fabi:1,Waleska:0},realizadas:{Joyce:1,Jordana:0,Luana:2,Fabi:1,Waleska:0},fec_leads:{Joyce:1,Jordana:0,Luana:1,Fabi:1,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
+  Barra:{rotina:{Joyce:15,Jordana:0,Luana:0,Fabi:0,Waleska:5},novos:{Joyce:5,Jordana:0,Luana:0,Fabi:0,Waleska:0},ligacoes:{Joyce:163,Jordana:0,Luana:0,Fabi:0,Waleska:5},at_tel:{Joyce:13,Jordana:0,Luana:0,Fabi:0,Waleska:0},at_msg:{Joyce:4,Jordana:0,Luana:0,Fabi:0,Waleska:0},agendadas:{Joyce:3,Jordana:0,Luana:0,Fabi:0,Waleska:0},realizadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:1,Fabi:0,Waleska:0}},
+  Goiania:{rotina:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:16},novos:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:19},ligacoes:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:265},at_tel:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:7},at_msg:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:2},agendadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:5},realizadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
+};
+const D2_LASTWEEK={
+  Botafogo:{rotina:{Joyce:0,Jordana:22,Luana:21,Fabi:17,Waleska:3},novos:{Joyce:0,Jordana:8,Luana:9,Fabi:9,Waleska:0},ligacoes:{Joyce:0,Jordana:81,Luana:105,Fabi:45,Waleska:3},at_tel:{Joyce:0,Jordana:6,Luana:19,Fabi:5,Waleska:0},at_msg:{Joyce:0,Jordana:0,Luana:4,Fabi:2,Waleska:0},agendadas:{Joyce:0,Jordana:2,Luana:0,Fabi:1,Waleska:0},realizadas:{Joyce:0,Jordana:1,Luana:2,Fabi:0,Waleska:0},fec_leads:{Joyce:0,Jordana:0,Luana:2,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
+  Barra:{rotina:{Joyce:18,Jordana:0,Luana:0,Fabi:0,Waleska:1},novos:{Joyce:7,Jordana:0,Luana:0,Fabi:0,Waleska:0},ligacoes:{Joyce:104,Jordana:0,Luana:0,Fabi:0,Waleska:1},at_tel:{Joyce:13,Jordana:0,Luana:0,Fabi:0,Waleska:0},at_msg:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:1},agendadas:{Joyce:5,Jordana:0,Luana:0,Fabi:0,Waleska:1},realizadas:{Joyce:2,Jordana:0,Luana:1,Fabi:0,Waleska:0},fec_leads:{Joyce:1,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
+  Goiania:{rotina:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:10},novos:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:16},ligacoes:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:211},at_tel:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:4},at_msg:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:2},agendadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},realizadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:2},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:1},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
+};
+
+// ─── SEMANA ACUMULADA: semana passada (Seg-Qua 20-22/07) vs semana atual (Seg-Qua 27-29/07), mesmo nº de dias ───
+const WEEK_LASTWEEK_SDR={
+  Joyce:{rotina:50,novos:17,at_tel:35,at_msg:11,agendadas:15,realizadas:4,fec_leads:3,fec_indic:0},
+  Jordana:{rotina:70,novos:14,at_tel:14,at_msg:6,agendadas:9,realizadas:2,fec_leads:0,fec_indic:0},
+  Luana:{rotina:60,novos:22,at_tel:26,at_msg:11,agendadas:7,realizadas:8,fec_leads:5,fec_indic:1},
+  Fabi:{rotina:51,novos:22,at_tel:12,at_msg:11,agendadas:4,realizadas:3,fec_leads:3,fec_indic:0},
+  Waleska:{rotina:41,novos:42,at_tel:13,at_msg:7,agendadas:8,realizadas:2,fec_leads:1,fec_indic:0},
+};
+const WEEK_LASTWEEK_FILIAL={
+  Botafogo:{rotina:190,novos:58,ligacoes:657,at_tel:52,at_msg:30,agendadas:19,realizadas:12,fec_leads:7,fec_indic:0},
+  Barra:{rotina:56,novos:17,ligacoes:374,at_tel:35,at_msg:12,agendadas:16,realizadas:5,fec_leads:3,fec_indic:1},
+  Goiania:{rotina:26,novos:42,ligacoes:702,at_tel:13,at_msg:4,agendadas:8,realizadas:2,fec_leads:2,fec_indic:0},
 };
 
 
@@ -829,6 +909,81 @@ function renderWeek(){
   document.getElementById('week-filial-table').innerHTML=h2;
 }
 
+// ─── COMPARAÇÃO SEMANAL: mesmo dia (Qua) — semana passada vs semana atual ───
+const sLW1=m=>fils().reduce((a,f)=>a+sumSDR((D1_LASTWEEK[f]||{})[m]||{}),0); // Qua 22/07
+const sLW2=m=>fils().reduce((a,f)=>a+sumSDR((D2_LASTWEEK[f]||{})[m]||{}),0); // Ter 21/07
+
+function buildVertRows(cF,pF){
+  const rot=cF('rotina'),rP=pF('rotina'),nov=cF('novos'),nP=pF('novos');
+  const lig=cF('ligacoes'),lP=pF('ligacoes');
+  const tel=cF('at_tel'),tP=pF('at_tel'),msg=cF('at_msg'),mP=pF('at_msg');
+  const agend=cF('agendadas'),aP=pF('agendadas');
+  const real=cF('realizadas'),rP2=pF('realizadas');
+  const fL=cF('fec_leads'),fLP=pF('fec_leads'),fI=cF('fec_indic'),fIP=pF('fec_indic');
+  const fT=fL+fI,fTP=fLP+fIP;
+  const taxa=fmt(real,agend),taxaP=fmt(rP2,aP);
+  const pAN=fmtAN(tel,msg,nov),pANp=fmtAN(tP,mP,nP);
+  const rows=[
+    ['Ligações',lig,lP,dlt(lig,lP),false],
+    ['Leads Total',rot+nov,rP+nP,dlt(rot+nov,rP+nP),false],
+    ['↳ Rotina',rot,rP,dltS(rot,rP),true],['↳ Novos',nov,nP,dltS(nov,nP),true],
+    ['At. Telefone',tel,tP,dlt(tel,tP),false],['At. Mensagem',msg,mP,dlt(msg,mP),false],
+    ['% At./Novos',pAN,pANp,dltS(parseFloat(pAN)||0,parseFloat(pANp)||0),false],
+    ['Agendamentos',agend,aP,dlt(agend,aP),false],
+    ['Comparecimentos',real,rP2,dlt(real,rP2),false],
+    ['Fechamentos',fT,fTP,dlt(fT,fTP),false],
+    ['↳ por Leads',fL,fLP,dltS(fL,fLP),true],['↳ por Indicação',fI,fIP,dltS(fI,fIP),true],
+    ['Taxa Comparec.',taxa,taxaP,'',false],
+  ];
+  return rows.map(([l,c,p,d,sub])=>{
+    const isT=l==='Taxa Comparec.';
+    return `<tr class="${sub?'sub':''}"><td>${l}</td>
+      <td>${isT?`<span class="badge ${taxaCls(c)}">${c}</span>`:c}</td>
+      <td style="color:var(--text2)">${p}</td><td>${d||''}</td></tr>`;
+  }).join('');
+}
+
+function renderVertCompare(){
+  document.getElementById('vert-lw-tbody').innerHTML=buildVertRows(sLW1,sLW2);
+  document.getElementById('vert-cw-tbody').innerHTML=buildVertRows(sC,sP);
+}
+
+function buildCompactSDRTable(dataObj){
+  const cols=['Rot.','Novos','At.Tel','At.Msg','Agend','Comp','Fech'];
+  let h=`<thead><tr><th>SDR</th>${cols.map(c=>`<th>${c}</th>`).join('')}</tr></thead><tbody>`;
+  const tot={rotina:0,novos:0,at_tel:0,at_msg:0,agendadas:0,realizadas:0,fec_leads:0,fec_indic:0};
+  SDRS.forEach(s=>{
+    const r=dataObj[s];Object.keys(tot).forEach(k=>tot[k]+=r[k]||0);
+    h+=`<tr><td>${s}</td><td>${r.rotina}</td><td>${r.novos}</td><td>${r.at_tel}</td><td>${r.at_msg}</td>
+    <td>${r.agendadas}</td><td>${r.realizadas}</td><td><strong>${r.fec_leads+r.fec_indic}</strong></td></tr>`;
+  });
+  h+=`<tr><td>TOTAL</td><td>${tot.rotina}</td><td>${tot.novos}</td><td>${tot.at_tel}</td><td>${tot.at_msg}</td>
+  <td>${tot.agendadas}</td><td>${tot.realizadas}</td><td><strong>${tot.fec_leads+tot.fec_indic}</strong></td></tr></tbody>`;
+  return h;
+}
+
+function buildCompactFilialTable(dataObj){
+  const cols=['Rot.','Novos','At.Tel','At.Msg','Agend','Comp','Fech'];
+  let h=`<thead><tr><th>Filial</th>${cols.map(c=>`<th>${c}</th>`).join('')}</tr></thead><tbody>`;
+  const tot={rotina:0,novos:0,at_tel:0,at_msg:0,agendadas:0,realizadas:0,fec_leads:0,fec_indic:0};
+  FILS.forEach(f=>{
+    const r=dataObj[f];Object.keys(tot).forEach(k=>tot[k]+=(r[k]||0));
+    const fT=(r.fec_leads||0)+(r.fec_indic||0);
+    h+=`<tr><td>${f==='Goiania'?'Goiânia':f}</td><td>${r.rotina}</td><td>${r.novos}</td><td>${r.at_tel}</td><td>${r.at_msg}</td>
+    <td>${r.agendadas}</td><td>${r.realizadas}</td><td><strong>${fT}</strong></td></tr>`;
+  });
+  h+=`<tr><td>TOTAL</td><td>${tot.rotina}</td><td>${tot.novos}</td><td>${tot.at_tel}</td><td>${tot.at_msg}</td>
+  <td>${tot.agendadas}</td><td>${tot.realizadas}</td><td><strong>${tot.fec_leads+tot.fec_indic}</strong></td></tr></tbody>`;
+  return h;
+}
+
+function renderWeekCompareTables(){
+  document.getElementById('cmp-sdr-lw-table').innerHTML=buildCompactSDRTable(WEEK_LASTWEEK_SDR);
+  document.getElementById('cmp-sdr-cw-table').innerHTML=buildCompactSDRTable(WEEK_SDR);
+  document.getElementById('cmp-fil-lw-table').innerHTML=buildCompactFilialTable(WEEK_LASTWEEK_FILIAL);
+  document.getElementById('cmp-fil-cw-table').innerHTML=buildCompactFilialTable(WEEK_FILIAL);
+}
+
 function renderInsights(){
   const lig=sC('ligacoes'),ligP=sP('ligacoes');
   const real=sC('realizadas'),agend=sC('agendadas');
@@ -878,6 +1033,7 @@ function setFilial(f,btn){
 // ─── INIT ───────────────────────────────────────────────────
 function renderAll(){
   renderExec();renderKPIs();renderVertical();renderHorizontal();
+  renderVertCompare();renderWeekCompareTables();
   renderFunnel();renderChart();renderRanking();renderFilial();
   renderMonthly();renderWeek();renderInsights();
 }
