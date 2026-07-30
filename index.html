@@ -402,21 +402,20 @@ table.mtbl-wide tr:hover td{background:var(--surface2);}
   </div>
 </div>
 
-<!-- ─── COMPARAÇÃO SEMANAL: MESMO DIA (com Total e Evolução%) ─── -->
-<div class="sec-hdr anim">📊 Comparação Semanal — Mesmo Dia (Quarta) da Semana Passada vs Atual <span style="font-size:.65rem;font-weight:500;text-transform:none;letter-spacing:0;color:var(--text2);margin-left:6px;">Total = soma Qua 22/07 + Qua 29/07 · Evol% = variação semana atual vs passada</span></div>
+<!-- ─── COMPARAÇÃO SEMANAL: MESMO DIA (com Total por semana e Evolução%) ─── -->
+<div class="sec-hdr anim">📊 Comparação Semanal — Mesmo Dia (Quarta) da Semana Passada vs Atual <span style="font-size:.65rem;font-weight:500;text-transform:none;letter-spacing:0;color:var(--text2);margin-left:6px;">Total = soma Ter+Qua de cada semana · Evol% = variação do Total da semana atual vs passada</span></div>
 <div class="tbl-wrap anim anim-d1">
 <table class="mtbl-wide" id="vert-compare-wide-table">
 <thead>
 <tr>
   <th rowspan="2">Métrica</th>
-  <th class="grp" colspan="3">Semana Passada</th>
-  <th class="grp" colspan="3">Semana Atual</th>
-  <th class="grp" rowspan="2">Total</th>
+  <th class="grp" colspan="4">Semana Passada</th>
+  <th class="grp" colspan="4">Semana Atual</th>
   <th rowspan="2">Evol%</th>
 </tr>
 <tr>
-  <th class="grp">Qua 22/07</th><th>Ter 21/07</th><th>Δ</th>
-  <th class="grp">Qua 29/07</th><th>Ter 28/07</th><th>Δ</th>
+  <th class="grp">Qua 22/07</th><th>Ter 21/07</th><th>Δ</th><th>Total</th>
+  <th class="grp">Qua 29/07</th><th>Ter 28/07</th><th>Δ</th><th>Total</th>
 </tr>
 </thead>
 <tbody id="vert-compare-wide-tbody"></tbody>
@@ -946,35 +945,38 @@ function buildVertCompareWide(){
     ['↳ Novos',nov1,nov1p,nov2,nov2p,true,'num'],
     ['At. Telefone',tel1,tel1p,tel2,tel2p,false,'num'],
     ['At. Mensagem',msg1,msg1p,msg2,msg2p,false,'num'],
-    ['% At./Novos',pAN1,pAN1p,pAN2,pAN2p,false,'pct'],
+    ['% At./Novos',pAN1,pAN1p,pAN2,pAN2p,false,'pct',{num1:tel1+msg1,den1:nov1,num1p:tel1p+msg1p,den1p:nov1p,num2:tel2+msg2,den2:nov2,num2p:tel2p+msg2p,den2p:nov2p}],
     ['Agendamentos',ag1,ag1p,ag2,ag2p,false,'num'],
     ['Comparecimentos',re1,re1p,re2,re2p,false,'num'],
     ['Fechamentos',fT1,fT1p,fT2,fT2p,false,'num'],
     ['↳ por Leads',fL1,fL1p,fL2,fL2p,true,'num'],
     ['↳ por Indicação',fI1,fI1p,fI2,fI2p,true,'num'],
-    ['Taxa Comparec.',taxa1,taxa1p,taxa2,taxa2p,false,'taxa'],
+    ['Taxa Comparec.',taxa1,taxa1p,taxa2,taxa2p,false,'taxa',{num1:re1,den1:ag1,num1p:re1p,den1p:ag1p,num2:re2,den2:ag2,num2p:re2p,den2p:ag2p}],
   ];
 
-  return rows.map(([label,v1,v1p,v2,v2p,sub,kind])=>{
+  return rows.map(([label,v1,v1p,v2,v2p,sub,kind,blend])=>{
     const isNum=kind==='num';
     const d1=isNum?dltS(v1,v1p):'';
     const d2=isNum?dltS(v2,v2p):'';
-    let totalCell,evolCell,v1disp,v2disp;
+    let totLW,totCW,evolCell,v1disp,v2disp;
     if(isNum){
-      totalCell=`<td class="grp tot-col">${v1+v2}</td>`;
-      evolCell=`<td>${evolPct(v2,v1)}</td>`;
+      totLW=v1+v1p; totCW=v2+v2p;
+      evolCell=`<td>${evolPct(totCW,totLW)}</td>`;
       v1disp=v1;v2disp=v2;
     }else{
-      const n1=parseFloat(v1)||0,n2=parseFloat(v2)||0;
-      totalCell=`<td class="grp tot-col">—</td>`;
-      evolCell=`<td>${ppDiff(n2,n1)}</td>`;
+      const denLW=blend.den1+blend.den1p, denCW=blend.den2+blend.den2p;
+      const pctLW=denLW>0?(blend.num1+blend.num1p)/denLW*100:null;
+      const pctCW=denCW>0?(blend.num2+blend.num2p)/denCW*100:null;
+      totLW=pctLW===null?'—':pctLW.toFixed(1)+'%';
+      totCW=pctCW===null?'—':pctCW.toFixed(1)+'%';
+      evolCell=`<td>${ppDiff(pctCW||0,pctLW||0)}</td>`;
       v1disp=kind==='taxa'?`<span class="badge ${taxaCls(v1)}">${v1}</span>`:v1;
       v2disp=kind==='taxa'?`<span class="badge ${taxaCls(v2)}">${v2}</span>`:v2;
     }
     return `<tr class="${sub?'sub':''}"><td>${label}</td>
-      <td class="grp">${v1disp}</td><td style="color:var(--text2)">${v1p}</td><td>${d1}</td>
-      <td class="grp">${v2disp}</td><td style="color:var(--text2)">${v2p}</td><td>${d2}</td>
-      ${totalCell}${evolCell}</tr>`;
+      <td class="grp">${v1disp}</td><td style="color:var(--text2)">${v1p}</td><td>${d1}</td><td class="tot-col">${totLW}</td>
+      <td class="grp">${v2disp}</td><td style="color:var(--text2)">${v2p}</td><td>${d2}</td><td class="tot-col">${totCW}</td>
+      ${evolCell}</tr>`;
   }).join('');
 }
 
