@@ -278,6 +278,18 @@ table.mtbl-compact td:first-child{text-align:left;font-weight:700;}
 table.mtbl-compact tr:last-child td{font-weight:800;background:var(--surface2);border-bottom:none;}
 table.mtbl-compact tr:hover td{background:var(--surface2);}
 
+/* ─── WIDE COMPARISON TABLE (Total + Evolução % por métrica, com scroll horizontal) ─── */
+table.mtbl-wide{width:100%;border-collapse:collapse;font-size:.74rem;white-space:nowrap;}
+table.mtbl-wide th{padding:8px 10px;background:var(--surface2);color:var(--text3);font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid var(--border);text-align:center;}
+table.mtbl-wide th.grp{border-left:2px solid var(--border2);}
+table.mtbl-wide th:first-child{text-align:left;}
+table.mtbl-wide td{padding:8px 10px;border-bottom:1px solid var(--border);text-align:center;color:var(--text);}
+table.mtbl-wide td.grp{border-left:2px solid var(--border2);}
+table.mtbl-wide td:first-child{text-align:left;font-weight:700;}
+table.mtbl-wide td.tot-col{font-weight:700;color:var(--text2);}
+table.mtbl-wide tr:last-child td{font-weight:800;background:var(--surface2);border-bottom:none;}
+table.mtbl-wide tr:hover td{background:var(--surface2);}
+
 /* ─── INSIGHTS ─── */
 .insights-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;}
 .ins{
@@ -442,27 +454,15 @@ table.mtbl-compact tr:hover td{background:var(--surface2);}
   <div class="tbl-wrap"><table class="mtbl" id="week-filial-table"></table></div>
 </div>
 
-<!-- ─── SEMANA ACUMULADA: SEMANA PASSADA VS ATUAL ─── -->
-<div class="sec-hdr anim">📅 Semana Acumulada — Semana Passada vs Semana Atual <span style="font-size:.65rem;font-weight:500;text-transform:none;letter-spacing:0;color:var(--text2);margin-left:6px;">ambas com 3 dias lançados (Seg-Qua), para comparação de ritmo</span></div>
-<div class="anim anim-d1" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:12px">
-  <div>
-    <div class="tbl-label">SEMANA PASSADA (20-22/07) — POR SDR</div>
-    <div class="tbl-wrap"><table class="mtbl-compact" id="cmp-sdr-lw-table"></table></div>
-  </div>
-  <div>
-    <div class="tbl-label">SEMANA ATUAL (27-29/07) — POR SDR</div>
-    <div class="tbl-wrap"><table class="mtbl-compact" id="cmp-sdr-cw-table"></table></div>
-  </div>
+<!-- ─── SEMANA ACUMULADA: SEMANA PASSADA VS ATUAL (com Total e % Evolução por métrica) ─── -->
+<div class="sec-hdr anim">📅 Semana Acumulada — Semana Passada vs Semana Atual <span style="font-size:.65rem;font-weight:500;text-transform:none;letter-spacing:0;color:var(--text2);margin-left:6px;">ambas com 3 dias lançados (Seg-Qua) · Total = soma das 2 semanas · Evol% = variação semana atual vs passada · role a tabela na horizontal para ver todas as métricas</span></div>
+<div class="anim anim-d1" style="margin-bottom:16px">
+  <div class="tbl-label">POR SDR — SEMANA PASSADA (20-22/07) vs SEMANA ATUAL (27-29/07)</div>
+  <div class="tbl-wrap"><table class="mtbl-wide" id="cmp-sdr-full-table"></table></div>
 </div>
-<div class="anim anim-d1" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-  <div>
-    <div class="tbl-label">SEMANA PASSADA (20-22/07) — POR FILIAL</div>
-    <div class="tbl-wrap"><table class="mtbl-compact" id="cmp-fil-lw-table"></table></div>
-  </div>
-  <div>
-    <div class="tbl-label">SEMANA ATUAL (27-29/07) — POR FILIAL</div>
-    <div class="tbl-wrap"><table class="mtbl-compact" id="cmp-fil-cw-table"></table></div>
-  </div>
+<div class="anim anim-d1">
+  <div class="tbl-label">POR FILIAL — SEMANA PASSADA (20-22/07) vs SEMANA ATUAL (27-29/07)</div>
+  <div class="tbl-wrap"><table class="mtbl-wide" id="cmp-fil-full-table"></table></div>
 </div>
 
 <!-- ─── INSIGHTS ─── -->
@@ -948,40 +948,52 @@ function renderVertCompare(){
   document.getElementById('vert-cw-tbody').innerHTML=buildVertRows(sC,sP);
 }
 
-function buildCompactSDRTable(dataObj){
-  const cols=['Rot.','Novos','At.Tel','At.Msg','Agend','Comp','Fech'];
-  let h=`<thead><tr><th>SDR</th>${cols.map(c=>`<th>${c}</th>`).join('')}</tr></thead><tbody>`;
-  const tot={rotina:0,novos:0,at_tel:0,at_msg:0,agendadas:0,realizadas:0,fec_leads:0,fec_indic:0};
-  SDRS.forEach(s=>{
-    const r=dataObj[s];Object.keys(tot).forEach(k=>tot[k]+=r[k]||0);
-    h+=`<tr><td>${s}</td><td>${r.rotina}</td><td>${r.novos}</td><td>${r.at_tel}</td><td>${r.at_msg}</td>
-    <td>${r.agendadas}</td><td>${r.realizadas}</td><td><strong>${r.fec_leads+r.fec_indic}</strong></td></tr>`;
-  });
-  h+=`<tr><td>TOTAL</td><td>${tot.rotina}</td><td>${tot.novos}</td><td>${tot.at_tel}</td><td>${tot.at_msg}</td>
-  <td>${tot.agendadas}</td><td>${tot.realizadas}</td><td><strong>${tot.fec_leads+tot.fec_indic}</strong></td></tr></tbody>`;
-  return h;
+// métrica 'fech' é derivada (fec_leads+fec_indic); as demais vêm direto do objeto
+const CMP_METRICS=[['rotina','Rot.'],['novos','Novos'],['at_tel','At.Tel'],['at_msg','At.Msg'],['agendadas','Agend'],['realizadas','Comp'],['fech','Fech']];
+function getMetricVal(r,m){ return m==='fech' ? (r.fec_leads||0)+(r.fec_indic||0) : (r[m]||0); }
+function evolPct(sa,sp){
+  if(sp===0) return sa>0?'<span class="up">novo</span>':'<span class="eq">—</span>';
+  const v=(sa-sp)/sp*100, sign=v>0?'+':'';
+  const cls=v>0?'up':v<0?'dn':'eq';
+  return `<span class="${cls}">${sign}${v.toFixed(0)}%</span>`;
 }
 
-function buildCompactFilialTable(dataObj){
-  const cols=['Rot.','Novos','At.Tel','At.Msg','Agend','Comp','Fech'];
-  let h=`<thead><tr><th>Filial</th>${cols.map(c=>`<th>${c}</th>`).join('')}</tr></thead><tbody>`;
-  const tot={rotina:0,novos:0,at_tel:0,at_msg:0,agendadas:0,realizadas:0,fec_leads:0,fec_indic:0};
-  FILS.forEach(f=>{
-    const r=dataObj[f];Object.keys(tot).forEach(k=>tot[k]+=(r[k]||0));
-    const fT=(r.fec_leads||0)+(r.fec_indic||0);
-    h+=`<tr><td>${f==='Goiania'?'Goiânia':f}</td><td>${r.rotina}</td><td>${r.novos}</td><td>${r.at_tel}</td><td>${r.at_msg}</td>
-    <td>${r.agendadas}</td><td>${r.realizadas}</td><td><strong>${fT}</strong></td></tr>`;
+function buildFullCompareTable(names,lastWeekObj,currentWeekObj,firstColLabel,nameFmt){
+  nameFmt=nameFmt||(n=>n);
+  let h='<thead><tr>';
+  h+=`<th rowspan="2">${firstColLabel}</th>`;
+  CMP_METRICS.forEach(([m,lbl])=>{ h+=`<th class="grp" colspan="4">${lbl}</th>`; });
+  h+='</tr><tr>';
+  CMP_METRICS.forEach(()=>{ h+=`<th class="grp">Sem.Pas</th><th>Sem.Atu</th><th>Total</th><th>Evol%</th>`; });
+  h+='</tr></thead><tbody>';
+
+  const grandTot={}; CMP_METRICS.forEach(([m])=>grandTot[m]={sp:0,sa:0});
+
+  names.forEach(n=>{
+    const sp=lastWeekObj[n]||{}, sa=currentWeekObj[n]||{};
+    h+=`<tr><td>${nameFmt(n)}</td>`;
+    CMP_METRICS.forEach(([m])=>{
+      const vsp=getMetricVal(sp,m), vsa=getMetricVal(sa,m), tot=vsp+vsa;
+      grandTot[m].sp+=vsp; grandTot[m].sa+=vsa;
+      h+=`<td class="grp">${vsp}</td><td>${vsa}</td><td class="tot-col">${tot}</td><td>${evolPct(vsa,vsp)}</td>`;
+    });
+    h+='</tr>';
   });
-  h+=`<tr><td>TOTAL</td><td>${tot.rotina}</td><td>${tot.novos}</td><td>${tot.at_tel}</td><td>${tot.at_msg}</td>
-  <td>${tot.agendadas}</td><td>${tot.realizadas}</td><td><strong>${tot.fec_leads+tot.fec_indic}</strong></td></tr></tbody>`;
+
+  h+=`<tr><td>TOTAL</td>`;
+  CMP_METRICS.forEach(([m])=>{
+    const {sp,sa}=grandTot[m], tot=sp+sa;
+    h+=`<td class="grp">${sp}</td><td>${sa}</td><td class="tot-col">${tot}</td><td>${evolPct(sa,sp)}</td>`;
+  });
+  h+='</tr></tbody>';
   return h;
 }
 
 function renderWeekCompareTables(){
-  document.getElementById('cmp-sdr-lw-table').innerHTML=buildCompactSDRTable(WEEK_LASTWEEK_SDR);
-  document.getElementById('cmp-sdr-cw-table').innerHTML=buildCompactSDRTable(WEEK_SDR);
-  document.getElementById('cmp-fil-lw-table').innerHTML=buildCompactFilialTable(WEEK_LASTWEEK_FILIAL);
-  document.getElementById('cmp-fil-cw-table').innerHTML=buildCompactFilialTable(WEEK_FILIAL);
+  document.getElementById('cmp-sdr-full-table').innerHTML=
+    buildFullCompareTable(SDRS,WEEK_LASTWEEK_SDR,WEEK_SDR,'SDR');
+  document.getElementById('cmp-fil-full-table').innerHTML=
+    buildFullCompareTable(FILS,WEEK_LASTWEEK_FILIAL,WEEK_FILIAL,'Filial',f=>f==='Goiania'?'Goiânia':f);
 }
 
 function renderInsights(){
