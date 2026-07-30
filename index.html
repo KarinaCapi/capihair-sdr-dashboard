@@ -402,25 +402,25 @@ table.mtbl-wide tr:hover td{background:var(--surface2);}
   </div>
 </div>
 
-<!-- ─── COMPARAÇÃO SEMANAL: MESMO DIA ─── -->
-<div class="sec-hdr anim">📊 Comparação Semanal — Mesmo Dia (Quarta) da Semana Passada vs Atual</div>
-<div class="analysis-grid anim anim-d1">
-  <div class="card">
-    <div class="card-hdr purple">
-      <span class="card-hdr-icon">↕</span>
-      <span class="card-hdr-title">Semana Passada — Qua 22/07 vs Ter 21/07</span>
-    </div>
-    <table class="t"><thead><tr><th>Métrica</th><th>Qua 22/07</th><th>Ter 21/07</th><th>Δ</th></tr></thead>
-    <tbody id="vert-lw-tbody"></tbody></table>
-  </div>
-  <div class="card">
-    <div class="card-hdr blue">
-      <span class="card-hdr-icon">↕</span>
-      <span class="card-hdr-title">Semana Atual — Qua 29/07 vs Ter 28/07</span>
-    </div>
-    <table class="t"><thead><tr><th>Métrica</th><th>Qua 29/07</th><th>Ter 28/07</th><th>Δ</th></tr></thead>
-    <tbody id="vert-cw-tbody"></tbody></table>
-  </div>
+<!-- ─── COMPARAÇÃO SEMANAL: MESMO DIA (com Total e Evolução%) ─── -->
+<div class="sec-hdr anim">📊 Comparação Semanal — Mesmo Dia (Quarta) da Semana Passada vs Atual <span style="font-size:.65rem;font-weight:500;text-transform:none;letter-spacing:0;color:var(--text2);margin-left:6px;">Total = soma Qua 22/07 + Qua 29/07 · Evol% = variação semana atual vs passada</span></div>
+<div class="tbl-wrap anim anim-d1">
+<table class="mtbl-wide" id="vert-compare-wide-table">
+<thead>
+<tr>
+  <th rowspan="2">Métrica</th>
+  <th class="grp" colspan="3">Semana Passada</th>
+  <th class="grp" colspan="3">Semana Atual</th>
+  <th class="grp" rowspan="2">Total</th>
+  <th rowspan="2">Evol%</th>
+</tr>
+<tr>
+  <th class="grp">Qua 22/07</th><th>Ter 21/07</th><th>Δ</th>
+  <th class="grp">Qua 29/07</th><th>Ter 28/07</th><th>Δ</th>
+</tr>
+</thead>
+<tbody id="vert-compare-wide-tbody"></tbody>
+</table>
 </div>
 
 <!-- ─── FUNIL ─── -->
@@ -913,39 +913,73 @@ function renderWeek(){
 const sLW1=m=>fils().reduce((a,f)=>a+sumSDR((D1_LASTWEEK[f]||{})[m]||{}),0); // Qua 22/07
 const sLW2=m=>fils().reduce((a,f)=>a+sumSDR((D2_LASTWEEK[f]||{})[m]||{}),0); // Ter 21/07
 
-function buildVertRows(cF,pF){
-  const rot=cF('rotina'),rP=pF('rotina'),nov=cF('novos'),nP=pF('novos');
-  const lig=cF('ligacoes'),lP=pF('ligacoes');
-  const tel=cF('at_tel'),tP=pF('at_tel'),msg=cF('at_msg'),mP=pF('at_msg');
-  const agend=cF('agendadas'),aP=pF('agendadas');
-  const real=cF('realizadas'),rP2=pF('realizadas');
-  const fL=cF('fec_leads'),fLP=pF('fec_leads'),fI=cF('fec_indic'),fIP=pF('fec_indic');
-  const fT=fL+fI,fTP=fLP+fIP;
-  const taxa=fmt(real,agend),taxaP=fmt(rP2,aP);
-  const pAN=fmtAN(tel,msg,nov),pANp=fmtAN(tP,mP,nP);
+function ppDiff(n2,n1){
+  const diff=n2-n1, cls=diff>0?'up':diff<0?'dn':'eq', sign=diff>0?'+':'';
+  return `<span class="${cls}">${sign}${diff.toFixed(1)}pp</span>`;
+}
+
+function buildVertCompareWide(){
+  const rot1=sLW1('rotina'),rot1p=sLW2('rotina'),nov1=sLW1('novos'),nov1p=sLW2('novos');
+  const lig1=sLW1('ligacoes'),lig1p=sLW2('ligacoes');
+  const tel1=sLW1('at_tel'),tel1p=sLW2('at_tel'),msg1=sLW1('at_msg'),msg1p=sLW2('at_msg');
+  const ag1=sLW1('agendadas'),ag1p=sLW2('agendadas');
+  const re1=sLW1('realizadas'),re1p=sLW2('realizadas');
+  const fL1=sLW1('fec_leads'),fL1p=sLW2('fec_leads'),fI1=sLW1('fec_indic'),fI1p=sLW2('fec_indic');
+  const fT1=fL1+fI1,fT1p=fL1p+fI1p;
+  const taxa1=fmt(re1,ag1),taxa1p=fmt(re1p,ag1p);
+  const pAN1=fmtAN(tel1,msg1,nov1),pAN1p=fmtAN(tel1p,msg1p,nov1p);
+
+  const rot2=sC('rotina'),rot2p=sP('rotina'),nov2=sC('novos'),nov2p=sP('novos');
+  const lig2=sC('ligacoes'),lig2p=sP('ligacoes');
+  const tel2=sC('at_tel'),tel2p=sP('at_tel'),msg2=sC('at_msg'),msg2p=sP('at_msg');
+  const ag2=sC('agendadas'),ag2p=sP('agendadas');
+  const re2=sC('realizadas'),re2p=sP('realizadas');
+  const fL2=sC('fec_leads'),fL2p=sP('fec_leads'),fI2=sC('fec_indic'),fI2p=sP('fec_indic');
+  const fT2=fL2+fI2,fT2p=fL2p+fI2p;
+  const taxa2=fmt(re2,ag2),taxa2p=fmt(re2p,ag2p);
+  const pAN2=fmtAN(tel2,msg2,nov2),pAN2p=fmtAN(tel2p,msg2p,nov2p);
+
   const rows=[
-    ['Ligações',lig,lP,dlt(lig,lP),false],
-    ['Leads Total',rot+nov,rP+nP,dlt(rot+nov,rP+nP),false],
-    ['↳ Rotina',rot,rP,dltS(rot,rP),true],['↳ Novos',nov,nP,dltS(nov,nP),true],
-    ['At. Telefone',tel,tP,dlt(tel,tP),false],['At. Mensagem',msg,mP,dlt(msg,mP),false],
-    ['% At./Novos',pAN,pANp,dltS(parseFloat(pAN)||0,parseFloat(pANp)||0),false],
-    ['Agendamentos',agend,aP,dlt(agend,aP),false],
-    ['Comparecimentos',real,rP2,dlt(real,rP2),false],
-    ['Fechamentos',fT,fTP,dlt(fT,fTP),false],
-    ['↳ por Leads',fL,fLP,dltS(fL,fLP),true],['↳ por Indicação',fI,fIP,dltS(fI,fIP),true],
-    ['Taxa Comparec.',taxa,taxaP,'',false],
+    ['Ligações',lig1,lig1p,lig2,lig2p,false,'num'],
+    ['Leads Total',rot1+nov1,rot1p+nov1p,rot2+nov2,rot2p+nov2p,false,'num'],
+    ['↳ Rotina',rot1,rot1p,rot2,rot2p,true,'num'],
+    ['↳ Novos',nov1,nov1p,nov2,nov2p,true,'num'],
+    ['At. Telefone',tel1,tel1p,tel2,tel2p,false,'num'],
+    ['At. Mensagem',msg1,msg1p,msg2,msg2p,false,'num'],
+    ['% At./Novos',pAN1,pAN1p,pAN2,pAN2p,false,'pct'],
+    ['Agendamentos',ag1,ag1p,ag2,ag2p,false,'num'],
+    ['Comparecimentos',re1,re1p,re2,re2p,false,'num'],
+    ['Fechamentos',fT1,fT1p,fT2,fT2p,false,'num'],
+    ['↳ por Leads',fL1,fL1p,fL2,fL2p,true,'num'],
+    ['↳ por Indicação',fI1,fI1p,fI2,fI2p,true,'num'],
+    ['Taxa Comparec.',taxa1,taxa1p,taxa2,taxa2p,false,'taxa'],
   ];
-  return rows.map(([l,c,p,d,sub])=>{
-    const isT=l==='Taxa Comparec.';
-    return `<tr class="${sub?'sub':''}"><td>${l}</td>
-      <td>${isT?`<span class="badge ${taxaCls(c)}">${c}</span>`:c}</td>
-      <td style="color:var(--text2)">${p}</td><td>${d||''}</td></tr>`;
+
+  return rows.map(([label,v1,v1p,v2,v2p,sub,kind])=>{
+    const isNum=kind==='num';
+    const d1=isNum?dltS(v1,v1p):'';
+    const d2=isNum?dltS(v2,v2p):'';
+    let totalCell,evolCell,v1disp,v2disp;
+    if(isNum){
+      totalCell=`<td class="grp tot-col">${v1+v2}</td>`;
+      evolCell=`<td>${evolPct(v2,v1)}</td>`;
+      v1disp=v1;v2disp=v2;
+    }else{
+      const n1=parseFloat(v1)||0,n2=parseFloat(v2)||0;
+      totalCell=`<td class="grp tot-col">—</td>`;
+      evolCell=`<td>${ppDiff(n2,n1)}</td>`;
+      v1disp=kind==='taxa'?`<span class="badge ${taxaCls(v1)}">${v1}</span>`:v1;
+      v2disp=kind==='taxa'?`<span class="badge ${taxaCls(v2)}">${v2}</span>`:v2;
+    }
+    return `<tr class="${sub?'sub':''}"><td>${label}</td>
+      <td class="grp">${v1disp}</td><td style="color:var(--text2)">${v1p}</td><td>${d1}</td>
+      <td class="grp">${v2disp}</td><td style="color:var(--text2)">${v2p}</td><td>${d2}</td>
+      ${totalCell}${evolCell}</tr>`;
   }).join('');
 }
 
 function renderVertCompare(){
-  document.getElementById('vert-lw-tbody').innerHTML=buildVertRows(sLW1,sLW2);
-  document.getElementById('vert-cw-tbody').innerHTML=buildVertRows(sC,sP);
+  document.getElementById('vert-compare-wide-tbody').innerHTML=buildVertCompareWide();
 }
 
 // métrica 'fech' é derivada (fec_leads+fec_indic); as demais vêm direto do objeto
