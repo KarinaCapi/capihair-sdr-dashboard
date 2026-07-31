@@ -583,7 +583,7 @@ function dlt(c,p){
   if(d<0)return `<span class="dn">▼ ${d} <small>(${pct}%)</small></span>`;
   return `<span class="eq">—</span>`;
 }
-function dltS(c,p){const d=c-p;if(!d)return `<span class="eq">—</span>`;return d>0?`<span class="up">▲ +${d}</span>`:`<span class="dn">▼ ${d}</span>`;}
+function dltS(c,p){const d=Math.round((c-p)*10)/10;if(!d)return `<span class="eq">—</span>`;return d>0?`<span class="up">▲ +${d}</span>`:`<span class="dn">▼ ${d}</span>`;}
 
 // Animated counter
 function animCount(el,target,suffix=''){
