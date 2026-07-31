@@ -632,10 +632,10 @@ function renderKPIs(){
 
   const kpis=[
     {l:'Leads Total',v:rot+nov,s:`Rotina ${rot} · Novos ${nov}`,c:'kpi-purple'},
-    {l:'Ligações',v:lig,s:`Sexta: ${sP('ligacoes')}`,c:lig>sP('ligacoes')?'kpi-good':''},
+    {l:'Ligações',v:lig,s:`Quarta: ${sP('ligacoes')}`,c:lig>sP('ligacoes')?'kpi-good':''},
     {l:'At. Telefone',v:tel,s:`Mensagem: ${msg}`,c:''},
     {l:'% At./Novos',v:pAN,s:`(Tel+Msg) ÷ Novos`,c:parseFloat(pAN)>=60?'kpi-good':'kpi-alert'},
-    {l:'Agendamentos',v:agend,s:`Sexta: ${sP('agendadas')}`,c:agend>sP('agendadas')?'kpi-good':''},
+    {l:'Agendamentos',v:agend,s:`Quarta: ${sP('agendadas')}`,c:agend>sP('agendadas')?'kpi-good':''},
     {l:'Comparecimentos',v:real,s:`Taxa: ${taxa}`,c:tCls},
     {l:'Taxa Comparec.',v:taxa,s:'Meta: 65%',c:tCls},
     {l:'Fechamentos (SDR)',v:fT,s:`Leads ${fecL} · Indicação ${fecI}`,c:fT>0?'kpi-good':''},
