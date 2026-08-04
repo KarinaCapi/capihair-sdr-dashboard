@@ -456,12 +456,12 @@ table.mtbl-wide tr:hover td{background:var(--surface2);}
 <!-- ─── SEMANA ACUMULADA: SEMANA PASSADA VS ATUAL (com Total e % Evolução por métrica) ─── -->
 <div class="sec-hdr anim">📅 Semana Acumulada — Semana Passada vs Semana Atual <span style="font-size:.65rem;font-weight:500;text-transform:none;letter-spacing:0;color:var(--text2);margin-left:6px;">ambas com 1 dia lançado (Segunda) — comparação de ritmo inicial da semana · Total = soma do(s) dia(s) lançado(s) · Evol% = variação do Total atual vs passado · dividido em 2 blocos de métricas para caber sem rolagem</span></div>
 
-<div class="tbl-label" style="margin-top:4px">POR SDR — VOLUME (Rotina, Novos, At.Tel, At.Msg)</div>
+<div class="tbl-label" style="margin-top:4px">POR SDR — VOLUME (Rotina, Novos, Ligações, At.Tel, At.Msg)</div>
 <div class="tbl-wrap anim anim-d1" style="margin-bottom:16px"><table class="mtbl-wide" id="cmp-sdr-full-table-1"></table></div>
 <div class="tbl-label">POR SDR — RESULTADO (Agendamentos, Comparecimentos, Fechamentos)</div>
 <div class="tbl-wrap anim anim-d1" style="margin-bottom:20px"><table class="mtbl-wide" id="cmp-sdr-full-table-2"></table></div>
 
-<div class="tbl-label">POR FILIAL — VOLUME (Rotina, Novos, At.Tel, At.Msg)</div>
+<div class="tbl-label">POR FILIAL — VOLUME (Rotina, Novos, Ligações, At.Tel, At.Msg)</div>
 <div class="tbl-wrap anim anim-d1" style="margin-bottom:16px"><table class="mtbl-wide" id="cmp-fil-full-table-1"></table></div>
 <div class="tbl-label">POR FILIAL — RESULTADO (Agendamentos, Comparecimentos, Fechamentos)</div>
 <div class="tbl-wrap anim anim-d1"><table class="mtbl-wide" id="cmp-fil-full-table-2"></table></div>
@@ -509,11 +509,11 @@ const MONTH_ACC={
   Waleska:{rotina:20,novos:28,at_tel:9,at_msg:10,agendadas:5,realizadas:2,fec_leads:1,fec_indic:0},
 };
 const WEEK_SDR={
-  Joyce:{rotina:0,novos:4,at_tel:9,at_msg:5,agendadas:3,realizadas:1,fec_leads:0,fec_indic:0},
-  Jordana:{rotina:0,novos:0,at_tel:0,at_msg:0,agendadas:0,realizadas:0,fec_leads:0,fec_indic:0},
-  Luana:{rotina:26,novos:12,at_tel:7,at_msg:15,agendadas:7,realizadas:1,fec_leads:0,fec_indic:0},
-  Fabi:{rotina:33,novos:12,at_tel:4,at_msg:17,agendadas:3,realizadas:0,fec_leads:0,fec_indic:0},
-  Waleska:{rotina:20,novos:28,at_tel:9,at_msg:10,agendadas:5,realizadas:2,fec_leads:1,fec_indic:0},
+  Joyce:{rotina:0,novos:4,ligacoes:223,at_tel:9,at_msg:5,agendadas:3,realizadas:1,fec_leads:0,fec_indic:0},
+  Jordana:{rotina:0,novos:0,ligacoes:0,at_tel:0,at_msg:0,agendadas:0,realizadas:0,fec_leads:0,fec_indic:0},
+  Luana:{rotina:26,novos:12,ligacoes:118,at_tel:7,at_msg:15,agendadas:7,realizadas:1,fec_leads:0,fec_indic:0},
+  Fabi:{rotina:33,novos:12,ligacoes:107,at_tel:4,at_msg:17,agendadas:3,realizadas:0,fec_leads:0,fec_indic:0},
+  Waleska:{rotina:20,novos:28,ligacoes:257,at_tel:9,at_msg:10,agendadas:5,realizadas:2,fec_leads:1,fec_indic:0},
 };
 const WEEK_FILIAL={
   Botafogo:{rotina:55,novos:24,ligacoes:210,at_tel:11,at_msg:29,agendadas:8,realizadas:2,fec_leads:0,fec_indic:0},
@@ -550,11 +550,11 @@ const D2_LASTWEEK={
 
 // ─── SEMANA ACUMULADA: semana passada (Segunda 27/07, capada a 1 dia) vs semana atual (Segunda 03/08, 1 dia lançado) ───
 const WEEK_LASTWEEK_SDR={
-  Joyce:{rotina:0,novos:0,at_tel:0,at_msg:0,agendadas:1,realizadas:1,fec_leads:1,fec_indic:0},
-  Jordana:{rotina:25,novos:9,at_tel:5,at_msg:2,agendadas:3,realizadas:3,fec_leads:1,fec_indic:1},
-  Luana:{rotina:31,novos:11,at_tel:33,at_msg:10,agendadas:2,realizadas:1,fec_leads:0,fec_indic:0},
-  Fabi:{rotina:25,novos:6,at_tel:4,at_msg:4,agendadas:3,realizadas:1,fec_leads:1,fec_indic:0},
-  Waleska:{rotina:15,novos:8,at_tel:5,at_msg:3,agendadas:2,realizadas:1,fec_leads:0,fec_indic:0},
+  Joyce:{rotina:0,novos:0,ligacoes:0,at_tel:0,at_msg:0,agendadas:1,realizadas:1,fec_leads:1,fec_indic:0},
+  Jordana:{rotina:25,novos:9,ligacoes:147,at_tel:5,at_msg:2,agendadas:3,realizadas:3,fec_leads:1,fec_indic:1},
+  Luana:{rotina:31,novos:11,ligacoes:102,at_tel:33,at_msg:10,agendadas:2,realizadas:1,fec_leads:0,fec_indic:0},
+  Fabi:{rotina:25,novos:6,ligacoes:42,at_tel:4,at_msg:4,agendadas:3,realizadas:1,fec_leads:1,fec_indic:0},
+  Waleska:{rotina:15,novos:8,ligacoes:145,at_tel:5,at_msg:3,agendadas:2,realizadas:1,fec_leads:0,fec_indic:0},
 };
 const WEEK_LASTWEEK_FILIAL={
   Botafogo:{rotina:76,novos:20,ligacoes:251,at_tel:30,at_msg:9,agendadas:7,realizadas:3,fec_leads:2,fec_indic:0},
@@ -989,7 +989,7 @@ function renderVertCompare(){
 
 // métrica 'fech' é derivada (fec_leads+fec_indic); as demais vêm direto do objeto
 // dividida em 2 blocos (volume / resultado) para as tabelas caberem sem rolagem horizontal
-const CMP_METRICS_VOL=[['rotina','Rot.'],['novos','Novos'],['at_tel','At.Tel'],['at_msg','At.Msg']];
+const CMP_METRICS_VOL=[['rotina','Rot.'],['novos','Novos'],['ligacoes','Lig.'],['at_tel','At.Tel'],['at_msg','At.Msg']];
 const CMP_METRICS_RES=[['agendadas','Agend'],['realizadas','Comp'],['fech','Fech']];
 function getMetricVal(r,m){ return m==='fech' ? (r.fec_leads||0)+(r.fec_indic||0) : (r[m]||0); }
 function evolPct(sa,sp){
