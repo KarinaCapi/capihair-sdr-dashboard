@@ -529,11 +529,11 @@ const CHART_S4={
   Goiania:{ligacoes:[256],agendadas:[5],realizadas:[2]},
 };
 
-// Vendas fechadas pelos Closers (equipe de vendas, após handoff da SDR) — nenhuma informada para 03/08
+// Vendas fechadas pelos Closers (equipe de vendas, após handoff da SDR)
 const VENDAS_CLOSERS={
-  Botafogo:{},
+  Botafogo:{Assucena:1},
   Barra:{},
-  Goiania:{},
+  Goiania:{Tayany:1},
 };
 
 // ─── COMPARAÇÃO SEMANAL: mesmo dia (Segunda) da semana passada, D1/D2 por filial/SDR ───
@@ -1062,7 +1062,7 @@ function renderInsights(){
     {type:'info',icon:'⭐',title:'Ranking do Dia — Waleska Isolada na Liderança',body:`Waleska lidera com folga (score 51,7): único fechamento do dia, 2 comparecimentos e 257 ligações somadas (Barra+Goiânia). Luana em 2º (score 28,8): 1 comparecimento e 118 ligações em Botafogo+Barra. Fabi em 3º (score 16,7), sem comparecimentos. <strong>Joyce e Jordana aparecem zeradas (score 0)</strong> — reforça a lacuna de lançamento do dia.`},
     {type:'info',icon:'📅',title:'Semana S1 de Agosto — Apenas 1 Dia Lançado',body:`Semana 03-07/08 tem só a segunda-feira lançada até o momento: rotina 79, novos 52, 15 agendamentos, 3 comparecimentos (taxa 20,0%), 1 fechamento. Números preliminares — a leitura de ritmo real só fica clara com mais dias lançados.`},
     {type:'info',icon:'📅',title:'Acumulado Agosto — Início do Mês',body:`Mês recém-iniciado (1 dia útil lançado, 03/08): rotina 79 · novos 52 · agendamentos 15 · comparecimentos 3 (taxa 20,0%) · fechamentos 1. Como Joyce e Jordana estão zeradas no único dia lançado, o acumulado do mês fica artificialmente concentrado em Luana, Fabi e Waleska por enquanto.`},
-    {type:'info',icon:'💰',title:'Vendas dos Closers',body:`Nenhuma venda de closer informada para 03/08 até o momento — campo zerado nas 3 filiais.`}
+    {type:'good',icon:'💰',title:'Vendas dos Closers',body:`<strong>2 vendas</strong> fechadas pela equipe de closers em 03/08: Assucena (1) em Botafogo · Tayany (1) em Goiânia. Nenhuma venda em Barra.`}
 ];
   document.getElementById('insights-grid').innerHTML=ins.map(i=>`
     <div class="ins ${i.type}">
