@@ -531,9 +531,9 @@ const CHART_S4={
 
 // Vendas fechadas pelos Closers (equipe de vendas, após handoff da SDR)
 const VENDAS_CLOSERS={
-  Botafogo:{},
-  Barra:{},
-  Goiania:{},
+  Botafogo:{'João Pedro':4,Assucena:2},
+  Barra:{Fabi:2},
+  Goiania:{Luana:2},
 };
 
 // ─── COMPARAÇÃO SEMANAL: mesmo dia (Quinta) da semana passada, D1/D2 por filial/SDR ───
@@ -1059,7 +1059,7 @@ function renderInsights(){
     {type:'good',icon:'🤝',title:'Fechamentos do Dia: 6 (0 Leads + 6 Indicação)',body:`Total de <strong>6 fechamentos</strong>, todos por indicação — acima de ontem (4) e do horizontal de 06/07 (5). Liderados por <strong>Fabi</strong> (3, um em cada filial: Botafogo, Barra e Goiânia), com <strong>Joyce</strong> (1, Botafogo), <strong>Luana</strong> (1, Botafogo) e <strong>Waleska</strong> (1, Goiânia) completando o dia.`},
     {type:'info',icon:'⭐',title:'Ranking do Dia',body:`<strong>Fabi</strong> lidera (score 62,5) — 3 fechamentos distribuídos nas 3 filiais e 4 comparecimentos. Joyce em 2º (score 37,5, 145 ligações e 1 fechamento em Botafogo). Waleska em 3º (score 34,7, 1 fechamento em Goiânia). Luana em 4º (score 30,1, 151 ligações e 1 fechamento em Botafogo). Jordana segue isolada em último (score 0,0) — nenhum lançamento no dia.`},
     {type:'info',icon:'🏢',title:'Por Filial — Goiânia em 100%, Botafogo Acima de 100%',body:`Botafogo (Luana + Fabi): 3 agendamentos, 5 comparecimentos (166,7% de taxa, puxado por agendamentos anteriores), 2 fechamentos (indicação). Barra (Joyce + Fabi): 3 agendamentos, 2 comparecimentos (66,7%), 2 fechamentos (indicação). Goiânia (Fabi + Waleska): 3 agendamentos, 3 comparecimentos (100,0%), 2 fechamentos (indicação) — as 3 filiais fecharam o dia com taxa de comparecimento acima ou próxima da meta.`},
-    {type:'info',icon:'💰',title:'Vendas dos Closers — Não Informado',body:`Nenhuma venda de closers foi reportada para 06/08 até o momento desta execução. Campo mantido zerado (sem valores inventados), a atualizar manualmente se a Karina informar depois.`},
+    {type:'good',icon:'💰',title:'Vendas dos Closers: 10',body:`Total de <strong>10 vendas</strong> pelos closers em 06/08 — Botafogo lidera com 6 (João Pedro: 4 · Assucena: 2), seguido por Barra (Fabi: 2) e Goiânia (Luana: 2, closer distinta da SDR de mesmo nome). Vendas de closers são informadas manualmente pela Karina e não vêm da planilha.`},
     {type:'good',icon:'📅',title:'Semana S1 (03-06/08) — 4 Dias Lançados',body:`Rotina 343 · Novos 145 · Ligações 2.517 · At.Tel 137 · At.Msg 131 · Agendamentos 56 · Comparecimentos 41 (taxa 73,2%) · Fechamentos SDR 15 (5 leads + 10 indicação). Vs. mesmo trecho da semana passada capado a 4 dias (Seg 27/07 a Qui 30/07): agendamentos +19% (47→56), comparecimentos +46% (28→41), fechamentos SDR +36% (11→15), taxa de comparecimento +13,6pp (59,6%→73,2%) — ritmo de conversão consistentemente melhor que a semana anterior.`},
     {type:'info',icon:'📅',title:'Acumulado Agosto — 4 Dias Lançados',body:`Início de mês (03/08 a 06/08): rotina 343 · novos 145 · agendamentos 56 · comparecimentos 41 (taxa 73,2%, acima da meta) · fechamentos SDR 15 (5 leads + 10 indicação). Jordana segue zerada nos 4 dias do mês — acumulado é piso, não volume real de operação, até que ela retome os lançamentos.`}
   ];
