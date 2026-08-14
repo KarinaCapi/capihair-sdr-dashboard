@@ -471,11 +471,11 @@ table.mtbl-wide tr:hover td{background:var(--surface2);}
 <div class="insights-grid" id="insights-grid"></div>
 
 <div class="meta-row" style="margin-top:36px;justify-content:center;">
-  <span class="meta-chip">📌 Dados: Qui 13/08/2026 · extraído em 14/08/2026 (execução agendada)</span>
+  <span class="meta-chip">📌 Dados: Qui 13/08/2026 · extraído em 14/08/2026, reextraído após novos lançamentos (execução agendada)</span>
   <span class="meta-chip">↕ Ref. vertical: Qua 12/08</span>
   <span class="meta-chip">↔ Ref. horizontal: Seg 13/07</span>
-  <span class="meta-chip">🌴 Jordana de férias (8º dia) · Fechamentos do dia: 1 (0 lead + 1 indicação)</span>
-  <span class="meta-chip">⚠ Apenas 2 SDRs ativas hoje (Luana, Waleska) · Barra zerada</span>
+  <span class="meta-chip">🌴 Jordana de férias (8º dia) · Fechamentos do dia: 5 (4 leads + 1 indicação)</span>
+  <span class="meta-chip">🔄 Reextraído: Joyce (Barra) e Fabi (Botafogo) lançaram após a 1ª leitura</span>
   <span class="meta-chip">🎯 Meta comparecimento: 65%</span>
 </div>
 
@@ -488,9 +488,9 @@ const FILS=['Botafogo','Barra','Goiania'];
 let CF='all';
 
 const DHOJE={
-  Botafogo:{rotina:{Joyce:0,Jordana:0,Luana:28,Fabi:0,Waleska:0},novos:{Joyce:0,Jordana:0,Luana:7,Fabi:0,Waleska:0},ligacoes:{Joyce:0,Jordana:0,Luana:160,Fabi:0,Waleska:0},at_tel:{Joyce:0,Jordana:0,Luana:12,Fabi:0,Waleska:0},at_msg:{Joyce:0,Jordana:0,Luana:11,Fabi:0,Waleska:0},agendadas:{Joyce:0,Jordana:0,Luana:3,Fabi:0,Waleska:0},realizadas:{Joyce:0,Jordana:0,Luana:1,Fabi:0,Waleska:0},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
-  Barra:{rotina:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},novos:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},ligacoes:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},at_tel:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},at_msg:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},agendadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},realizadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
-  Goiania:{rotina:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:29},novos:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:8},ligacoes:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:232},at_tel:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:5},at_msg:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:5},agendadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:6},realizadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:2},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:1}},
+  Botafogo:{rotina:{Joyce:0,Jordana:0,Luana:28,Fabi:13,Waleska:0},novos:{Joyce:0,Jordana:0,Luana:7,Fabi:7,Waleska:0},ligacoes:{Joyce:0,Jordana:0,Luana:160,Fabi:100,Waleska:0},at_tel:{Joyce:0,Jordana:0,Luana:12,Fabi:4,Waleska:0},at_msg:{Joyce:0,Jordana:0,Luana:11,Fabi:5,Waleska:0},agendadas:{Joyce:0,Jordana:0,Luana:3,Fabi:2,Waleska:0},realizadas:{Joyce:1,Jordana:0,Luana:1,Fabi:1,Waleska:0},fec_leads:{Joyce:1,Jordana:0,Luana:0,Fabi:1,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
+  Barra:{rotina:{Joyce:17,Jordana:0,Luana:0,Fabi:0,Waleska:0},novos:{Joyce:9,Jordana:0,Luana:0,Fabi:0,Waleska:0},ligacoes:{Joyce:144,Jordana:0,Luana:0,Fabi:0,Waleska:0},at_tel:{Joyce:8,Jordana:0,Luana:0,Fabi:0,Waleska:0},at_msg:{Joyce:8,Jordana:0,Luana:0,Fabi:0,Waleska:0},agendadas:{Joyce:2,Jordana:0,Luana:0,Fabi:0,Waleska:0},realizadas:{Joyce:1,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_leads:{Joyce:2,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
+  Goiania:{rotina:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:29},novos:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:9},ligacoes:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:232},at_tel:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:5},at_msg:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:5},agendadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:6},realizadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:2},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:1}},
 };
 
 const DANT={
@@ -518,25 +518,25 @@ const D2_LASTWEEK={
 };
 
 const MONTH_ACC={
-  Joyce:{rotina:117,novos:82,at_tel:72,at_msg:37,agendadas:23,realizadas:13,fec_leads:1,fec_indic:2},
+  Joyce:{rotina:134,novos:91,at_tel:80,at_msg:45,agendadas:25,realizadas:15,fec_leads:4,fec_indic:2},
   Jordana:{rotina:0,novos:0,at_tel:0,at_msg:0,agendadas:2,realizadas:2,fec_leads:2,fec_indic:0},
   Luana:{rotina:242,novos:98,at_tel:122,at_msg:79,agendadas:31,realizadas:14,fec_leads:1,fec_indic:2},
-  Fabi:{rotina:143,novos:96,at_tel:60,at_msg:66,agendadas:32,realizadas:21,fec_leads:1,fec_indic:7},
-  Waleska:{rotina:215,novos:201,at_tel:48,at_msg:80,agendadas:35,realizadas:27,fec_leads:5,fec_indic:3},
+  Fabi:{rotina:156,novos:103,at_tel:64,at_msg:71,agendadas:34,realizadas:22,fec_leads:2,fec_indic:7},
+  Waleska:{rotina:215,novos:202,at_tel:48,at_msg:80,agendadas:35,realizadas:27,fec_leads:5,fec_indic:3},
 };
 
 const WEEK_SDR={
-  Joyce:{rotina:46,novos:36,ligacoes:515,at_tel:29,at_msg:18,agendadas:6,realizadas:4,fec_leads:0,fec_indic:0},
+  Joyce:{rotina:63,novos:45,ligacoes:659,at_tel:37,at_msg:26,agendadas:8,realizadas:6,fec_leads:3,fec_indic:0},
   Jordana:{rotina:0,novos:0,ligacoes:0,at_tel:0,at_msg:0,agendadas:2,realizadas:2,fec_leads:2,fec_indic:0},
   Luana:{rotina:105,novos:32,ligacoes:641,at_tel:65,at_msg:33,agendadas:13,realizadas:5,fec_leads:0,fec_indic:0},
-  Fabi:{rotina:36,novos:26,ligacoes:270,at_tel:16,at_msg:8,agendadas:12,realizadas:5,fec_leads:0,fec_indic:3},
-  Waleska:{rotina:108,novos:75,ligacoes:764,at_tel:22,at_msg:47,agendadas:20,realizadas:10,fec_leads:1,fec_indic:1},
+  Fabi:{rotina:49,novos:33,ligacoes:370,at_tel:20,at_msg:13,agendadas:14,realizadas:6,fec_leads:1,fec_indic:3},
+  Waleska:{rotina:108,novos:76,ligacoes:764,at_tel:22,at_msg:47,agendadas:20,realizadas:10,fec_leads:1,fec_indic:1},
 };
 
 const WEEK_FILIAL={
-  Botafogo:{rotina:141,novos:58,ligacoes:911,at_tel:81,at_msg:41,agendadas:19,realizadas:5,fec_leads:0,fec_indic:0},
-  Barra:{rotina:47,novos:36,ligacoes:516,at_tel:29,at_msg:19,agendadas:11,realizadas:8,fec_leads:1,fec_indic:2},
-  Goiania:{rotina:107,novos:75,ligacoes:763,at_tel:22,at_msg:46,agendadas:23,realizadas:13,fec_leads:2,fec_indic:2},
+  Botafogo:{rotina:154,novos:65,ligacoes:1011,at_tel:85,at_msg:46,agendadas:21,realizadas:7,fec_leads:2,fec_indic:0},
+  Barra:{rotina:64,novos:45,ligacoes:660,at_tel:37,at_msg:27,agendadas:13,realizadas:9,fec_leads:3,fec_indic:2},
+  Goiania:{rotina:107,novos:76,ligacoes:763,at_tel:22,at_msg:46,agendadas:23,realizadas:13,fec_leads:2,fec_indic:2},
 };
 
 const WEEK_LASTWEEK_SDR={
@@ -555,10 +555,10 @@ const WEEK_LASTWEEK_FILIAL={
 
 const CHART_S4={
   labels:["Seg 10/08", "Ter 11/08", "Qua 12/08", "Qui 13/08"],
-  novos:[52,51,51,15], at_tel:[47,26,42,17], at_msg:[29,24,37,16],
-  pct:[146.2,98.0,154.9,220.0],
-  Botafogo:{ligacoes:[252,227,272,160],agendadas:[4,5,7,3],realizadas:[1,1,2,1]},
-  Barra:{ligacoes:[193,148,175,0],agendadas:[2,4,5,0],realizadas:[2,2,4,0]},
+  novos:[52,51,51,32], at_tel:[47,26,42,29], at_msg:[29,24,37,29],
+  pct:[146.2,98.0,154.9,181.2],
+  Botafogo:{ligacoes:[252,227,272,260],agendadas:[4,5,7,5],realizadas:[1,1,2,3]},
+  Barra:{ligacoes:[193,148,175,144],agendadas:[2,4,5,2],realizadas:[2,2,4,1]},
   Goiania:{ligacoes:[190,161,180,232],agendadas:[5,8,4,6],realizadas:[3,5,3,2]},
 };
 
@@ -1061,15 +1061,16 @@ function renderInsights(){
   const ligDelta=lig-ligP;
 
   const ins=[
-    {type:'info',icon:'🌴',title:'Jordana de Férias — 8º Dia Útil Sem Nenhum Lançamento',body:`<strong>Jordana segue de férias</strong> e, diferente de 11/08 e 12/08 (que tiveram resquícios pontuais de agendamento pré-férias), hoje ela está com <strong>zero em todas as métricas nas 3 filiais</strong> — o 8º dia útil consecutivo sem nenhuma atividade em agosto. Para efeito de meta e capacidade, o mês segue sendo lido como <strong>time de 4 SDRs ativas</strong> (Joyce, Luana, Fabi, Waleska).`},
-    {type:'bad',icon:'⚠️',title:'Lacuna Grave — Apenas 2 de 5 SDRs Lançaram, Barra Zerada',body:`Hoje só <strong>Luana</strong> (Botafogo) e <strong>Waleska</strong> (Goiânia) têm dado lançado — cada uma ativa em uma única filial. <strong>Joyce e Fabi, que não estão de férias, ficaram inteiramente zeradas</strong>, e <strong>Barra não teve nenhum lançamento no dia</strong>. Esse é o pior nível de lançamento do mês até agora, mais severo que 07/08 e 11/08 — os números abaixo devem ser lidos como piso, não como o dia real completo.`},
-    {type:'bad',icon:'📉',title:'Volume Despenca vs Quarta — Reflexo Direto da Lacuna de Lançamento',body:`Leads Total 72 (-48,6% vs quarta 12/08), Rotina 57 (-36,0%), Novos 15 (-70,6%), Ligações 392 (-37,5%), At. Telefone 17 (-59,5%), At. Mensagem 16 (-56,8%). Com o denominador de Novos muito pequeno, <strong>%At./Novos dispara para 220,0%</strong> (+65,1pp vs quarta) — distorção estatística, não ganho real de eficiência.`},
-    {type:'warn',icon:'🎯',title:'Taxa de Comparecimento Cai Forte vs Quarta, Base Muito Pequena',body:`Comparecimentos 3 (-66,7% vs quarta) sobre Agendamentos 9 (-43,8% vs quarta) resultam em <strong>33,3%</strong> — bem abaixo da quarta (56,3%, -23,0pp) e do horizontal de 13/07 (28,6%, ainda assim +4,7pp acima). Fechamentos do dia: apenas 1 (0 leads + 1 indicação, Waleska em Goiânia) — queda de -66,7% vs quarta (3) e -75,0% vs horizontal (4).`},
-    {type:'info',icon:'⭐',title:'Ranking do Dia — Waleska Lidera, Só 2 SDRs Pontuam',body:`<strong>Waleska</strong> assume o 1º lugar (score 51,2 — 1 fechamento por indicação, 2 comparecimentos, 6 agendamentos e 232 ligações em Goiânia). <strong>Luana</strong> em 2º (score 25,0 — 160 ligações, 3 agendamentos e 1 comparecimento em Botafogo, sem fechamento). <strong>Joyce, Jordana e Fabi</strong> empatadas em último (score 0,0 — nenhuma lançou dado hoje).`},
-    {type:'info',icon:'🏢',title:'Por Filial — Barra Zerada, Botafogo e Goiânia com 1 SDR Cada',body:`Botafogo (só Luana): 28 rotina, 7 novos, 160 ligações, 3 agendamentos, 1 comparecimento (taxa 33,3%), 0 fechamentos. Barra: nenhum lançamento no dia — 0 em tudo. Goiânia (só Waleska): 29 rotina, 8 novos, 232 ligações, 6 agendamentos, 2 comparecimentos (taxa 33,3%), 1 fechamento por indicação.`},
+    {type:'info',icon:'🔄',title:'Reextração — Joyce (Barra) e Fabi (Botafogo) Lançaram Depois da 1ª Leitura',body:`Uma nova leitura da planilha revelou lançamentos que não estavam presentes na primeira extração de hoje: <strong>Joyce lançou o funil completo em Barra</strong> (17 rotina, 9 novos, 144 ligações, 2 agendamentos, 1 comparecimento, 2 fechamentos por leads) e <strong>Fabi lançou o funil completo em Botafogo</strong> (13 rotina, 7 novos, 100 ligações, 2 agendamentos, 1 comparecimento, 1 fechamento por leads). Joyce também ganhou 1 comparecimento + 1 fechamento por leads em Botafogo (sem funil de entrada). Os números abaixo já refletem essa atualização — mesmo padrão de lançamento retroativo já documentado no projeto.`},
+    {type:'good',icon:'🌴',title:'Jordana de Férias — Segue Zerada, Time de 4 SDRs Ativas Hoje',body:`<strong>Jordana segue de férias</strong>, com zero em todas as métricas nas 3 filiais — 8º dia útil consecutivo sem atividade em agosto. Com a reextração, porém, <strong>as outras 4 SDRs (Joyce, Luana, Fabi, Waleska) todas lançaram dado hoje</strong> — nenhuma filial ficou zerada, diferente do quadro inicial da manhã.`},
+    {type:'good',icon:'🏆',title:'Melhor Dia de Fechamentos da Semana — 5 no Total',body:`Fechamentos do dia sobem de 1 para <strong>5</strong> (4 leads + 1 indicação): 2 por Joyce (1 em Botafogo + 1 lead extra em Barra — total 2 leads dela), 1 por Fabi (Botafogo, lead), 1 por Waleska (Goiânia, indicação) e mais 1 lead de Joyce em Barra. Vs. quarta 12/08 (3 fechamentos): +66,7%. Vs. horizontal 13/07 (4): +25,0%.`},
+    {type:'good',icon:'📈',title:'Leads Total e Atendimento Ainda Abaixo da Quarta, mas Ligações Sobem',body:`Leads Total 119 (-15,0% vs quarta 12/08, -13,1% vs horizontal 13/07), puxado pela queda de Novos (32, -37,3% vs quarta). Ligações seguem estáveis e até sobem levemente: 636 (+1,4% vs quarta, +1,3% vs horizontal). At. Telefone 29 (-31,0% vs quarta, mas +20,8% vs horizontal) e At. Mensagem 29 (-21,6% vs quarta, +45,0% vs horizontal). Com Novos baixo, <strong>%At./Novos sobe para 181,3%</strong> (+26,4pp vs quarta, +65,5pp vs horizontal) — reflete mais atendimento proporcional à base pequena de leads novos.`},
+    {type:'warn',icon:'🎯',title:'Taxa de Comparecimento Melhora vs Manhã, Ainda Abaixo da Meta',body:`Comparecimentos 6 (-33,3% vs quarta, +50,0% vs horizontal) sobre Agendamentos 13 (-18,8% vs quarta, -7,1% vs horizontal) resultam em <strong>46,2%</strong> — acima do horizontal (28,6%, +17,6pp) mas ainda abaixo da meta de 65% e da quarta (56,3%, -10,1pp).`},
+    {type:'info',icon:'⭐',title:'Ranking do Dia — Joyce Assume a Liderança com os 2 Fechamentos de Barra',body:`<strong>Joyce</strong> sobe ao 1º lugar (score 54,4 — 3 fechamentos por leads entre Botafogo e Barra, 2 comparecimentos, 144 ligações). <strong>Waleska</strong> cai ao 2º (score 51,2 — 1 fechamento por indicação, 2 comparecimentos, 6 agendamentos, 232 ligações em Goiânia). <strong>Fabi</strong> em 3º (score 27,0 — 1 fechamento por leads, 1 comparecimento, 100 ligações em Botafogo). <strong>Luana</strong> em 4º (score 25,0 — 160 ligações e 1 comparecimento em Botafogo, sem fechamento). <strong>Jordana</strong> em último (score 0,0) — de férias.`},
+    {type:'info',icon:'🏢',title:'Por Filial — Botafogo Lidera em Fechamentos, Barra com Boa Conversão',body:`Botafogo (Luana+Fabi+Joyce): 41 rotina, 14 novos, 260 ligações, 5 agendamentos, 3 comparecimentos (taxa 60,0%), 2 fechamentos por leads. Barra (só Joyce): 17 rotina, 9 novos, 144 ligações, 2 agendamentos, 1 comparecimento (taxa 50,0%), 2 fechamentos por leads. Goiânia (só Waleska): 29 rotina, 9 novos, 232 ligações, 6 agendamentos, 2 comparecimentos (taxa 33,3%), 1 fechamento por indicação.`},
     {type:'info',icon:'💰',title:'Vendas dos Closers: Não Informado',body:`Nenhuma venda de closer foi reportada para 13/08 até o momento desta execução. Campo mantido zerado — não inventar valores; Karina pode informar posteriormente para atualização.`},
-    {type:'warn',icon:'📅',title:'Semana S2 (10-14/08) — 4/5 Dias, Ritmo Abaixo da Semana Passada',body:`Rotina 295 · Novos 169 · Ligações 2.190 · At.Tel 132 · At.Msg 106 · Agendamentos 53 · Comparecimentos 26 (taxa 49,1%) · Fechamentos SDR 7 (3 leads + 4 indicação). Comparado ao mesmo trecho da semana passada capado a 4 dias (Seg 03/08 a Qui 06/08: Rotina 343, Novos 142, Ligações 2.517, Agend 56, Comp 43, Fech 15): rotina -14,0%, novos +19,0%, ligações -13,0%, agendamentos -5,4%, comparecimentos -39,5%, fechamentos -53,3% (15→7), taxa de comparecimento -27,7pp (76,8%→49,1%). Ritmo da semana segue abaixo do mesmo período anterior, acentuado pela lacuna de hoje.`},
-    {type:'warn',icon:'📅',title:'Acumulado Agosto — 9 Dias Úteis, Taxa Recua Levemente da Meta',body:`Rotina 717 · Novos 477 · Ligações 5.412 · Agendamentos 123 · Comparecimentos 77 (taxa <strong>62,6%</strong>, -2,3pp vs 12/08, abaixo da meta de 65%) · Fechamentos SDR 24 (10 leads + 14 indicação). <strong>Fabi e Waleska empatam na liderança de fechamentos acumulados</strong> (8 cada — Fabi 1 lead + 7 indicação, Waleska 5 leads + 3 indicação), à frente de Joyce e Luana (3 cada) e Jordana (2, de férias).`}
+    {type:'warn',icon:'📅',title:'Semana S2 (10-14/08) — 4/5 Dias, Ritmo Ainda Abaixo da Semana Passada mas Recuperando',body:`Rotina 325 · Novos 186 · Ligações 2.434 · At.Tel 144 · At.Msg 119 · Agendamentos 57 · Comparecimentos 29 (taxa 50,9%) · Fechamentos SDR 11 (7 leads + 4 indicação). Comparado ao mesmo trecho da semana passada capado a 4 dias (Seg 03/08 a Qui 06/08: Rotina 343, Novos 142, Ligações 2.517, Agend 56, Comp 43, Fech 15): rotina -5,2%, novos +31,0%, ligações -3,3%, agendamentos +1,8%, comparecimentos -32,6%, fechamentos -26,7% (15→11), taxa de comparecimento -25,9pp (76,8%→50,9%). Com a reextração, o ritmo da semana melhora bastante frente à leitura inicial da manhã (que tinha fechamentos em apenas 7).`},
+    {type:'good',icon:'📅',title:'Acumulado Agosto — 9 Dias Úteis, Taxa Sobe e Fabi Assume a Liderança',body:`Rotina 747 · Novos 494 · Ligações 5.656 · Agendamentos 127 · Comparecimentos 80 (taxa <strong>63,0%</strong>, +0,4pp vs a leitura anterior, ainda levemente abaixo da meta de 65%) · Fechamentos SDR 28 (14 leads + 14 indicação). <strong>Fabi assume a liderança isolada de fechamentos acumulados</strong> (9, sendo 2 leads + 7 indicação), à frente de Waleska (8, 5 leads + 3 indicação), Joyce (6, subiu de 3 com os lançamentos de hoje), Luana (3) e Jordana (2, de férias).`}
   ];
   document.getElementById('insights-grid')
 .innerHTML=ins.map(i=>`
