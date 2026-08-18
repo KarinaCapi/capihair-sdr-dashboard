@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SDR Performance · CapiHair · 14/08/2026</title>
+<title>SDR Performance · CapiHair · 17/08/2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
@@ -345,7 +345,7 @@ table.mtbl-wide tr:hover td{background:var(--surface2);}
     <button class="pill-tab" onclick="setFilial('Goiania',this)">🩵 Goiânia</button>
   </div>
   <div class="hdr-right">
-    <div class="date-badge">📅 Sex 14/08/2026</div>
+    <div class="date-badge">📅 Seg 17/08/2026</div>
     <button class="icon-btn" onclick="toggleTheme()" title="Alternar tema">☀️</button>
   </div>
 </header>
@@ -378,7 +378,7 @@ table.mtbl-wide tr:hover td{background:var(--surface2);}
 </div>
 
 <!-- ─── KPIs ─── -->
-<div class="sec-hdr anim anim-d1">🎯 Indicadores — Sex 14/08/2026</div>
+<div class="sec-hdr anim anim-d1">🎯 Indicadores — Seg 17/08/2026</div>
 <div class="kpi-grid anim anim-d2" id="kpi-grid"></div>
 
 <!-- ─── ANÁLISE ─── -->
@@ -387,23 +387,23 @@ table.mtbl-wide tr:hover td{background:var(--surface2);}
   <div class="card">
     <div class="card-hdr purple">
       <span class="card-hdr-icon">↕</span>
-      <span class="card-hdr-title">Vertical — Sex 14/08 vs Qui 13/08</span>
+      <span class="card-hdr-title">Vertical — Seg 17/08 vs Sex 14/08</span>
     </div>
-    <table class="t"><thead><tr><th>Métrica</th><th>Hoje</th><th>Quinta</th><th>Δ</th></tr></thead>
+    <table class="t"><thead><tr><th>Métrica</th><th>Hoje</th><th>Sexta</th><th>Δ</th></tr></thead>
     <tbody id="vert-tbody"></tbody></table>
   </div>
   <div class="card">
     <div class="card-hdr blue">
       <span class="card-hdr-icon">↔</span>
-      <span class="card-hdr-title">Horizontal — Sex 14/08 vs Ter 14/07</span>
+      <span class="card-hdr-title">Horizontal — Seg 17/08 vs Sex 17/07</span>
     </div>
-    <table class="t"><thead><tr><th>Métrica</th><th>Hoje</th><th>14/07</th><th>Δ</th></tr></thead>
+    <table class="t"><thead><tr><th>Métrica</th><th>Hoje</th><th>17/07</th><th>Δ</th></tr></thead>
     <tbody id="horiz-tbody"></tbody></table>
   </div>
 </div>
 
 <!-- ─── COMPARAÇÃO SEMANAL: MESMO DIA (com Total por semana e Evolução%) ─── -->
-<div class="sec-hdr anim">📊 Comparação Semanal — Mesmo Dia (Sexta) da Semana Passada vs Atual <span style="font-size:.65rem;font-weight:500;text-transform:none;letter-spacing:0;color:var(--text2);margin-left:6px;">Total = soma dos 2 dias (Quinta+Sexta) de cada semana · Evol% = variação do Total da semana atual vs passada</span></div>
+<div class="sec-hdr anim">📊 Comparação Semanal — Mesmo Dia (Segunda) da Semana Passada vs Atual <span style="font-size:.65rem;font-weight:500;text-transform:none;letter-spacing:0;color:var(--text2);margin-left:6px;">Total = soma dos 2 dias (Quinta+Sexta) de cada semana · Evol% = variação do Total da semana atual vs passada</span></div>
 <div class="tbl-wrap anim anim-d1">
 <table class="mtbl-wide" id="vert-compare-wide-table">
 <thead>
@@ -414,8 +414,8 @@ table.mtbl-wide tr:hover td{background:var(--surface2);}
   <th rowspan="2">Evol%</th>
 </tr>
 <tr>
-  <th class="grp">Sex 07/08</th><th>Qui 06/08</th><th>Δ</th><th>Total</th>
-  <th class="grp">Sex 14/08</th><th>Qui 13/08</th><th>Δ</th><th>Total</th>
+  <th class="grp">Seg 10/08</th><th>Sex 07/08</th><th>Δ</th><th>Total</th>
+  <th class="grp">Seg 17/08</th><th>Sex 14/08</th><th>Δ</th><th>Total</th>
 </tr>
 </thead>
 <tbody id="vert-compare-wide-tbody"></tbody>
@@ -429,13 +429,13 @@ table.mtbl-wide tr:hover td{background:var(--surface2);}
 </div>
 
 <!-- ─── CHART S1 ─── -->
-<div class="sec-hdr anim">📈 Semana Atual (10-14/08) — Leads Novos vs Atendidas & % Conversão</div>
+<div class="sec-hdr anim">📈 Semana Atual (17-21/08) — Leads Novos vs Atendidas & % Conversão</div>
 <div class="chart-card anim anim-d1">
   <canvas id="chartS5"></canvas>
 </div>
 
 <!-- ─── RANKING SDR ─── -->
-<div class="sec-hdr anim">🏆 Ranking SDRs — Sex 14/08</div>
+<div class="sec-hdr anim">🏆 Ranking SDRs — Seg 17/08</div>
 <div class="ranking-grid" id="ranking-grid"></div>
 
 <!-- ─── POR FILIAL ─── -->
@@ -443,18 +443,18 @@ table.mtbl-wide tr:hover td{background:var(--surface2);}
 <div class="filial-grid" id="filial-grid"></div>
 
 <!-- ─── ACUMULADO MÊS ─── -->
-<div class="sec-hdr anim">📅 Acumulado Agosto — Por SDR <span style="font-size:.65rem;font-weight:500;text-transform:none;letter-spacing:0;color:var(--text2);margin-left:6px;">10 dias úteis lançados (03, 04, 05, 06, 07, 10, 11, 12, 13 e 14/08) — Semana 2 completa</span></div>
+<div class="sec-hdr anim">📅 Acumulado Agosto — Por SDR <span style="font-size:.65rem;font-weight:500;text-transform:none;letter-spacing:0;color:var(--text2);margin-left:6px;">11 dias úteis lançados (03, 04, 05, 06, 07, 10, 11, 12, 13, 14 e 17/08) — Semana 3 iniciada (1 dia)</span></div>
 <div class="tbl-wrap anim anim-d1"><table class="mtbl" id="month-table"></table></div>
 
 <!-- ─── SEMANA S1 ─── -->
-<div class="sec-hdr anim">📅 Semana Atual Acumulada — Por SDR e Por Filial <span style="font-size:.65rem;font-weight:500;text-transform:none;letter-spacing:0;color:var(--text2);margin-left:6px;">10-14/08 (completa, 5/5 dias)</span></div>
+<div class="sec-hdr anim">📅 Semana Atual Acumulada — Por SDR e Por Filial <span style="font-size:.65rem;font-weight:500;text-transform:none;letter-spacing:0;color:var(--text2);margin-left:6px;">17-21/08 (1/5 dias lançados)</span></div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:4px" class="anim anim-d1">
   <div class="tbl-wrap"><table class="mtbl" id="week-sdr-table"></table></div>
   <div class="tbl-wrap"><table class="mtbl" id="week-filial-table"></table></div>
 </div>
 
 <!-- ─── SEMANA ACUMULADA: SEMANA PASSADA VS ATUAL (com Total e % Evolução por métrica) ─── -->
-<div class="sec-hdr anim">📅 Semana Acumulada — Semana Passada vs Semana Atual <span style="font-size:.65rem;font-weight:500;text-transform:none;letter-spacing:0;color:var(--text2);margin-left:6px;">ambas completas (5/5 dias, Segunda a Sexta) — comparação de semana cheia · Total = soma dos 5 dias de cada semana · Evol% = variação do Total atual vs passado · dividido em 2 blocos de métricas para caber sem rolagem</span></div>
+<div class="sec-hdr anim">📅 Semana Acumulada — Semana Passada vs Semana Atual <span style="font-size:.65rem;font-weight:500;text-transform:none;letter-spacing:0;color:var(--text2);margin-left:6px;">semana atual capada a 1 dia (Segunda) — semana passada capada no mesmo nº de dias, para comparação de ritmo inicial · Total = soma dos dias já lançados · Evol% = variação do Total atual vs passado · dividido em 2 blocos de métricas para caber sem rolagem</span></div>
 
 <div class="tbl-label" style="margin-top:4px">POR SDR — VOLUME (Rotina, Novos, Ligações, At.Tel, At.Msg)</div>
 <div class="tbl-wrap anim anim-d1" style="margin-bottom:16px"><table class="mtbl-wide" id="cmp-sdr-full-table-1"></table></div>
@@ -471,11 +471,11 @@ table.mtbl-wide tr:hover td{background:var(--surface2);}
 <div class="insights-grid" id="insights-grid"></div>
 
 <div class="meta-row" style="margin-top:36px;justify-content:center;">
-  <span class="meta-chip">📌 Dados: Sex 14/08/2026 · extraído em 17/08/2026 (execução agendada)</span>
-  <span class="meta-chip">↕ Ref. vertical: Qui 13/08</span>
-  <span class="meta-chip">↔ Ref. horizontal: Ter 14/07</span>
-  <span class="meta-chip">🌴 Jordana de férias · Fechamentos do dia: 5 (3 leads + 2 indicação)</span>
-  <span class="meta-chip">⚠ Só Joyce e Waleska lançaram funil hoje · Luana e Fabi zeradas</span>
+  <span class="meta-chip">📌 Dados: Seg 17/08/2026 · extraído em 18/08/2026</span>
+  <span class="meta-chip">↕ Ref. vertical: Sex 14/08</span>
+  <span class="meta-chip">↔ Ref. horizontal: Sex 17/07</span>
+  <span class="meta-chip">🌴 Jordana de férias · Fechamentos do dia: 6 (3 leads + 3 indicação)</span>
+  <span class="meta-chip">⚠ Só Joyce, Luana e Waleska lançaram hoje · Jordana (férias) e Fabi zeradas</span>
   <span class="meta-chip">🎯 Meta comparecimento: 65%</span>
 </div>
 
@@ -488,78 +488,78 @@ const FILS=['Botafogo','Barra','Goiania'];
 let CF='all';
 
 const DHOJE={
-  Botafogo:{rotina:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},novos:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},ligacoes:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},at_tel:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},at_msg:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},agendadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},realizadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_leads:{Joyce:1,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
-  Barra:{rotina:{Joyce:18,Jordana:0,Luana:0,Fabi:0,Waleska:0},novos:{Joyce:11,Jordana:0,Luana:0,Fabi:0,Waleska:0},ligacoes:{Joyce:206,Jordana:0,Luana:0,Fabi:0,Waleska:0},at_tel:{Joyce:11,Jordana:0,Luana:0,Fabi:0,Waleska:0},at_msg:{Joyce:3,Jordana:0,Luana:0,Fabi:0,Waleska:0},agendadas:{Joyce:2,Jordana:0,Luana:0,Fabi:0,Waleska:0},realizadas:{Joyce:1,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_leads:{Joyce:1,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
-  Goiania:{rotina:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:34},novos:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:19},ligacoes:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:284},at_tel:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:15},at_msg:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:3},agendadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},realizadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:5},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:1},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:2}},
+  Botafogo:{rotina:{Joyce:0,Jordana:0,Luana:25,Fabi:0,Waleska:0},novos:{Joyce:0,Jordana:0,Luana:10,Fabi:0,Waleska:0},ligacoes:{Joyce:0,Jordana:0,Luana:168,Fabi:0,Waleska:0},at_tel:{Joyce:0,Jordana:0,Luana:18,Fabi:0,Waleska:0},at_msg:{Joyce:0,Jordana:0,Luana:9,Fabi:0,Waleska:0},agendadas:{Joyce:0,Jordana:0,Luana:1,Fabi:0,Waleska:0},realizadas:{Joyce:2,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_leads:{Joyce:1,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
+  Barra:{rotina:{Joyce:22,Jordana:0,Luana:0,Fabi:0,Waleska:0},novos:{Joyce:6,Jordana:0,Luana:0,Fabi:0,Waleska:0},ligacoes:{Joyce:164,Jordana:0,Luana:0,Fabi:0,Waleska:0},at_tel:{Joyce:15,Jordana:0,Luana:0,Fabi:0,Waleska:0},at_msg:{Joyce:5,Jordana:0,Luana:0,Fabi:0,Waleska:0},agendadas:{Joyce:3,Jordana:0,Luana:0,Fabi:0,Waleska:0},realizadas:{Joyce:3,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_leads:{Joyce:2,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
+  Goiania:{rotina:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:26},novos:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:20},ligacoes:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:146},at_tel:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:5},at_msg:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:11},agendadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:1},realizadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:4},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:3}},
 };
 
 const DANT={
-  Botafogo:{rotina:{Joyce:0,Jordana:0,Luana:28,Fabi:13,Waleska:0},novos:{Joyce:0,Jordana:0,Luana:7,Fabi:7,Waleska:0},ligacoes:{Joyce:0,Jordana:0,Luana:160,Fabi:100,Waleska:0},at_tel:{Joyce:0,Jordana:0,Luana:12,Fabi:4,Waleska:0},at_msg:{Joyce:0,Jordana:0,Luana:11,Fabi:5,Waleska:0},agendadas:{Joyce:0,Jordana:0,Luana:3,Fabi:2,Waleska:0},realizadas:{Joyce:1,Jordana:0,Luana:1,Fabi:1,Waleska:0},fec_leads:{Joyce:1,Jordana:0,Luana:0,Fabi:1,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
-  Barra:{rotina:{Joyce:17,Jordana:0,Luana:0,Fabi:0,Waleska:0},novos:{Joyce:9,Jordana:0,Luana:0,Fabi:0,Waleska:0},ligacoes:{Joyce:144,Jordana:0,Luana:0,Fabi:0,Waleska:0},at_tel:{Joyce:8,Jordana:0,Luana:0,Fabi:0,Waleska:0},at_msg:{Joyce:8,Jordana:0,Luana:0,Fabi:0,Waleska:0},agendadas:{Joyce:2,Jordana:0,Luana:0,Fabi:0,Waleska:0},realizadas:{Joyce:1,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_leads:{Joyce:2,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
-  Goiania:{rotina:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:29},novos:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:9},ligacoes:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:232},at_tel:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:5},at_msg:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:5},agendadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:6},realizadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:2},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:1}},
+  Botafogo:{rotina:{Joyce:0,Jordana:0,Luana:27,Fabi:5,Waleska:0},novos:{Joyce:0,Jordana:0,Luana:29,Fabi:27,Waleska:0},ligacoes:{Joyce:0,Jordana:0,Luana:186,Fabi:150,Waleska:0},at_tel:{Joyce:0,Jordana:0,Luana:5,Fabi:5,Waleska:0},at_msg:{Joyce:0,Jordana:0,Luana:65,Fabi:8,Waleska:0},agendadas:{Joyce:0,Jordana:0,Luana:2,Fabi:2,Waleska:0},realizadas:{Joyce:0,Jordana:0,Luana:0,Fabi:1,Waleska:0},fec_leads:{Joyce:1,Jordana:0,Luana:1,Fabi:1,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
+  Barra:{rotina:{Joyce:18,Jordana:0,Luana:0,Fabi:0,Waleska:0},novos:{Joyce:25,Jordana:0,Luana:0,Fabi:0,Waleska:0},ligacoes:{Joyce:206,Jordana:0,Luana:0,Fabi:0,Waleska:0},at_tel:{Joyce:11,Jordana:0,Luana:0,Fabi:0,Waleska:0},at_msg:{Joyce:3,Jordana:0,Luana:0,Fabi:0,Waleska:0},agendadas:{Joyce:2,Jordana:0,Luana:0,Fabi:0,Waleska:0},realizadas:{Joyce:1,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_leads:{Joyce:1,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
+  Goiania:{rotina:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:34},novos:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:19},ligacoes:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:284},at_tel:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:15},at_msg:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:3},agendadas:{Joyce:0,Jordana:0,Luana:0,Fabi:1,Waleska:0},realizadas:{Joyce:0,Jordana:0,Luana:0,Fabi:1,Waleska:5},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:1,Waleska:1},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:2}},
 };
 
 const DMESANT={
-  Botafogo:{rotina:{Joyce:19,Jordana:26,Luana:24,Fabi:0,Waleska:14},novos:{Joyce:0,Jordana:2,Luana:3,Fabi:10,Waleska:0},ligacoes:{Joyce:70,Jordana:45,Luana:37,Fabi:15,Waleska:79},at_tel:{Joyce:2,Jordana:2,Luana:0,Fabi:3,Waleska:1},at_msg:{Joyce:4,Jordana:2,Luana:4,Fabi:2,Waleska:0},agendadas:{Joyce:1,Jordana:2,Luana:2,Fabi:2,Waleska:0},realizadas:{Joyce:2,Jordana:1,Luana:2,Fabi:1,Waleska:1},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:1,Luana:0,Fabi:0,Waleska:0}},
-  Barra:{rotina:{Joyce:0,Jordana:2,Luana:2,Fabi:0,Waleska:4},novos:{Joyce:4,Jordana:0,Luana:0,Fabi:0,Waleska:0},ligacoes:{Joyce:44,Jordana:0,Luana:6,Fabi:0,Waleska:4},at_tel:{Joyce:1,Jordana:0,Luana:0,Fabi:0,Waleska:0},at_msg:{Joyce:1,Jordana:0,Luana:4,Fabi:0,Waleska:1},agendadas:{Joyce:0,Jordana:0,Luana:1,Fabi:0,Waleska:0},realizadas:{Joyce:1,Jordana:1,Luana:0,Fabi:0,Waleska:0},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
-  Goiania:{rotina:{Joyce:0,Jordana:1,Luana:0,Fabi:0,Waleska:0},novos:{Joyce:0,Jordana:0,Luana:1,Fabi:0,Waleska:9},ligacoes:{Joyce:15,Jordana:0,Luana:3,Fabi:0,Waleska:35},at_tel:{Joyce:1,Jordana:0,Luana:1,Fabi:0,Waleska:2},at_msg:{Joyce:1,Jordana:0,Luana:0,Fabi:0,Waleska:1},agendadas:{Joyce:0,Jordana:0,Luana:1,Fabi:0,Waleska:1},realizadas:{Joyce:0,Jordana:0,Luana:1,Fabi:0,Waleska:0},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
+  Botafogo:{rotina:{Joyce:0,Jordana:23,Luana:24,Fabi:0,Waleska:7},novos:{Joyce:0,Jordana:11,Luana:21,Fabi:22,Waleska:0},ligacoes:{Joyce:0,Jordana:146,Luana:82,Fabi:100,Waleska:7},at_tel:{Joyce:0,Jordana:2,Luana:10,Fabi:6,Waleska:1},at_msg:{Joyce:4,Jordana:2,Luana:15,Fabi:10,Waleska:0},agendadas:{Joyce:0,Jordana:1,Luana:0,Fabi:2,Waleska:0},realizadas:{Joyce:0,Jordana:0,Luana:2,Fabi:3,Waleska:1},fec_leads:{Joyce:0,Jordana:0,Luana:1,Fabi:2,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
+  Barra:{rotina:{Joyce:22,Jordana:0,Luana:0,Fabi:0,Waleska:5},novos:{Joyce:11,Jordana:0,Luana:0,Fabi:0,Waleska:0},ligacoes:{Joyce:182,Jordana:0,Luana:0,Fabi:0,Waleska:5},at_tel:{Joyce:27,Jordana:0,Luana:0,Fabi:0,Waleska:0},at_msg:{Joyce:20,Jordana:0,Luana:0,Fabi:0,Waleska:0},agendadas:{Joyce:2,Jordana:1,Luana:0,Fabi:0,Waleska:1},realizadas:{Joyce:1,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_leads:{Joyce:1,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
+  Goiania:{rotina:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:5},novos:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:66},ligacoes:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:260},at_tel:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:3},at_msg:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:1},agendadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},realizadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
 };
 
 const D1_LASTWEEK={
+  Botafogo:{rotina:{Joyce:0,Jordana:0,Luana:25,Fabi:10,Waleska:0},novos:{Joyce:0,Jordana:0,Luana:11,Fabi:12,Waleska:0},ligacoes:{Joyce:0,Jordana:0,Luana:182,Fabi:70,Waleska:0},at_tel:{Joyce:0,Jordana:0,Luana:24,Fabi:6,Waleska:0},at_msg:{Joyce:0,Jordana:0,Luana:6,Fabi:4,Waleska:0},agendadas:{Joyce:0,Jordana:0,Luana:3,Fabi:1,Waleska:0},realizadas:{Joyce:0,Jordana:0,Luana:0,Fabi:1,Waleska:0},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
+  Barra:{rotina:{Joyce:12,Jordana:0,Luana:0,Fabi:0,Waleska:1},novos:{Joyce:5,Jordana:0,Luana:0,Fabi:0,Waleska:0},ligacoes:{Joyce:192,Jordana:0,Luana:0,Fabi:0,Waleska:1},at_tel:{Joyce:13,Jordana:0,Luana:0,Fabi:0,Waleska:0},at_msg:{Joyce:5,Jordana:0,Luana:0,Fabi:0,Waleska:1},agendadas:{Joyce:0,Jordana:0,Luana:1,Fabi:0,Waleska:1},realizadas:{Joyce:2,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
+  Goiania:{rotina:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:25},novos:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:24},ligacoes:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:190},at_tel:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:4},at_msg:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:13},agendadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:5},realizadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:3},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
+};
+
+const D2_LASTWEEK={
   Botafogo:{rotina:{Joyce:0,Jordana:0,Luana:25,Fabi:12,Waleska:0},novos:{Joyce:0,Jordana:0,Luana:33,Fabi:35,Waleska:0},ligacoes:{Joyce:0,Jordana:0,Luana:165,Fabi:170,Waleska:0},at_tel:{Joyce:0,Jordana:0,Luana:11,Fabi:10,Waleska:0},at_msg:{Joyce:0,Jordana:0,Luana:5,Fabi:5,Waleska:0},agendadas:{Joyce:0,Jordana:0,Luana:4,Fabi:4,Waleska:0},realizadas:{Joyce:1,Jordana:0,Luana:0,Fabi:3,Waleska:0},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:1,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
   Barra:{rotina:{Joyce:15,Jordana:0,Luana:0,Fabi:0,Waleska:0},novos:{Joyce:25,Jordana:0,Luana:0,Fabi:0,Waleska:0},ligacoes:{Joyce:150,Jordana:0,Luana:0,Fabi:0,Waleska:0},at_tel:{Joyce:7,Jordana:0,Luana:0,Fabi:0,Waleska:0},at_msg:{Joyce:5,Jordana:0,Luana:0,Fabi:0,Waleska:0},agendadas:{Joyce:3,Jordana:0,Luana:0,Fabi:0,Waleska:0},realizadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
   Goiania:{rotina:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:27},novos:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:73},ligacoes:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:220},at_tel:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:5},at_msg:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:10},agendadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:3},realizadas:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:4},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:1},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0}},
 };
 
-const D2_LASTWEEK={
-  Botafogo:{rotina:{Joyce:0,Jordana:0,Luana:28,Fabi:20,Waleska:0},novos:{Joyce:0,Jordana:0,Luana:3,Fabi:3,Waleska:0},ligacoes:{Joyce:0,Jordana:0,Luana:151,Fabi:125,Waleska:0},at_tel:{Joyce:0,Jordana:0,Luana:9,Fabi:7,Waleska:0},at_msg:{Joyce:0,Jordana:0,Luana:5,Fabi:4,Waleska:0},agendadas:{Joyce:1,Jordana:0,Luana:1,Fabi:1,Waleska:0},realizadas:{Joyce:3,Jordana:0,Luana:1,Fabi:1,Waleska:0},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:1,Jordana:0,Luana:1,Fabi:0,Waleska:0}},
-  Barra:{rotina:{Joyce:14,Jordana:0,Luana:0,Fabi:2,Waleska:0},novos:{Joyce:5,Jordana:0,Luana:0,Fabi:0,Waleska:0},ligacoes:{Joyce:145,Jordana:0,Luana:0,Fabi:0,Waleska:0},at_tel:{Joyce:4,Jordana:0,Luana:0,Fabi:2,Waleska:0},at_msg:{Joyce:3,Jordana:0,Luana:0,Fabi:0,Waleska:0},agendadas:{Joyce:1,Jordana:0,Luana:0,Fabi:2,Waleska:0},realizadas:{Joyce:0,Jordana:0,Luana:2,Fabi:2,Waleska:0},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:2,Waleska:0}},
-  Goiania:{rotina:{Joyce:0,Jordana:0,Luana:0,Fabi:1,Waleska:15},novos:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:3},ligacoes:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:147},at_tel:{Joyce:0,Jordana:0,Luana:0,Fabi:1,Waleska:3},at_msg:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:2},agendadas:{Joyce:0,Jordana:0,Luana:0,Fabi:1,Waleska:2},realizadas:{Joyce:0,Jordana:0,Luana:0,Fabi:1,Waleska:2},fec_leads:{Joyce:0,Jordana:0,Luana:0,Fabi:0,Waleska:0},fec_indic:{Joyce:0,Jordana:0,Luana:0,Fabi:1,Waleska:1}},
-};
-
 const MONTH_ACC={
-  Joyce:{rotina:152,novos:102,at_tel:91,at_msg:48,agendadas:27,realizadas:16,fec_leads:6,fec_indic:2},
+  Joyce:{rotina:174,novos:122,at_tel:106,at_msg:53,agendadas:30,realizadas:21,fec_leads:9,fec_indic:2},
   Jordana:{rotina:0,novos:0,at_tel:0,at_msg:0,agendadas:2,realizadas:2,fec_leads:2,fec_indic:0},
-  Luana:{rotina:242,novos:98,at_tel:122,at_msg:79,agendadas:31,realizadas:14,fec_leads:1,fec_indic:2},
-  Fabi:{rotina:156,novos:103,at_tel:64,at_msg:71,agendadas:34,realizadas:22,fec_leads:2,fec_indic:7},
-  Waleska:{rotina:249,novos:221,at_tel:63,at_msg:83,agendadas:35,realizadas:32,fec_leads:6,fec_indic:5},
+  Luana:{rotina:294,novos:137,at_tel:145,at_msg:153,agendadas:34,realizadas:14,fec_leads:2,fec_indic:2},
+  Fabi:{rotina:161,novos:130,at_tel:69,at_msg:79,agendadas:37,realizadas:24,fec_leads:4,fec_indic:7},
+  Waleska:{rotina:275,novos:241,at_tel:68,at_msg:94,agendadas:36,realizadas:36,fec_leads:6,fec_indic:8},
 };
 
 const WEEK_SDR={
-  Joyce:{rotina:81,novos:56,ligacoes:865,at_tel:48,at_msg:29,agendadas:10,realizadas:7,fec_leads:5,fec_indic:0},
-  Jordana:{rotina:0,novos:0,ligacoes:0,at_tel:0,at_msg:0,agendadas:2,realizadas:2,fec_leads:2,fec_indic:0},
-  Luana:{rotina:105,novos:32,ligacoes:641,at_tel:65,at_msg:33,agendadas:13,realizadas:5,fec_leads:0,fec_indic:0},
-  Fabi:{rotina:49,novos:33,ligacoes:370,at_tel:20,at_msg:13,agendadas:14,realizadas:6,fec_leads:1,fec_indic:3},
-  Waleska:{rotina:142,novos:95,ligacoes:1048,at_tel:37,at_msg:50,agendadas:20,realizadas:15,fec_leads:2,fec_indic:3},
+  Joyce:{rotina:22,novos:6,ligacoes:164,at_tel:15,at_msg:5,agendadas:3,realizadas:5,fec_leads:3,fec_indic:0},
+  Jordana:{rotina:0,novos:0,ligacoes:0,at_tel:0,at_msg:0,agendadas:0,realizadas:0,fec_leads:0,fec_indic:0},
+  Luana:{rotina:25,novos:10,ligacoes:168,at_tel:18,at_msg:9,agendadas:1,realizadas:0,fec_leads:0,fec_indic:0},
+  Fabi:{rotina:0,novos:0,ligacoes:0,at_tel:0,at_msg:0,agendadas:0,realizadas:0,fec_leads:0,fec_indic:0},
+  Waleska:{rotina:26,novos:20,ligacoes:146,at_tel:5,at_msg:11,agendadas:1,realizadas:4,fec_leads:0,fec_indic:3},
 };
 
 const WEEK_FILIAL={
-  Botafogo:{rotina:154,novos:65,ligacoes:1011,at_tel:85,at_msg:46,agendadas:21,realizadas:7,fec_leads:3,fec_indic:0},
-  Barra:{rotina:82,novos:56,ligacoes:866,at_tel:48,at_msg:30,agendadas:15,realizadas:10,fec_leads:4,fec_indic:2},
-  Goiania:{rotina:141,novos:95,ligacoes:1047,at_tel:37,at_msg:49,agendadas:23,realizadas:18,fec_leads:3,fec_indic:4},
+  Botafogo:{rotina:25,novos:10,ligacoes:168,at_tel:18,at_msg:9,agendadas:1,realizadas:2,fec_leads:1,fec_indic:0},
+  Barra:{rotina:22,novos:6,ligacoes:164,at_tel:15,at_msg:5,agendadas:3,realizadas:3,fec_leads:2,fec_indic:0},
+  Goiania:{rotina:26,novos:20,ligacoes:146,at_tel:5,at_msg:11,agendadas:1,realizadas:4,fec_leads:0,fec_indic:3},
 };
 
 const WEEK_LASTWEEK_SDR={
-  Joyce:{rotina:71,novos:46,ligacoes:852,at_tel:43,at_msg:19,agendadas:17,realizadas:9,fec_leads:1,fec_indic:2},
+  Joyce:{rotina:12,novos:5,ligacoes:192,at_tel:13,at_msg:5,agendadas:0,realizadas:2,fec_leads:0,fec_indic:0},
   Jordana:{rotina:0,novos:0,ligacoes:0,at_tel:0,at_msg:0,agendadas:0,realizadas:0,fec_leads:0,fec_indic:0},
-  Luana:{rotina:137,novos:66,ligacoes:709,at_tel:57,at_msg:46,agendadas:18,realizadas:9,fec_leads:1,fec_indic:2},
-  Fabi:{rotina:107,novos:70,ligacoes:640,at_tel:44,at_msg:58,agendadas:20,realizadas:16,fec_leads:1,fec_indic:4},
-  Waleska:{rotina:107,novos:126,ligacoes:1021,at_tel:26,at_msg:33,agendadas:15,realizadas:17,fec_leads:4,fec_indic:2},
+  Luana:{rotina:25,novos:11,ligacoes:182,at_tel:24,at_msg:6,agendadas:4,realizadas:0,fec_leads:0,fec_indic:0},
+  Fabi:{rotina:10,novos:12,ligacoes:70,at_tel:6,at_msg:4,agendadas:1,realizadas:1,fec_leads:0,fec_indic:0},
+  Waleska:{rotina:26,novos:24,ligacoes:191,at_tel:4,at_msg:14,agendadas:6,realizadas:3,fec_leads:0,fec_indic:0},
 };
 
 const WEEK_LASTWEEK_FILIAL={
-  Botafogo:{rotina:237,novos:136,ligacoes:1334,at_tel:98,at_msg:101,agendadas:35,realizadas:24,fec_leads:2,fec_indic:3},
-  Barra:{rotina:80,novos:46,ligacoes:868,at_tel:45,at_msg:25,agendadas:17,realizadas:6,fec_leads:0,fec_indic:2},
-  Goiania:{rotina:105,novos:126,ligacoes:1020,at_tel:27,at_msg:30,agendadas:18,realizadas:21,fec_leads:5,fec_indic:5},
+  Botafogo:{rotina:35,novos:23,ligacoes:252,at_tel:30,at_msg:10,agendadas:4,realizadas:1,fec_leads:0,fec_indic:0},
+  Barra:{rotina:13,novos:5,ligacoes:193,at_tel:13,at_msg:6,agendadas:2,realizadas:2,fec_leads:0,fec_indic:0},
+  Goiania:{rotina:25,novos:24,ligacoes:190,at_tel:4,at_msg:13,agendadas:5,realizadas:3,fec_leads:0,fec_indic:0},
 };
 
 const CHART_S4={
-  labels:["Seg 10/08", "Ter 11/08", "Qua 12/08", "Qui 13/08", "Sex 14/08"],
-  novos:[52, 51, 51, 32, 30], at_tel:[47, 26, 42, 29, 26], at_msg:[29, 24, 37, 29, 6],
-  pct:[146.2, 98.0, 154.9, 181.2, 106.7],
-  Botafogo:{ligacoes:[252, 227, 272, 260, 0],agendadas:[4, 5, 7, 5, 0],realizadas:[1, 1, 2, 3, 0]},
-  Barra:{ligacoes:[193, 148, 175, 144, 206],agendadas:[2, 4, 5, 2, 2],realizadas:[2, 2, 4, 1, 1]},
-  Goiania:{ligacoes:[190, 161, 180, 232, 284],agendadas:[5, 8, 4, 6, 0],realizadas:[3, 5, 3, 2, 5]},
+  labels:["Seg 17/08"],
+  novos:[36], at_tel:[38], at_msg:[25],
+  pct:[175.0],
+  Botafogo:{ligacoes:[168],agendadas:[1],realizadas:[2]},
+  Barra:{ligacoes:[164],agendadas:[3],realizadas:[3]},
+  Goiania:{ligacoes:[146],agendadas:[1],realizadas:[4]},
 };
 
 // Vendas fechadas pelos Closers (equipe de vendas, após handoff da SDR)
@@ -640,10 +640,10 @@ function renderKPIs(){
 
   const kpis=[
     {l:'Leads Total',v:rot+nov,s:`Rotina ${rot} · Novos ${nov}`,c:'kpi-purple'},
-    {l:'Ligações',v:lig,s:`Quinta: ${sP('ligacoes')}`,c:lig>sP('ligacoes')?'kpi-good':''},
+    {l:'Ligações',v:lig,s:`Sexta: ${sP('ligacoes')}`,c:lig>sP('ligacoes')?'kpi-good':''},
     {l:'At. Telefone',v:tel,s:`Mensagem: ${msg}`,c:''},
     {l:'% At./Novos',v:pAN,s:`(Tel+Msg) ÷ Novos`,c:parseFloat(pAN)>=60?'kpi-good':'kpi-alert'},
-    {l:'Agendamentos',v:agend,s:`Quinta: ${sP('agendadas')}`,c:agend>sP('agendadas')?'kpi-good':''},
+    {l:'Agendamentos',v:agend,s:`Sexta: ${sP('agendadas')}`,c:agend>sP('agendadas')?'kpi-good':''},
     {l:'Comparecimentos',v:real,s:`Taxa: ${taxa}`,c:tCls},
     {l:'Taxa Comparec.',v:taxa,s:'Meta: 65%',c:tCls},
     {l:'Fechamentos (SDR)',v:fT,s:`Leads ${fecL} · Indicação ${fecI}`,c:fT>0?'kpi-good':''},
@@ -836,15 +836,15 @@ function renderFilial(){
         <span class="filial-taxa ${tCls}">Comparec. ${taxaS}</span>
       </div>
       <table class="ftbl">
-        <tr><td>Leads Total</td><td>${cR+cN}${dl(cR+cN,pR+pN)}<span class="ref">14/07: ${mR+mN}</span></td></tr>
+        <tr><td>Leads Total</td><td>${cR+cN}${dl(cR+cN,pR+pN)}<span class="ref">17/07: ${mR+mN}</span></td></tr>
         <tr><td class="sub">↳ Rotina</td><td>${cR}${dl(cR,pR)}</td></tr>
         <tr><td class="sub">↳ Novos</td><td>${cN}${dl(cN,pN)}</td></tr>
-        <tr><td>Ligações</td><td>${cL}${dl(cL,pL)}<span class="ref">14/07: ${mL}</span></td></tr>
+        <tr><td>Ligações</td><td>${cL}${dl(cL,pL)}<span class="ref">17/07: ${mL}</span></td></tr>
         <tr><td class="sub">↳ At. Telefone</td><td>${sumSDR(c.at_tel)}${dl(sumSDR(c.at_tel),sumSDR(p.at_tel))}</td></tr>
         <tr><td class="sub">↳ At. Mensagem</td><td>${sumSDR(c.at_msg)}</td></tr>
-        <tr><td>Agendamentos</td><td>${cA}${dl(cA,pA)}<span class="ref">14/07: ${mA}</span></td></tr>
-        <tr><td>Comparecimentos</td><td>${cRe}${dl(cRe,pRe)}<span class="ref">14/07: ${mRe}</span></td></tr>
-        <tr><td>Fechamentos</td><td>${cFT}${dl(cFT,pFT)}<span class="ref">14/07: ${mFT}</span></td></tr>
+        <tr><td>Agendamentos</td><td>${cA}${dl(cA,pA)}<span class="ref">17/07: ${mA}</span></td></tr>
+        <tr><td>Comparecimentos</td><td>${cRe}${dl(cRe,pRe)}<span class="ref">17/07: ${mRe}</span></td></tr>
+        <tr><td>Fechamentos</td><td>${cFT}${dl(cFT,pFT)}<span class="ref">17/07: ${mFT}</span></td></tr>
         <tr><td class="sub">↳ por Leads</td><td>${cFL}${dl(cFL,pFL)}</td></tr>
         <tr><td class="sub">↳ por Indicação</td><td>${cFI}${dl(cFI,pFI)}</td></tr>
       </table>
@@ -1061,15 +1061,15 @@ function renderInsights(){
   const ligDelta=lig-ligP;
 
   const ins=[
-    {type:'warn',icon:'⚠',title:'Pior Lançamento da Semana — Só 2 Combinações SDR×Filial Completas',body:`Sexta 14/08 fecha a Semana 2 com a lacuna mais severa desde 10/08: apenas <strong>Joyce (Barra)</strong> e <strong>Waleska (Goiânia)</strong> têm funil completo lançado. Luana e Fabi ficaram inteiramente zeradas nas 3 filiais. Em Botafogo, só há um fechamento avulso de Joyce (1 lead) sem nenhum outro dado no funil (rotina/novos/ligações/agendamento/comparecimento = 0) — mesmo padrão de "fechamento sem funil" já documentado no projeto, vale reconferir numa próxima reextração. Jordana segue de férias.`},
-    {type:'good',icon:'🏆',title:'Fechamentos do Dia: 5 (3 Leads + 2 Indicação) — Estável vs Quinta',body:`Fechamentos ficam em <strong>5</strong>, igual à quinta 13/08 (0,0%), mas bem acima do horizontal 14/07 (1, +400,0%). Waleska concentra 3 em Goiânia (1 lead + 2 indicação); Joyce soma 2 leads (1 em Botafogo sem funil + 1 em Barra).`},
-    {type:'warn',icon:'📉',title:'Volume em Forte Queda vs Quinta — Reflexo da Lacuna de Lançamento',body:`Leads Total 82 (-31,1% vs quinta 13/08, -32,2% vs horizontal 14/07). Ligações 490 (-23,0% vs quinta, mas +38,8% vs horizontal). Agendamentos despencam para 2 (-84,6% vs quinta, -80,0% vs horizontal) — maior queda do dia, provável reflexo direto da lacuna de SDRs (Luana e Fabi zeradas) e não de queda real de operação.`},
-    {type:'info',icon:'🎯',title:'Taxa de Comparecimento Distorcida pela Base Pequena de Agendamentos',body:`Comparecimentos 6 sobre apenas 2 agendamentos do próprio dia resultam em <strong>300,0%</strong> — reflete conversão de agendamentos feitos em dias anteriores, não deve ser lida como eficiência real dado o volume mínimo de agendamentos novos hoje. Vs. quinta (46,2%) e horizontal (100,0%), ambos com base bem maior.`},
-    {type:'info',icon:'⭐',title:'Ranking do Dia — Waleska Lidera, Só 2 SDRs Pontuam',body:`<strong>Waleska</strong> 1º (score 73,4 — 3 fechamentos, 5 comparecimentos, 284 ligações em Goiânia). <strong>Joyce</strong> 2º (score 47,6 — 2 fechamentos por leads entre Botafogo e Barra, 206 ligações). <strong>Jordana</strong>, <strong>Luana</strong> e <strong>Fabi</strong> empatadas em último (score 0,0) — nenhuma lançou dado hoje.`},
-    {type:'info',icon:'🏢',title:'Por Filial — Goiânia com Funil Completo, Botafogo só com Fechamento Avulso',body:`Barra (só Joyce): 18 rotina, 11 novos, 206 ligações, 2 agendamentos, 1 comparecimento (taxa 50,0%), 1 fechamento por leads. Goiânia (só Waleska): 34 rotina, 19 novos, 284 ligações, 0 agendamentos novos, 5 comparecimentos (de agendamentos anteriores), 1 fechamento por leads + 2 por indicação. Botafogo: zerada em todo o funil, com exceção de 1 fechamento por leads da Joyce sem lançamento de suporte.`},
-    {type:'info',icon:'💰',title:'Vendas dos Closers: Não Informado',body:`Nenhuma venda de closer foi reportada para 14/08 até o momento desta execução agendada. Campo mantido zerado — não inventar valores; Karina pode informar posteriormente para atualização.`},
-    {type:'warn',icon:'📅',title:'Semana S2 (10-14/08) Fecha Completa — Ritmo Abaixo da Semana Passada',body:`Semana 2 completa (5/5 dias): Rotina 377 · Novos 216 · Ligações 2.924 · At.Tel 170 · At.Msg 125 · Agendamentos 59 · Comparecimentos 35 (taxa 59,3%) · Fechamentos SDR 16 (10 leads + 6 indicação). Comparada à Semana 1 completa (03-07/08: Rotina 422, Novos 308, Ligações 3.222, Agend 70, Comp 51, Fech 17): rotina -10,7%, novos -29,9%, ligações -9,2%, agendamentos -15,7%, comparecimentos -31,4%, fechamentos -5,9% (17→16), taxa de comparecimento -13,6pp (72,9%→59,3%) — segunda semana do mês com ritmo mais fraco que a primeira em quase todas as métricas.`},
-    {type:'good',icon:'📅',title:'Acumulado Agosto — 10 Dias Úteis, Taxa Acima da Meta, Waleska Lidera Fechamentos',body:`Rotina 799 · Novos 524 · At.Tel 340 · At.Msg 281 · Agendamentos 129 · Comparecimentos 86 (taxa <strong>66,7%</strong>, acima da meta de 65%) · Fechamentos SDR 33 (17 leads + 16 indicação). <strong>Waleska lidera os fechamentos acumulados do mês</strong> (11, sendo 6 leads + 5 indicação), à frente de Fabi (9, 2 leads + 7 indicação), Joyce (8, 6 leads + 2 indicação), Luana (3) e Jordana (2, de férias).`}
+    {type:'warn',icon:'⚠',title:'Só 3 SDRs Ativas — Cada Uma em Apenas 1 ou 2 Filiais',body:`Segunda 17/08 (1º dia da Semana 3) abre com lançamento parcial: <strong>Joyce</strong> (Botafogo, só fechamento sem funil, + Barra completo), <strong>Luana</strong> (só Botafogo) e <strong>Waleska</strong> (só Goiânia) têm dado. <strong>Fabi</strong> ficou inteiramente zerada nas 3 filiais e <strong>Jordana</strong> segue de férias — nenhuma atividade dela hoje.`},
+    {type:'good',icon:'🏆',title:'Fechamentos do Dia: 6 (3 Leads + 3 Indicação) — Acima da Referência',body:`Fechamentos somam <strong>6</strong>, abaixo da sexta 14/08 (8, -25,0%) mas acima do horizontal 17/07 (4, +50,0%). Joyce concentra 3 (1 lead em Botafogo sem funil + 2 leads em Barra); Waleska soma 3 por indicação em Goiânia.`},
+    {type:'warn',icon:'📉',title:'Volume em Forte Queda vs Sexta — Leads Novos e Ligações Recuam',body:`Leads Total 109 (-40,8% vs sexta 14/08, -49,8% vs horizontal 17/07). Ligações 478 (-42,1% vs sexta, -38,9% vs horizontal). Leads Novos 36 (-64,0% vs sexta, -72,5% vs horizontal) — queda acentuada puxada pela lacuna de Fabi e pela ausência de Jordana, não necessariamente redução real de operação.`},
+    {type:'info',icon:'🎯',title:'Taxa de Comparecimento Distorcida pela Base Pequena de Agendamentos',body:`Comparecimentos 9 sobre apenas 5 agendamentos do próprio dia resultam em <strong>180,0%</strong> — reflete conversão de agendamentos feitos em dias anteriores, não deve ser lida como eficiência real. Vs. sexta (114,3%) e horizontal (100,0%), ambos também acima de 100% mas com base maior.`},
+    {type:'info',icon:'⭐',title:'Ranking do Dia — Joyce Lidera, Só 3 SDRs Pontuam',body:`<strong>Joyce</strong> 1º (score 67,4 — 3 fechamentos, 5 comparecimentos, 164 ligações entre Botafogo e Barra). <strong>Waleska</strong> 2º (score 58,6 — 3 fechamentos por indicação, 4 comparecimentos, 146 ligações em Goiânia). <strong>Luana</strong> 3º (score 18,8 — 168 ligações em Botafogo, sem fechamento). <strong>Jordana</strong> e <strong>Fabi</strong> empatadas em último (score 0,0) — nenhuma lançou dado hoje.`},
+    {type:'info',icon:'🏢',title:'Por Filial — Barra e Goiânia com Funil Completo, Botafogo só com Fechamento Avulso da Joyce',body:`Barra (só Joyce): 22 rotina, 6 novos, 164 ligações, 3 agendamentos, 3 comparecimentos (taxa 100,0%), 2 fechamentos por leads. Goiânia (só Waleska): 26 rotina, 20 novos, 146 ligações, 1 agendamento, 4 comparecimentos, 3 fechamentos por indicação. Botafogo (só Luana no funil): 25 rotina, 10 novos, 168 ligações, 1 agendamento, sem comparecimento — mais 1 fechamento avulso da Joyce (1 lead) sem lançamento de suporte, mesmo padrão de "fechamento sem funil" já documentado no projeto.`},
+    {type:'info',icon:'💰',title:'Vendas dos Closers: Não Informado',body:`Nenhuma venda de closer foi reportada para 17/08 até o momento. Campo mantido zerado — não inventar valores; Karina pode informar posteriormente para atualização.`},
+    {type:'info',icon:'📅',title:'Semana S3 Inicia (Só Segunda 17/08) — Comparação de Ritmo Inicial',body:`Primeiro dia da Semana 3: Rotina 73 · Novos 36 · Ligações 478 · At.Tel 38 · At.Msg 25 · Agendamentos 5 · Comparecimentos 9 (taxa 180,0%) · Fechamentos SDR 6 (3 leads + 3 indicação). Comparado ao mesmo dia da Semana 2 (Segunda 10/08, único dia comparável): rotina estável (73→73, 0,0%), novos -30,8% (52→36), ligações -24,7% (635→478), agendamentos -54,5% (11→5), comparecimentos +50,0% (6→9), fechamentos SDR de 0 para 6 — início de semana com menos volume de leads/ligações mas mais conversão em fechamento.`},
+    {type:'good',icon:'📅',title:'Acumulado Agosto — 11 Dias Úteis, Taxa Acima da Meta, Waleska Lidera Fechamentos',body:`Rotina 904 · Novos 630 · At.Tel 388 · At.Msg 379 · Agendamentos 139 · Comparecimentos 97 (taxa <strong>69,8%</strong>, acima da meta de 65%) · Fechamentos SDR 42 (23 leads + 19 indicação). <strong>Waleska lidera os fechamentos acumulados do mês</strong> (14, sendo 6 leads + 8 indicação), à frente de Joyce e Fabi (11 cada), Luana (4) e Jordana (2, de férias).`}
   ];
   document.getElementById('insights-grid')
 .innerHTML=ins.map(i=>`
