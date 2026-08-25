@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SDR Performance · CapiHair · 19/08/2026</title>
+<title>SDR Performance · CapiHair · 24/08/2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
@@ -187,6 +187,7 @@ table.t tr:hover td{background:var(--surface2);}
 .f3{background:linear-gradient(135deg,#06b6d4,#22d3ee);box-shadow:0 4px 16px rgba(6,182,212,.25);}
 .f4{background:linear-gradient(135deg,#10b981,#34d399);box-shadow:0 4px 16px rgba(16,185,129,.25);}
 .f5{background:linear-gradient(135deg,#f59e0b,#fbbf24);box-shadow:0 4px 16px rgba(245,158,11,.25);}
+.f6{background:linear-gradient(135deg,#ec4899,#f472b6);box-shadow:0 4px 16px rgba(236,72,153,.25);}
 .funnel-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text2);}
 .funnel-conv{font-size:.72rem;font-weight:700;color:var(--text3);margin-top:3px;}
 .funnel-arrow{font-size:1.2rem;color:var(--text3);flex-shrink:0;padding:0 2px;margin-top:-28px;}
@@ -345,7 +346,7 @@ table.mtbl-wide tr:hover td{background:var(--surface2);}
     <button class="pill-tab" onclick="setFilial('Goiania',this)">🩵 Goiânia</button>
   </div>
   <div class="hdr-right">
-    <div class="date-badge">📅 Qua 19/08/2026</div>
+    <div class="date-badge">📅 Seg 24/08/2026</div>
     <button class="icon-btn" onclick="toggleTheme()" title="Alternar tema">☀️</button>
   </div>
 </header>
@@ -378,7 +379,7 @@ table.mtbl-wide tr:hover td{background:var(--surface2);}
 </div>
 
 <!-- ─── KPIs ─── -->
-<div class="sec-hdr anim anim-d1">🎯 Indicadores — Qua 19/08/2026</div>
+<div class="sec-hdr anim anim-d1">🎯 Indicadores — Seg 24/08/2026</div>
 <div class="kpi-grid anim anim-d2" id="kpi-grid"></div>
 
 <!-- ─── ANÁLISE ─── -->
@@ -387,23 +388,23 @@ table.mtbl-wide tr:hover td{background:var(--surface2);}
   <div class="card">
     <div class="card-hdr purple">
       <span class="card-hdr-icon">↕</span>
-      <span class="card-hdr-title">Vertical — Qua 19/08 vs Ter 18/08</span>
+      <span class="card-hdr-title">Vertical — Seg 24/08 vs Sex 21/08</span>
     </div>
-    <table class="t"><thead><tr><th>Métrica</th><th>Hoje</th><th>Terça</th><th>Δ</th></tr></thead>
+    <table class="t"><thead><tr><th>Métrica</th><th>Hoje</th><th>Sexta</th><th>Δ</th></tr></thead>
     <tbody id="vert-tbody"></tbody></table>
   </div>
   <div class="card">
     <div class="card-hdr blue">
       <span class="card-hdr-icon">↔</span>
-      <span class="card-hdr-title">Horizontal — Qua 19/08 vs Sex 17/07</span>
+      <span class="card-hdr-title">Horizontal — Seg 24/08 vs Sex 24/07</span>
     </div>
-    <table class="t"><thead><tr><th>Métrica</th><th>Hoje</th><th>17/07</th><th>Δ</th></tr></thead>
+    <table class="t"><thead><tr><th>Métrica</th><th>Hoje</th><th>24/07</th><th>Δ</th></tr></thead>
     <tbody id="horiz-tbody"></tbody></table>
   </div>
 </div>
 
 <!-- ─── COMPARAÇÃO SEMANAL: MESMO DIA (com Total por semana e Evolução%) ─── -->
-<div class="sec-hdr anim">📊 Comparação Semanal — Mesmo Dia (Quarta) da Semana Passada vs Atual <span style="font-size:.65rem;font-weight:500;text-transform:none;letter-spacing:0;color:var(--text2);margin-left:6px;">Total = soma dos 2 dias (Terça+Quarta) de cada semana · Evol% = variação do Total da semana atual vs passada</span></div>
+<div class="sec-hdr anim">📊 Comparação Semanal — Mesmo Dia (Segunda) da Semana Passada vs Atual <span style="font-size:.65rem;font-weight:500;text-transform:none;letter-spacing:0;color:var(--text2);margin-left:6px;">Total = soma dos 2 dias (Sexta+Segunda) de cada semana · Evol% = variação do Total da semana atual vs passada</span></div>
 <div class="tbl-wrap anim anim-d1">
 <table class="mtbl-wide" id="vert-compare-wide-table">
 <thead>
@@ -414,8 +415,8 @@ table.mtbl-wide tr:hover td{background:var(--surface2);}
   <th rowspan="2">Evol%</th>
 </tr>
 <tr>
-  <th class="grp">Qua 12/08</th><th>Ter 11/08</th><th>Δ</th><th>Total</th>
-  <th class="grp">Qua 19/08</th><th>Ter 18/08</th><th>Δ</th><th>Total</th>
+  <th class="grp">Seg 17/08</th><th>Sex 14/08</th><th>Δ</th><th>Total</th>
+  <th class="grp">Seg 24/08</th><th>Sex 21/08</th><th>Δ</th><th>Total</th>
 </tr>
 </thead>
 <tbody id="vert-compare-wide-tbody"></tbody>
@@ -429,13 +430,13 @@ table.mtbl-wide tr:hover td{background:var(--surface2);}
 </div>
 
 <!-- ─── CHART S1 ─── -->
-<div class="sec-hdr anim">📈 Semana Atual (17-21/08) — Leads Novos vs Atendidas & % Conversão</div>
+<div class="sec-hdr anim">📈 Semana Atual (24-28/08) — Leads Novos vs Atendidas & % Conversão</div>
 <div class="chart-card anim anim-d1">
   <canvas id="chartS5"></canvas>
 </div>
 
 <!-- ─── RANKING SDR ─── -->
-<div class="sec-hdr anim">🏆 Ranking SDRs — Qua 19/08</div>
+<div class="sec-hdr anim">🏆 Ranking SDRs — Seg 24/08</div>
 <div class="ranking-grid" id="ranking-grid"></div>
 
 <!-- ─── POR FILIAL ─── -->
@@ -443,25 +444,25 @@ table.mtbl-wide tr:hover td{background:var(--surface2);}
 <div class="filial-grid" id="filial-grid"></div>
 
 <!-- ─── ACUMULADO MÊS ─── -->
-<div class="sec-hdr anim">📅 Acumulado Agosto — Por SDR <span style="font-size:.65rem;font-weight:500;text-transform:none;letter-spacing:0;color:var(--text2);margin-left:6px;">13 dias úteis lançados (03, 04, 05, 06, 07, 10, 11, 12, 13, 14, 17, 18 e 19/08) — Semana 3 (3 dias)</span></div>
+<div class="sec-hdr anim">📅 Acumulado Agosto — Por SDR <span style="font-size:.65rem;font-weight:500;text-transform:none;letter-spacing:0;color:var(--text2);margin-left:6px;">16 dias úteis lançados (03, 04, 05, 06, 07, 10, 11, 12, 13, 14, 17, 18, 19, 20, 21 e 24/08) — Semana 4 (1 dia)</span></div>
 <div class="tbl-wrap anim anim-d1"><table class="mtbl" id="month-table"></table></div>
 
 <!-- ─── SEMANA S1 ─── -->
-<div class="sec-hdr anim">📅 Semana Atual Acumulada — Por SDR e Por Filial <span style="font-size:.65rem;font-weight:500;text-transform:none;letter-spacing:0;color:var(--text2);margin-left:6px;">17-21/08 (3/5 dias lançados)</span></div>
+<div class="sec-hdr anim">📅 Semana Atual Acumulada — Por SDR e Por Filial <span style="font-size:.65rem;font-weight:500;text-transform:none;letter-spacing:0;color:var(--text2);margin-left:6px;">24-28/08 (1/5 dias lançados)</span></div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:4px" class="anim anim-d1">
   <div class="tbl-wrap"><table class="mtbl" id="week-sdr-table"></table></div>
   <div class="tbl-wrap"><table class="mtbl" id="week-filial-table"></table></div>
 </div>
 
 <!-- ─── SEMANA ACUMULADA: SEMANA PASSADA VS ATUAL (com Total e % Evolução por métrica) ─── -->
-<div class="sec-hdr anim">📅 Semana Acumulada — Semana Passada vs Semana Atual <span style="font-size:.65rem;font-weight:500;text-transform:none;letter-spacing:0;color:var(--text2);margin-left:6px;">semana atual capada a 3 dias (Segunda+Terça+Quarta) — semana passada capada no mesmo nº de dias, para comparação de ritmo inicial · Total = soma dos dias já lançados · Evol% = variação do Total atual vs passado · dividido em 2 blocos de métricas para caber sem rolagem</span></div>
+<div class="sec-hdr anim">📅 Semana Acumulada — Semana Passada vs Semana Atual <span style="font-size:.65rem;font-weight:500;text-transform:none;letter-spacing:0;color:var(--text2);margin-left:6px;">semana atual capada a 1 dia (Segunda) — semana passada capada no mesmo nº de dias, para comparação de ritmo inicial · Total = soma dos dias já lançados · Evol% = variação do Total atual vs passado · dividido em 2 blocos de métricas para caber sem rolagem</span></div>
 
-<div class="tbl-label" style="margin-top:4px">POR SDR — VOLUME (Rotina, Novos, Ligações, At.Tel, At.Msg)</div>
+<div class="tbl-label" style="margin-top:4px">POR SDR — VOLUME (Rotina, Novos, Ligações, At.Tel, At.Msg, Pré Agenda)</div>
 <div class="tbl-wrap anim anim-d1" style="margin-bottom:16px"><table class="mtbl-wide" id="cmp-sdr-full-table-1"></table></div>
 <div class="tbl-label">POR SDR — RESULTADO (Agendamentos, Comparecimentos, Fechamentos)</div>
 <div class="tbl-wrap anim anim-d1" style="margin-bottom:20px"><table class="mtbl-wide" id="cmp-sdr-full-table-2"></table></div>
 
-<div class="tbl-label">POR FILIAL — VOLUME (Rotina, Novos, Ligações, At.Tel, At.Msg)</div>
+<div class="tbl-label">POR FILIAL — VOLUME (Rotina, Novos, Ligações, At.Tel, At.Msg, Pré Agenda)</div>
 <div class="tbl-wrap anim anim-d1" style="margin-bottom:16px"><table class="mtbl-wide" id="cmp-fil-full-table-1"></table></div>
 <div class="tbl-label">POR FILIAL — RESULTADO (Agendamentos, Comparecimentos, Fechamentos)</div>
 <div class="tbl-wrap anim anim-d1"><table class="mtbl-wide" id="cmp-fil-full-table-2"></table></div>
@@ -471,11 +472,10 @@ table.mtbl-wide tr:hover td{background:var(--surface2);}
 <div class="insights-grid" id="insights-grid"></div>
 
 <div class="meta-row" style="margin-top:36px;justify-content:center;">
-  <span class="meta-chip">📌 Dados: Qua 19/08/2026 · extraído em 20/08/2026</span>
-  <span class="meta-chip">↕ Ref. vertical: Ter 18/08</span>
-  <span class="meta-chip">↔ Ref. horizontal: Sex 17/07</span>
-  <span class="meta-chip">🌴 Jordana com funil completo hoje (possível retorno) · Fechamentos do dia: 5 (2 leads + 3 indicação)</span>
-  <span class="meta-chip">🔄 Reextração: Fabi entra em Botafogo+Barra, Luana ganha indicação em Botafogo</span>
+  <span class="meta-chip">📌 Dados: Seg 24/08/2026 · extraído em 25/08/2026</span>
+  <span class="meta-chip">↕ Ref. vertical: Sex 21/08</span>
+  <span class="meta-chip">↔ Ref. horizontal: Sex 24/07</span>
+  <span class="meta-chip">🆕 Pré Agenda: nova métrica na planilha a partir de hoje (17 no dia) — sem histórico para comparação ainda</span>
   <span class="meta-chip">🎯 Meta comparecimento: 65%</span>
 </div>
 
@@ -487,27 +487,27 @@ const SDRS=['Joyce','Jordana','Luana','Fabi','Waleska'];
 const FILS=['Botafogo','Barra','Goiania'];
 let CF='all';
 
-const DHOJE={"Botafogo":{"rotina":{"Joyce":0,"Jordana":16,"Luana":30,"Fabi":11,"Waleska":0},"novos":{"Joyce":0,"Jordana":4,"Luana":7,"Fabi":7,"Waleska":0},"ligacoes":{"Joyce":0,"Jordana":66,"Luana":172,"Fabi":60,"Waleska":0},"at_tel":{"Joyce":0,"Jordana":4,"Luana":15,"Fabi":5,"Waleska":0},"at_msg":{"Joyce":0,"Jordana":2,"Luana":13,"Fabi":2,"Waleska":0},"agendadas":{"Joyce":0,"Jordana":3,"Luana":2,"Fabi":3,"Waleska":0},"realizadas":{"Joyce":0,"Jordana":3,"Luana":2,"Fabi":2,"Waleska":0},"fec_leads":{"Joyce":0,"Jordana":1,"Luana":1,"Fabi":0,"Waleska":0},"fec_indic":{"Joyce":0,"Jordana":0,"Luana":1,"Fabi":0,"Waleska":0}},"Barra":{"rotina":{"Joyce":26,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"novos":{"Joyce":5,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"ligacoes":{"Joyce":197,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"at_tel":{"Joyce":23,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"at_msg":{"Joyce":10,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"agendadas":{"Joyce":1,"Jordana":0,"Luana":0,"Fabi":1,"Waleska":0},"realizadas":{"Joyce":3,"Jordana":0,"Luana":0,"Fabi":1,"Waleska":0},"fec_leads":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"fec_indic":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":1,"Waleska":0}},"Goiania":{"rotina":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":25},"novos":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":11},"ligacoes":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":193},"at_tel":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":7},"at_msg":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":6},"agendadas":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":1},"realizadas":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":3},"fec_leads":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"fec_indic":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":1}}};
+const DHOJE={"Botafogo":{"rotina":{"Joyce":0,"Jordana":20,"Luana":29,"Fabi":11,"Waleska":0},"novos":{"Joyce":0,"Jordana":2,"Luana":6,"Fabi":5,"Waleska":0},"ligacoes":{"Joyce":0,"Jordana":146,"Luana":119,"Fabi":80,"Waleska":0},"at_tel":{"Joyce":0,"Jordana":3,"Luana":43,"Fabi":3,"Waleska":0},"at_msg":{"Joyce":0,"Jordana":3,"Luana":9,"Fabi":3,"Waleska":0},"pre_agenda":{"Joyce":0,"Jordana":3,"Luana":5,"Fabi":2,"Waleska":0},"agendadas":{"Joyce":0,"Jordana":2,"Luana":3,"Fabi":3,"Waleska":1},"realizadas":{"Joyce":3,"Jordana":0,"Luana":3,"Fabi":0,"Waleska":0},"fec_leads":{"Joyce":1,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"fec_indic":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0}},"Barra":{"rotina":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"novos":{"Joyce":4,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"ligacoes":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"at_tel":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"at_msg":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"pre_agenda":{"Joyce":4,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"agendadas":{"Joyce":3,"Jordana":0,"Luana":1,"Fabi":0,"Waleska":0},"realizadas":{"Joyce":2,"Jordana":0,"Luana":1,"Fabi":0,"Waleska":0},"fec_leads":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"fec_indic":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0}},"Goiania":{"rotina":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":30},"novos":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":5},"ligacoes":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":247},"at_tel":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":5},"at_msg":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":5},"pre_agenda":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":3},"agendadas":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":1,"Waleska":3},"realizadas":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":1,"Waleska":3},"fec_leads":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"fec_indic":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":1}}};
 
-const DANT={"Botafogo":{"rotina":{"Joyce":0,"Jordana":14,"Luana":33,"Fabi":12,"Waleska":0},"novos":{"Joyce":0,"Jordana":8,"Luana":11,"Fabi":13,"Waleska":0},"ligacoes":{"Joyce":0,"Jordana":55,"Luana":134,"Fabi":81,"Waleska":0},"at_tel":{"Joyce":0,"Jordana":5,"Luana":17,"Fabi":11,"Waleska":0},"at_msg":{"Joyce":0,"Jordana":1,"Luana":4,"Fabi":1,"Waleska":0},"agendadas":{"Joyce":0,"Jordana":3,"Luana":5,"Fabi":3,"Waleska":0},"realizadas":{"Joyce":1,"Jordana":0,"Luana":2,"Fabi":2,"Waleska":0},"fec_leads":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":1,"Waleska":0},"fec_indic":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0}},"Barra":{"rotina":{"Joyce":29,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"novos":{"Joyce":6,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"ligacoes":{"Joyce":162,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"at_tel":{"Joyce":18,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"at_msg":{"Joyce":5,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"agendadas":{"Joyce":1,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"realizadas":{"Joyce":1,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"fec_leads":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"fec_indic":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0}},"Goiania":{"rotina":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":26},"novos":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":23},"ligacoes":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":125},"at_tel":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":4},"at_msg":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":6},"agendadas":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":3},"realizadas":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":3},"fec_leads":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"fec_indic":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":1}}};
+const DANT={"Botafogo":{"rotina":{"Joyce":0,"Jordana":21,"Luana":34,"Fabi":11,"Waleska":0},"novos":{"Joyce":6,"Jordana":3,"Luana":8,"Fabi":8,"Waleska":0},"ligacoes":{"Joyce":0,"Jordana":118,"Luana":222,"Fabi":67,"Waleska":0},"at_tel":{"Joyce":0,"Jordana":2,"Luana":40,"Fabi":4,"Waleska":0},"at_msg":{"Joyce":0,"Jordana":4,"Luana":14,"Fabi":7,"Waleska":0},"pre_agenda":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"agendadas":{"Joyce":0,"Jordana":3,"Luana":5,"Fabi":6,"Waleska":0},"realizadas":{"Joyce":1,"Jordana":5,"Luana":1,"Fabi":1,"Waleska":0},"fec_leads":{"Joyce":1,"Jordana":1,"Luana":0,"Fabi":0,"Waleska":0},"fec_indic":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0}},"Barra":{"rotina":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"novos":{"Joyce":9,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"ligacoes":{"Joyce":250,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"at_tel":{"Joyce":22,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"at_msg":{"Joyce":10,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"pre_agenda":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"agendadas":{"Joyce":6,"Jordana":1,"Luana":0,"Fabi":0,"Waleska":0},"realizadas":{"Joyce":1,"Jordana":1,"Luana":0,"Fabi":0,"Waleska":0},"fec_leads":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"fec_indic":{"Joyce":0,"Jordana":1,"Luana":0,"Fabi":0,"Waleska":0}},"Goiania":{"rotina":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":36},"novos":{"Joyce":10,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":26},"ligacoes":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":210},"at_tel":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":5},"at_msg":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":5},"pre_agenda":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"agendadas":{"Joyce":1,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":2},"realizadas":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":3},"fec_leads":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"fec_indic":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0}}};
 
-const DMESANT={"Botafogo":{"rotina":{"Joyce":0,"Jordana":23,"Luana":24,"Fabi":0,"Waleska":7},"novos":{"Joyce":0,"Jordana":11,"Luana":21,"Fabi":22,"Waleska":0},"ligacoes":{"Joyce":0,"Jordana":146,"Luana":82,"Fabi":100,"Waleska":7},"at_tel":{"Joyce":0,"Jordana":2,"Luana":10,"Fabi":6,"Waleska":1},"at_msg":{"Joyce":4,"Jordana":2,"Luana":15,"Fabi":10,"Waleska":0},"agendadas":{"Joyce":0,"Jordana":1,"Luana":0,"Fabi":2,"Waleska":0},"realizadas":{"Joyce":0,"Jordana":0,"Luana":2,"Fabi":3,"Waleska":1},"fec_leads":{"Joyce":0,"Jordana":0,"Luana":1,"Fabi":2,"Waleska":0},"fec_indic":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0}},"Barra":{"rotina":{"Joyce":22,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":5},"novos":{"Joyce":11,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"ligacoes":{"Joyce":182,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":5},"at_tel":{"Joyce":27,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"at_msg":{"Joyce":20,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"agendadas":{"Joyce":2,"Jordana":1,"Luana":0,"Fabi":0,"Waleska":1},"realizadas":{"Joyce":1,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"fec_leads":{"Joyce":1,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"fec_indic":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0}},"Goiania":{"rotina":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":5},"novos":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":66},"ligacoes":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":260},"at_tel":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":3},"at_msg":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":1},"agendadas":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"realizadas":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"fec_leads":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"fec_indic":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0}}};
+const DMESANT={"Botafogo":{"rotina":{"Joyce":0,"Jordana":23,"Luana":29,"Fabi":24,"Waleska":0},"novos":{"Joyce":0,"Jordana":30,"Luana":22,"Fabi":17,"Waleska":0},"ligacoes":{"Joyce":0,"Jordana":193,"Luana":160,"Fabi":61,"Waleska":0},"at_tel":{"Joyce":0,"Jordana":9,"Luana":17,"Fabi":4,"Waleska":0},"at_msg":{"Joyce":0,"Jordana":3,"Luana":8,"Fabi":4,"Waleska":0},"pre_agenda":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"agendadas":{"Joyce":0,"Jordana":8,"Luana":5,"Fabi":2,"Waleska":0},"realizadas":{"Joyce":0,"Jordana":1,"Luana":2,"Fabi":2,"Waleska":0},"fec_leads":{"Joyce":2,"Jordana":1,"Luana":0,"Fabi":1,"Waleska":0},"fec_indic":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0}},"Barra":{"rotina":{"Joyce":17,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":1},"novos":{"Joyce":2,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"ligacoes":{"Joyce":169,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":1},"at_tel":{"Joyce":13,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"at_msg":{"Joyce":3,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"pre_agenda":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"agendadas":{"Joyce":2,"Jordana":0,"Luana":0,"Fabi":1,"Waleska":1},"realizadas":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":1,"Waleska":0},"fec_leads":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":1,"Waleska":0},"fec_indic":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0}},"Goiania":{"rotina":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":17},"novos":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":33},"ligacoes":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":200},"at_tel":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":7},"at_msg":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":3},"pre_agenda":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"agendadas":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":3},"realizadas":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":6},"fec_leads":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":2},"fec_indic":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":2}}};
 
-const D1_LASTWEEK={"Botafogo":{"rotina":{"Joyce":0,"Jordana":0,"Luana":27,"Fabi":14,"Waleska":0},"novos":{"Joyce":0,"Jordana":0,"Luana":6,"Fabi":6,"Waleska":0},"ligacoes":{"Joyce":0,"Jordana":0,"Luana":172,"Fabi":100,"Waleska":0},"at_tel":{"Joyce":0,"Jordana":0,"Luana":22,"Fabi":5,"Waleska":0},"at_msg":{"Joyce":0,"Jordana":0,"Luana":10,"Fabi":0,"Waleska":0},"agendadas":{"Joyce":0,"Jordana":0,"Luana":4,"Fabi":3,"Waleska":0},"realizadas":{"Joyce":0,"Jordana":0,"Luana":2,"Fabi":0,"Waleska":0},"fec_leads":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"fec_indic":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0}},"Barra":{"rotina":{"Joyce":20,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"novos":{"Joyce":16,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"ligacoes":{"Joyce":175,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"at_tel":{"Joyce":10,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"at_msg":{"Joyce":7,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"agendadas":{"Joyce":3,"Jordana":0,"Luana":0,"Fabi":2,"Waleska":0},"realizadas":{"Joyce":2,"Jordana":0,"Luana":0,"Fabi":2,"Waleska":0},"fec_leads":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"fec_indic":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":1,"Waleska":0}},"Goiania":{"rotina":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":28},"novos":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":23},"ligacoes":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":180},"at_tel":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":5},"at_msg":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":20},"agendadas":{"Joyce":0,"Jordana":1,"Luana":0,"Fabi":0,"Waleska":3},"realizadas":{"Joyce":0,"Jordana":1,"Luana":0,"Fabi":0,"Waleska":2},"fec_leads":{"Joyce":0,"Jordana":1,"Luana":0,"Fabi":0,"Waleska":0},"fec_indic":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0}}};
+const D1_LASTWEEK={"Botafogo":{"rotina":{"Joyce":0,"Jordana":0,"Luana":25,"Fabi":11,"Waleska":0},"novos":{"Joyce":0,"Jordana":0,"Luana":10,"Fabi":10,"Waleska":0},"ligacoes":{"Joyce":0,"Jordana":0,"Luana":168,"Fabi":55,"Waleska":0},"at_tel":{"Joyce":0,"Jordana":0,"Luana":18,"Fabi":3,"Waleska":0},"at_msg":{"Joyce":0,"Jordana":0,"Luana":9,"Fabi":5,"Waleska":0},"pre_agenda":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"agendadas":{"Joyce":0,"Jordana":0,"Luana":1,"Fabi":2,"Waleska":0},"realizadas":{"Joyce":2,"Jordana":0,"Luana":0,"Fabi":1,"Waleska":0},"fec_leads":{"Joyce":1,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"fec_indic":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0}},"Barra":{"rotina":{"Joyce":22,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"novos":{"Joyce":6,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"ligacoes":{"Joyce":164,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"at_tel":{"Joyce":15,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"at_msg":{"Joyce":5,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"pre_agenda":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"agendadas":{"Joyce":5,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"realizadas":{"Joyce":3,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"fec_leads":{"Joyce":2,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"fec_indic":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0}},"Goiania":{"rotina":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":26},"novos":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":20},"ligacoes":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":146},"at_tel":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":5},"at_msg":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":11},"pre_agenda":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"agendadas":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":2},"realizadas":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":4},"fec_leads":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"fec_indic":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":3}}};
 
-const D2_LASTWEEK={"Botafogo":{"rotina":{"Joyce":0,"Jordana":0,"Luana":25,"Fabi":12,"Waleska":0},"novos":{"Joyce":0,"Jordana":0,"Luana":8,"Fabi":8,"Waleska":0},"ligacoes":{"Joyce":0,"Jordana":0,"Luana":127,"Fabi":100,"Waleska":0},"at_tel":{"Joyce":0,"Jordana":0,"Luana":7,"Fabi":5,"Waleska":0},"at_msg":{"Joyce":0,"Jordana":0,"Luana":6,"Fabi":4,"Waleska":0},"agendadas":{"Joyce":0,"Jordana":0,"Luana":2,"Fabi":3,"Waleska":0},"realizadas":{"Joyce":0,"Jordana":0,"Luana":1,"Fabi":0,"Waleska":0},"fec_leads":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"fec_indic":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0}},"Barra":{"rotina":{"Joyce":14,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"novos":{"Joyce":15,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"ligacoes":{"Joyce":148,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"at_tel":{"Joyce":6,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"at_msg":{"Joyce":6,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"agendadas":{"Joyce":3,"Jordana":1,"Luana":0,"Fabi":0,"Waleska":0},"realizadas":{"Joyce":0,"Jordana":1,"Luana":1,"Fabi":0,"Waleska":0},"fec_leads":{"Joyce":0,"Jordana":1,"Luana":0,"Fabi":0,"Waleska":0},"fec_indic":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0}},"Goiania":{"rotina":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":25},"novos":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":20},"ligacoes":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":161},"at_tel":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":8},"at_msg":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":8},"agendadas":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":3,"Waleska":5},"realizadas":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":2,"Waleska":3},"fec_leads":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":1},"fec_indic":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":1,"Waleska":0}}};
+const D2_LASTWEEK={"Botafogo":{"rotina":{"Joyce":0,"Jordana":0,"Luana":27,"Fabi":5,"Waleska":0},"novos":{"Joyce":0,"Jordana":0,"Luana":29,"Fabi":27,"Waleska":0},"ligacoes":{"Joyce":0,"Jordana":0,"Luana":186,"Fabi":150,"Waleska":0},"at_tel":{"Joyce":0,"Jordana":0,"Luana":5,"Fabi":5,"Waleska":0},"at_msg":{"Joyce":0,"Jordana":0,"Luana":65,"Fabi":8,"Waleska":0},"pre_agenda":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"agendadas":{"Joyce":0,"Jordana":0,"Luana":2,"Fabi":2,"Waleska":0},"realizadas":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":1,"Waleska":0},"fec_leads":{"Joyce":1,"Jordana":0,"Luana":1,"Fabi":1,"Waleska":0},"fec_indic":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0}},"Barra":{"rotina":{"Joyce":18,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"novos":{"Joyce":25,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"ligacoes":{"Joyce":206,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"at_tel":{"Joyce":11,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"at_msg":{"Joyce":3,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"pre_agenda":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"agendadas":{"Joyce":2,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"realizadas":{"Joyce":1,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"fec_leads":{"Joyce":1,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"fec_indic":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0}},"Goiania":{"rotina":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":34},"novos":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":19},"ligacoes":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":284},"at_tel":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":15},"at_msg":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":3},"pre_agenda":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":0},"agendadas":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":1,"Waleska":0},"realizadas":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":1,"Waleska":5},"fec_leads":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":1,"Waleska":1},"fec_indic":{"Joyce":0,"Jordana":0,"Luana":0,"Fabi":0,"Waleska":2}}};
 
-const MONTH_ACC={"Joyce":{"rotina":229,"novos":133,"at_tel":147,"at_msg":68,"agendadas":32,"realizadas":26,"fec_leads":9,"fec_indic":2},"Jordana":{"rotina":30,"novos":12,"at_tel":9,"at_msg":3,"agendadas":8,"realizadas":5,"fec_leads":3,"fec_indic":0},"Luana":{"rotina":357,"novos":155,"at_tel":177,"at_msg":170,"agendadas":41,"realizadas":18,"fec_leads":3,"fec_indic":3},"Fabi":{"rotina":195,"novos":160,"at_tel":88,"at_msg":87,"agendadas":46,"realizadas":30,"fec_leads":5,"fec_indic":7},"Waleska":{"rotina":326,"novos":275,"at_tel":79,"at_msg":106,"agendadas":40,"realizadas":42,"fec_leads":6,"fec_indic":10}};
+const MONTH_ACC={"Joyce":{"rotina":257,"novos":165,"at_tel":180,"at_msg":83,"pre_agenda":4,"agendadas":52,"realizadas":36,"fec_leads":12,"fec_indic":2},"Jordana":{"rotina":89,"novos":20,"at_tel":25,"at_msg":14,"pre_agenda":3,"agendadas":16,"realizadas":12,"fec_leads":4,"fec_indic":1},"Luana":{"rotina":453,"novos":171,"at_tel":278,"at_msg":202,"pre_agenda":5,"agendadas":54,"realizadas":26,"fec_leads":4,"fec_indic":3},"Fabi":{"rotina":223,"novos":177,"at_tel":99,"at_msg":100,"pre_agenda":2,"agendadas":57,"realizadas":32,"fec_leads":5,"fec_indic":7},"Waleska":{"rotina":424,"novos":316,"at_tel":98,"at_msg":121,"pre_agenda":3,"agendadas":52,"realizadas":49,"fec_leads":6,"fec_indic":11}};
 
-const WEEK_SDR={"Joyce":{"rotina":77,"novos":17,"ligacoes":523,"at_tel":56,"at_msg":20,"agendadas":5,"realizadas":10,"fec_leads":3,"fec_indic":0},"Jordana":{"rotina":30,"novos":12,"ligacoes":121,"at_tel":9,"at_msg":3,"agendadas":6,"realizadas":3,"fec_leads":1,"fec_indic":0},"Luana":{"rotina":88,"novos":28,"ligacoes":474,"at_tel":50,"at_msg":26,"agendadas":8,"realizadas":4,"fec_leads":1,"fec_indic":1},"Fabi":{"rotina":34,"novos":30,"ligacoes":196,"at_tel":19,"at_msg":8,"agendadas":9,"realizadas":6,"fec_leads":1,"fec_indic":1},"Waleska":{"rotina":77,"novos":54,"ligacoes":464,"at_tel":16,"at_msg":23,"agendadas":5,"realizadas":10,"fec_leads":0,"fec_indic":5}};
+const WEEK_SDR={"Joyce":{"rotina":0,"novos":4,"ligacoes":0,"at_tel":0,"at_msg":0,"pre_agenda":4,"agendadas":3,"realizadas":5,"fec_leads":1,"fec_indic":0},"Jordana":{"rotina":20,"novos":2,"ligacoes":146,"at_tel":3,"at_msg":3,"pre_agenda":3,"agendadas":2,"realizadas":0,"fec_leads":0,"fec_indic":0},"Luana":{"rotina":29,"novos":6,"ligacoes":119,"at_tel":43,"at_msg":9,"pre_agenda":5,"agendadas":4,"realizadas":4,"fec_leads":0,"fec_indic":0},"Fabi":{"rotina":11,"novos":5,"ligacoes":80,"at_tel":3,"at_msg":3,"pre_agenda":2,"agendadas":4,"realizadas":1,"fec_leads":0,"fec_indic":0},"Waleska":{"rotina":30,"novos":5,"ligacoes":247,"at_tel":5,"at_msg":5,"pre_agenda":3,"agendadas":4,"realizadas":3,"fec_leads":0,"fec_indic":1}};
 
-const WEEK_FILIAL={"Botafogo":{"rotina":152,"novos":70,"ligacoes":791,"at_tel":78,"at_msg":37,"agendadas":22,"realizadas":15,"fec_leads":4,"fec_indic":1},"Barra":{"rotina":77,"novos":17,"ligacoes":523,"at_tel":56,"at_msg":20,"agendadas":6,"realizadas":8,"fec_leads":2,"fec_indic":1},"Goiania":{"rotina":77,"novos":54,"ligacoes":464,"at_tel":16,"at_msg":23,"agendadas":5,"realizadas":10,"fec_leads":0,"fec_indic":5}};
+const WEEK_FILIAL={"Botafogo":{"rotina":60,"novos":13,"ligacoes":345,"at_tel":49,"at_msg":15,"pre_agenda":10,"agendadas":9,"realizadas":6,"fec_leads":1,"fec_indic":0},"Barra":{"rotina":0,"novos":4,"ligacoes":0,"at_tel":0,"at_msg":0,"pre_agenda":4,"agendadas":4,"realizadas":3,"fec_leads":0,"fec_indic":0},"Goiania":{"rotina":30,"novos":5,"ligacoes":247,"at_tel":5,"at_msg":5,"pre_agenda":3,"agendadas":4,"realizadas":4,"fec_leads":0,"fec_indic":1}};
 
-const WEEK_LASTWEEK_SDR={"Joyce":{"rotina":46,"novos":36,"ligacoes":515,"at_tel":29,"at_msg":18,"agendadas":6,"realizadas":4,"fec_leads":0,"fec_indic":0},"Jordana":{"rotina":0,"novos":0,"ligacoes":0,"at_tel":0,"at_msg":0,"agendadas":2,"realizadas":2,"fec_leads":2,"fec_indic":0},"Luana":{"rotina":77,"novos":25,"ligacoes":481,"at_tel":53,"at_msg":22,"agendadas":10,"realizadas":4,"fec_leads":0,"fec_indic":0},"Fabi":{"rotina":36,"novos":26,"ligacoes":270,"at_tel":16,"at_msg":8,"agendadas":12,"realizadas":5,"fec_leads":0,"fec_indic":2},"Waleska":{"rotina":79,"novos":67,"ligacoes":532,"at_tel":17,"at_msg":42,"agendadas":14,"realizadas":8,"fec_leads":1,"fec_indic":0}};
+const WEEK_LASTWEEK_SDR={"Joyce":{"rotina":22,"novos":6,"ligacoes":164,"at_tel":15,"at_msg":5,"pre_agenda":0,"agendadas":5,"realizadas":5,"fec_leads":3,"fec_indic":0},"Jordana":{"rotina":0,"novos":0,"ligacoes":0,"at_tel":0,"at_msg":0,"pre_agenda":0,"agendadas":0,"realizadas":0,"fec_leads":0,"fec_indic":0},"Luana":{"rotina":25,"novos":10,"ligacoes":168,"at_tel":18,"at_msg":9,"pre_agenda":0,"agendadas":1,"realizadas":0,"fec_leads":0,"fec_indic":0},"Fabi":{"rotina":11,"novos":10,"ligacoes":55,"at_tel":3,"at_msg":5,"pre_agenda":0,"agendadas":2,"realizadas":1,"fec_leads":0,"fec_indic":0},"Waleska":{"rotina":26,"novos":20,"ligacoes":146,"at_tel":5,"at_msg":11,"pre_agenda":0,"agendadas":2,"realizadas":4,"fec_leads":0,"fec_indic":3}};
 
-const WEEK_LASTWEEK_FILIAL={"Botafogo":{"rotina":113,"novos":51,"ligacoes":751,"at_tel":69,"at_msg":30,"agendadas":16,"realizadas":4,"fec_leads":0,"fec_indic":0},"Barra":{"rotina":47,"novos":36,"ligacoes":516,"at_tel":29,"at_msg":19,"agendadas":11,"realizadas":8,"fec_leads":1,"fec_indic":1},"Goiania":{"rotina":78,"novos":67,"ligacoes":531,"at_tel":17,"at_msg":41,"agendadas":17,"realizadas":11,"fec_leads":2,"fec_indic":1}};
+const WEEK_LASTWEEK_FILIAL={"Botafogo":{"rotina":36,"novos":20,"ligacoes":223,"at_tel":21,"at_msg":14,"pre_agenda":0,"agendadas":3,"realizadas":3,"fec_leads":1,"fec_indic":0},"Barra":{"rotina":22,"novos":6,"ligacoes":164,"at_tel":15,"at_msg":5,"pre_agenda":0,"agendadas":5,"realizadas":3,"fec_leads":2,"fec_indic":0},"Goiania":{"rotina":26,"novos":20,"ligacoes":146,"at_tel":5,"at_msg":11,"pre_agenda":0,"agendadas":2,"realizadas":4,"fec_leads":0,"fec_indic":3}};
 
-const CHART_S4={"labels":["Seg 17/08","Ter 18/08","Qua 19/08"],"novos":[46.0,61.0,34.0],"at_tel":[41.0,55.0,54.0],"at_msg":[30.0,17.0,33.0],"pct":[154.3,118.0,255.9],"Botafogo":{"ligacoes":[223.0,270.0,298.0],"agendadas":[3.0,11.0,8.0],"realizadas":[3.0,5.0,7.0]},"Barra":{"ligacoes":[164.0,162.0,197.0],"agendadas":[3.0,1.0,2.0],"realizadas":[3.0,1.0,4.0]},"Goiania":{"ligacoes":[146.0,125.0,193.0],"agendadas":[1.0,3.0,1.0],"realizadas":[4.0,3.0,3.0]}};
+const CHART_S4={"labels":["Seg 24/08"],"novos":[22.0],"at_tel":[54.0],"at_msg":[20.0],"pct":[336.4],"Botafogo":{"ligacoes":[345.0],"agendadas":[9.0],"realizadas":[6.0]},"Barra":{"ligacoes":[0],"agendadas":[4.0],"realizadas":[3.0]},"Goiania":{"ligacoes":[247.0],"agendadas":[4.0],"realizadas":[4.0]}};
 
 // Vendas fechadas pelos Closers (equipe de vendas, após handoff da SDR)
 const VENDAS_CLOSERS={
@@ -585,12 +585,14 @@ function renderKPIs(){
   const pAN=fmtAN(tel,msg,nov);
   const tCls=taxaN>=65?'kpi-good':taxaN>=40?'kpi-alert':'kpi-danger';
 
+  const preAg=sC('pre_agenda'),preAgP=sP('pre_agenda');
   const kpis=[
     {l:'Leads Total',v:rot+nov,s:`Rotina ${rot} · Novos ${nov}`,c:'kpi-purple'},
-    {l:'Ligações',v:lig,s:`Terça: ${sP('ligacoes')}`,c:lig>sP('ligacoes')?'kpi-good':''},
+    {l:'Ligações',v:lig,s:`Sexta: ${sP('ligacoes')}`,c:lig>sP('ligacoes')?'kpi-good':''},
     {l:'At. Telefone',v:tel,s:`Mensagem: ${msg}`,c:''},
     {l:'% At./Novos',v:pAN,s:`(Tel+Msg) ÷ Novos`,c:parseFloat(pAN)>=60?'kpi-good':'kpi-alert'},
-    {l:'Agendamentos',v:agend,s:`Terça: ${sP('agendadas')}`,c:agend>sP('agendadas')?'kpi-good':''},
+    {l:'Pré Agenda',v:preAg,s:preAgP>0?`Sexta: ${preAgP}`:'Métrica nova (desde hoje)',c:''},
+    {l:'Agendamentos',v:agend,s:`Sexta: ${sP('agendadas')}`,c:agend>sP('agendadas')?'kpi-good':''},
     {l:'Comparecimentos',v:real,s:`Taxa: ${taxa}`,c:tCls},
     {l:'Taxa Comparec.',v:taxa,s:'Meta: 65%',c:tCls},
     {l:'Fechamentos (SDR)',v:fT,s:`Leads ${fecL} · Indicação ${fecI}`,c:fT>0?'kpi-good':''},
@@ -609,6 +611,7 @@ function renderVertical(){
   const rot=sC('rotina'),rP=sP('rotina'),nov=sC('novos'),nP=sP('novos');
   const lig=sC('ligacoes'),lP=sP('ligacoes');
   const tel=sC('at_tel'),tP=sP('at_tel'),msg=sC('at_msg'),mP=sP('at_msg');
+  const preAg=sC('pre_agenda'),preAgP=sP('pre_agenda');
   const agend=sC('agendadas'),aP=sP('agendadas');
   const real=sC('realizadas'),rP2=sP('realizadas');
   const fL=sC('fec_leads'),fLP=sP('fec_leads'),fI=sC('fec_indic'),fIP=sP('fec_indic');
@@ -622,6 +625,7 @@ function renderVertical(){
     ['↳ Rotina',rot,rP,dltS(rot,rP),true],['↳ Novos',nov,nP,dltS(nov,nP),true],
     ['At. Telefone',tel,tP,dlt(tel,tP),false],['At. Mensagem',msg,mP,dlt(msg,mP),false],
     ['% At./Novos',pAN,pANp,dltS(parseFloat(pAN)||0,parseFloat(pANp)||0),false],
+    ['Pré Agenda',preAg,preAgP,dlt(preAg,preAgP),false],
     ['Agendamentos',agend,aP,dlt(agend,aP),false],
     ['Comparecimentos',real,rP2,dlt(real,rP2),false],
     ['Fechamentos',fT,fTP,dlt(fT,fTP),false],
@@ -640,6 +644,7 @@ function renderHorizontal(){
   const rot=sC('rotina'),rRef=sM('rotina'),nov=sC('novos'),nRef=sM('novos');
   const lig=sC('ligacoes'),lRef=sM('ligacoes');
   const tel=sC('at_tel'),tRef=sM('at_tel'),msg=sC('at_msg'),mRef=sM('at_msg');
+  const preAg=sC('pre_agenda'),preAgRef=sM('pre_agenda');
   const agend=sC('agendadas'),aRef=sM('agendadas');
   const real=sC('realizadas'),reRef=sM('realizadas');
   const fL=sC('fec_leads'),fLRef=sM('fec_leads'),fI=sC('fec_indic'),fIRef=sM('fec_indic');
@@ -653,6 +658,7 @@ function renderHorizontal(){
     ['↳ Rotina',rot,rRef,dltS(rot,rRef),true],['↳ Novos',nov,nRef,dltS(nov,nRef),true],
     ['At. Telefone',tel,tRef,dlt(tel,tRef),false],['At. Mensagem',msg,mRef,dlt(msg,mRef),false],
     ['% At./Novos',pAN,pANr,dltS(parseFloat(pAN)||0,parseFloat(pANr)||0),false],
+    ['Pré Agenda',preAg,preAgRef,dlt(preAg,preAgRef),false],
     ['Agendamentos',agend,aRef,dlt(agend,aRef),false],
     ['Comparecimentos',real,reRef,dlt(real,reRef),false],
     ['Fechamentos',fT,fTRef,dlt(fT,fTRef),false],
@@ -668,15 +674,16 @@ function renderHorizontal(){
 }
 
 function renderFunnel(){
-  const leads=sC('rotina')+sC('novos'),lig=sC('ligacoes');
+  const leads=sC('rotina')+sC('novos'),lig=sC('ligacoes'),preAg=sC('pre_agenda');
   const agend=sC('agendadas'),real=sC('realizadas'),fec=sC('fec_leads')+sC('fec_indic');
   const p=(n,d)=>d>0?(n/d*100).toFixed(0)+'%':'—';
   const steps=[
-    {l:'Leads',v:leads,p:'',cls:'f1',w:'20%'},
-    {l:'Ligações',v:lig,p:p(lig,leads),cls:'f2',w:'18%'},
-    {l:'Agendamentos',v:agend,p:p(agend,lig),cls:'f3',w:'16%'},
-    {l:'Comparec.',v:real,p:p(real,agend),cls:'f4',w:'14%'},
-    {l:'Fechamentos',v:fec,p:p(fec,real),cls:'f5',w:'12%'},
+    {l:'Leads',v:leads,p:'',cls:'f1',w:'18%'},
+    {l:'Ligações',v:lig,p:p(lig,leads),cls:'f2',w:'16%'},
+    {l:'Pré Agenda',v:preAg,p:p(preAg,lig),cls:'f6',w:'14%'},
+    {l:'Agendamentos',v:agend,p:p(agend,preAg),cls:'f3',w:'14%'},
+    {l:'Comparec.',v:real,p:p(real,agend),cls:'f4',w:'12%'},
+    {l:'Fechamentos',v:fec,p:p(fec,real),cls:'f5',w:'11%'},
   ];
   document.getElementById('funnel-row').innerHTML=steps.map((s,i)=>
     (i>0?`<div class="funnel-arrow">▶</div>`:'')+`
@@ -776,6 +783,7 @@ function renderFilial(){
     const taxaN=cA>0?cRe/cA*100:0;
     const taxaS=fmt(cRe,cA);
     const tCls=taxaN>=65?'taxa-ok':taxaN>=40?'taxa-mid':'taxa-bad';
+    const cPre=sumSDR(c.pre_agenda||{}),pPre=sumSDR(p.pre_agenda||{});
     const dl=(c,p)=>{const d=c-p;return d===0?'':` <span class="dlt ${d>0?'up':'dn'}">${d>0?'+':''}${d}</span>`;};
     return `<div class="filial-card">
       <div class="filial-hdr ${defs[f].cls}">
@@ -783,15 +791,16 @@ function renderFilial(){
         <span class="filial-taxa ${tCls}">Comparec. ${taxaS}</span>
       </div>
       <table class="ftbl">
-        <tr><td>Leads Total</td><td>${cR+cN}${dl(cR+cN,pR+pN)}<span class="ref">17/07: ${mR+mN}</span></td></tr>
+        <tr><td>Leads Total</td><td>${cR+cN}${dl(cR+cN,pR+pN)}<span class="ref">24/07: ${mR+mN}</span></td></tr>
         <tr><td class="sub">↳ Rotina</td><td>${cR}${dl(cR,pR)}</td></tr>
         <tr><td class="sub">↳ Novos</td><td>${cN}${dl(cN,pN)}</td></tr>
-        <tr><td>Ligações</td><td>${cL}${dl(cL,pL)}<span class="ref">17/07: ${mL}</span></td></tr>
+        <tr><td>Ligações</td><td>${cL}${dl(cL,pL)}<span class="ref">24/07: ${mL}</span></td></tr>
         <tr><td class="sub">↳ At. Telefone</td><td>${sumSDR(c.at_tel)}${dl(sumSDR(c.at_tel),sumSDR(p.at_tel))}</td></tr>
         <tr><td class="sub">↳ At. Mensagem</td><td>${sumSDR(c.at_msg)}</td></tr>
-        <tr><td>Agendamentos</td><td>${cA}${dl(cA,pA)}<span class="ref">17/07: ${mA}</span></td></tr>
-        <tr><td>Comparecimentos</td><td>${cRe}${dl(cRe,pRe)}<span class="ref">17/07: ${mRe}</span></td></tr>
-        <tr><td>Fechamentos</td><td>${cFT}${dl(cFT,pFT)}<span class="ref">17/07: ${mFT}</span></td></tr>
+        <tr><td>Pré Agenda</td><td>${cPre}${dl(cPre,pPre)}</td></tr>
+        <tr><td>Agendamentos</td><td>${cA}${dl(cA,pA)}<span class="ref">24/07: ${mA}</span></td></tr>
+        <tr><td>Comparecimentos</td><td>${cRe}${dl(cRe,pRe)}<span class="ref">24/07: ${mRe}</span></td></tr>
+        <tr><td>Fechamentos</td><td>${cFT}${dl(cFT,pFT)}<span class="ref">24/07: ${mFT}</span></td></tr>
         <tr><td class="sub">↳ por Leads</td><td>${cFL}${dl(cFL,pFL)}</td></tr>
         <tr><td class="sub">↳ por Indicação</td><td>${cFI}${dl(cFI,pFI)}</td></tr>
       </table>
@@ -800,16 +809,16 @@ function renderFilial(){
 }
 
 function renderMonthly(){
-  const cols=['Rot.','Novos','At.Tel','At.Msg','%At/Nov','Atend/Lead Novo','Agend','Comp','Fec.L','Fec.I','Total'];
+  const cols=['Rot.','Novos','At.Tel','At.Msg','PréAg.','%At/Nov','Atend/Lead Novo','Agend','Comp','Fec.L','Fec.I','Total'];
   let h=`<thead><tr><th>SDR</th>${cols.map(c=>`<th>${c}</th>`).join('')}</tr></thead><tbody>`;
-  const tot={rotina:0,novos:0,at_tel:0,at_msg:0,agendadas:0,realizadas:0,fec_leads:0,fec_indic:0};
+  const tot={rotina:0,novos:0,at_tel:0,at_msg:0,pre_agenda:0,agendadas:0,realizadas:0,fec_leads:0,fec_indic:0};
   const ratioCls=v=>v>=1?'pct-hi':v>=0.6?'pct-mid':'pct-lo';
   const ratioFmt=v=>v.toFixed(2)+'x';
   SDRS.forEach(s=>{
     const r=MONTH_ACC[s];const pct=fmtAN(r.at_tel,r.at_msg,r.novos);const pc=pctCls(pct);
     const ratio=r.novos>0?(r.at_tel+r.at_msg)/r.novos:0;
     Object.keys(tot).forEach(k=>tot[k]+=r[k]||0);
-    h+=`<tr><td>${s}</td><td>${r.rotina}</td><td>${r.novos}</td><td>${r.at_tel}</td><td>${r.at_msg}</td>
+    h+=`<tr><td>${s}</td><td>${r.rotina}</td><td>${r.novos}</td><td>${r.at_tel}</td><td>${r.at_msg}</td><td>${r.pre_agenda||0}</td>
     <td><span class="pct-chip ${pc}">${pct}</span></td>
     <td><span class="pct-chip ${ratioCls(ratio)}">${ratioFmt(ratio)}</span></td>
     <td>${r.agendadas}</td><td>${r.realizadas}</td><td>${r.fec_leads}</td><td>${r.fec_indic}</td>
@@ -817,7 +826,7 @@ function renderMonthly(){
   });
   const tp=fmtAN(tot.at_tel,tot.at_msg,tot.novos);
   const totRatio=tot.novos>0?(tot.at_tel+tot.at_msg)/tot.novos:0;
-  h+=`<tr><td>TOTAL</td><td>${tot.rotina}</td><td>${tot.novos}</td><td>${tot.at_tel}</td><td>${tot.at_msg}</td>
+  h+=`<tr><td>TOTAL</td><td>${tot.rotina}</td><td>${tot.novos}</td><td>${tot.at_tel}</td><td>${tot.at_msg}</td><td>${tot.pre_agenda}</td>
   <td><span class="pct-chip ${pctCls(tp)}">${tp}</span></td>
   <td><span class="pct-chip ${ratioCls(totRatio)}"><strong>${ratioFmt(totRatio)}</strong></span></td>
   <td>${tot.agendadas}</td><td>${tot.realizadas}</td><td>${tot.fec_leads}</td><td>${tot.fec_indic}</td>
@@ -826,39 +835,39 @@ function renderMonthly(){
 }
 
 function renderWeek(){
-  const cols=['Rot.','Novos','At.Tel','At.Msg','%At/Nov','Atend/Lead Novo','Agend','Comp','Fec.L','Fec.I','Total'];
+  const cols=['Rot.','Novos','At.Tel','At.Msg','PréAg.','%At/Nov','Atend/Lead Novo','Agend','Comp','Fec.L','Fec.I','Total'];
   const ratioCls=v=>v>=1?'pct-hi':v>=0.6?'pct-mid':'pct-lo';
   const ratioFmt=v=>v.toFixed(2)+'x';
   // SDR table
   let h=`<thead><tr><th>SDR</th>${cols.map(c=>`<th>${c}</th>`).join('')}</tr></thead><tbody>`;
-  const t={rotina:0,novos:0,at_tel:0,at_msg:0,agendadas:0,realizadas:0,fec_leads:0,fec_indic:0};
+  const t={rotina:0,novos:0,at_tel:0,at_msg:0,pre_agenda:0,agendadas:0,realizadas:0,fec_leads:0,fec_indic:0};
   SDRS.forEach(s=>{const r=WEEK_SDR[s];Object.keys(t).forEach(k=>t[k]+=r[k]||0);
     const pct=fmtAN(r.at_tel,r.at_msg,r.novos);const pc=pctCls(pct);
     const ratio=r.novos>0?(r.at_tel+r.at_msg)/r.novos:0;
-    h+=`<tr><td>${s}</td><td>${r.rotina}</td><td>${r.novos}</td><td>${r.at_tel}</td><td>${r.at_msg}</td>
+    h+=`<tr><td>${s}</td><td>${r.rotina}</td><td>${r.novos}</td><td>${r.at_tel}</td><td>${r.at_msg}</td><td>${r.pre_agenda||0}</td>
     <td><span class="pct-chip ${pc}">${pct}</span></td>
     <td><span class="pct-chip ${ratioCls(ratio)}">${ratioFmt(ratio)}</span></td>
     <td>${r.agendadas}</td><td>${r.realizadas}</td><td>${r.fec_leads}</td><td>${r.fec_indic}</td><td><strong>${r.fec_leads+r.fec_indic}</strong></td></tr>`;});
   const tp=fmtAN(t.at_tel,t.at_msg,t.novos);
   const totRatio=t.novos>0?(t.at_tel+t.at_msg)/t.novos:0;
-  h+=`<tr><td>TOTAL</td><td>${t.rotina}</td><td>${t.novos}</td><td>${t.at_tel}</td><td>${t.at_msg}</td>
+  h+=`<tr><td>TOTAL</td><td>${t.rotina}</td><td>${t.novos}</td><td>${t.at_tel}</td><td>${t.at_msg}</td><td>${t.pre_agenda}</td>
   <td><span class="pct-chip ${pctCls(tp)}">${tp}</span></td>
   <td><span class="pct-chip ${ratioCls(totRatio)}"><strong>${ratioFmt(totRatio)}</strong></span></td>
   <td>${t.agendadas}</td><td>${t.realizadas}</td><td>${t.fec_leads}</td><td>${t.fec_indic}</td><td><strong>${t.fec_leads+t.fec_indic}</strong></td></tr></tbody>`;
   document.getElementById('week-sdr-table').innerHTML=h;
   // Filial table
   let h2=`<thead><tr><th>Filial</th>${cols.map(c=>`<th>${c}</th>`).join('')}</tr></thead><tbody>`;
-  const t2={rotina:0,novos:0,at_tel:0,at_msg:0,agendadas:0,realizadas:0,fec_leads:0,fec_indic:0};
+  const t2={rotina:0,novos:0,at_tel:0,at_msg:0,pre_agenda:0,agendadas:0,realizadas:0,fec_leads:0,fec_indic:0};
   FILS.forEach(f=>{const r=WEEK_FILIAL[f];Object.keys(t2).forEach(k=>t2[k]+=(r[k]||0));const fT=(r.fec_leads||0)+(r.fec_indic||0);
     const pct=fmtAN(r.at_tel,r.at_msg,r.novos);const pc=pctCls(pct);
     const ratio=r.novos>0?(r.at_tel+r.at_msg)/r.novos:0;
-    h2+=`<tr><td>${f==='Goiania'?'Goiânia':f}</td><td>${r.rotina}</td><td>${r.novos}</td><td>${r.at_tel}</td><td>${r.at_msg}</td>
+    h2+=`<tr><td>${f==='Goiania'?'Goiânia':f}</td><td>${r.rotina}</td><td>${r.novos}</td><td>${r.at_tel}</td><td>${r.at_msg}</td><td>${r.pre_agenda||0}</td>
     <td><span class="pct-chip ${pc}">${pct}</span></td>
     <td><span class="pct-chip ${ratioCls(ratio)}">${ratioFmt(ratio)}</span></td>
     <td>${r.agendadas}</td><td>${r.realizadas}</td><td>${r.fec_leads||0}</td><td>${r.fec_indic||0}</td><td><strong>${fT}</strong></td></tr>`;});
   const tp2=fmtAN(t2.at_tel,t2.at_msg,t2.novos);
   const totRatio2=t2.novos>0?(t2.at_tel+t2.at_msg)/t2.novos:0;
-  h2+=`<tr><td>TOTAL</td><td>${t2.rotina}</td><td>${t2.novos}</td><td>${t2.at_tel}</td><td>${t2.at_msg}</td>
+  h2+=`<tr><td>TOTAL</td><td>${t2.rotina}</td><td>${t2.novos}</td><td>${t2.at_tel}</td><td>${t2.at_msg}</td><td>${t2.pre_agenda}</td>
   <td><span class="pct-chip ${pctCls(tp2)}">${tp2}</span></td>
   <td><span class="pct-chip ${ratioCls(totRatio2)}"><strong>${ratioFmt(totRatio2)}</strong></span></td>
   <td>${t2.agendadas}</td><td>${t2.realizadas}</td><td>${t2.fec_leads}</td><td>${t2.fec_indic}</td><td><strong>${t2.fec_leads+t2.fec_indic}</strong></td></tr></tbody>`;
@@ -866,8 +875,8 @@ function renderWeek(){
 }
 
 // ─── COMPARAÇÃO SEMANAL: mesmo dia (Quarta) — semana passada vs semana atual ───
-const sLW1=m=>fils().reduce((a,f)=>a+sumSDR((D1_LASTWEEK[f]||{})[m]||{}),0); // Qua 12/08
-const sLW2=m=>fils().reduce((a,f)=>a+sumSDR((D2_LASTWEEK[f]||{})[m]||{}),0); // Ter 11/08
+const sLW1=m=>fils().reduce((a,f)=>a+sumSDR((D1_LASTWEEK[f]||{})[m]||{}),0); // Seg 17/08
+const sLW2=m=>fils().reduce((a,f)=>a+sumSDR((D2_LASTWEEK[f]||{})[m]||{}),0); // Sex 14/08
 
 function ppDiff(n2,n1){
   const diff=n2-n1, cls=diff>0?'up':diff<0?'dn':'eq', sign=diff>0?'+':'';
@@ -895,6 +904,8 @@ function buildVertCompareWide(){
   const taxa2=fmt(re2,ag2),taxa2p=fmt(re2p,ag2p);
   const pAN2=fmtAN(tel2,msg2,nov2),pAN2p=fmtAN(tel2p,msg2p,nov2p);
 
+  const preAg1=sLW1('pre_agenda'),preAg1p=sLW2('pre_agenda');
+  const preAg2=sC('pre_agenda'),preAg2p=sP('pre_agenda');
   const rows=[
     ['Ligações',lig1,lig1p,lig2,lig2p,false,'num'],
     ['Leads Total',rot1+nov1,rot1p+nov1p,rot2+nov2,rot2p+nov2p,false,'num'],
@@ -903,6 +914,7 @@ function buildVertCompareWide(){
     ['At. Telefone',tel1,tel1p,tel2,tel2p,false,'num'],
     ['At. Mensagem',msg1,msg1p,msg2,msg2p,false,'num'],
     ['% At./Novos',pAN1,pAN1p,pAN2,pAN2p,false,'pct',{num1:tel1+msg1,den1:nov1,num1p:tel1p+msg1p,den1p:nov1p,num2:tel2+msg2,den2:nov2,num2p:tel2p+msg2p,den2p:nov2p}],
+    ['Pré Agenda',preAg1,preAg1p,preAg2,preAg2p,false,'num'],
     ['Agendamentos',ag1,ag1p,ag2,ag2p,false,'num'],
     ['Comparecimentos',re1,re1p,re2,re2p,false,'num'],
     ['Fechamentos',fT1,fT1p,fT2,fT2p,false,'num'],
@@ -943,7 +955,7 @@ function renderVertCompare(){
 
 // métrica 'fech' é derivada (fec_leads+fec_indic); as demais vêm direto do objeto
 // dividida em 2 blocos (volume / resultado) para as tabelas caberem sem rolagem horizontal
-const CMP_METRICS_VOL=[['rotina','Rot.'],['novos','Novos'],['ligacoes','Lig.'],['at_tel','At.Tel'],['at_msg','At.Msg']];
+const CMP_METRICS_VOL=[['rotina','Rot.'],['novos','Novos'],['ligacoes','Lig.'],['at_tel','At.Tel'],['at_msg','At.Msg'],['pre_agenda','PréAg.']];
 const CMP_METRICS_RES=[['agendadas','Agend'],['realizadas','Comp'],['fech','Fech']];
 function getMetricVal(r,m){ return m==='fech' ? (r.fec_leads||0)+(r.fec_indic||0) : (r[m]||0); }
 function evolPct(sa,sp){
@@ -1008,15 +1020,15 @@ function renderInsights(){
   const ligDelta=lig-ligP;
 
   const ins=[
-    {type:'good',icon:'🔄',title:'Reextração: Fabi Entra em Botafogo e Barra, Luana Ganha Indicação',body:`Nova leitura da planilha revelou lançamentos adicionais para hoje: <strong>Fabi</strong> em Botafogo (funil quase completo: 11 rotina, 7 novos, 60 ligações, 3 agendamentos, 2 comparecimentos) e em Barra (1 agendamento, 1 comparecimento, 1 fechamento por indicação, sem funil de entrada — mesmo padrão de lançamento parcial já visto em outras SDRs). <strong>Luana</strong> ganhou +1 fechamento por indicação em Botafogo. Terça 18/08 (referência vertical) permaneceu inalterada nesta rodada.`},
-    {type:'good',icon:'🏆',title:'Fechamentos do Dia Sobem para 5 (2 Leads + 3 Indicação)',body:`Fechamentos saltam de 3 para <strong>5</strong> com a entrada da Fabi (indicação, Barra) e Luana (indicação, Botafogo) — acima da terça 18/08 (2, +150,0%) e do horizontal 17/07 (4, +25,0%).`},
-    {type:'good',icon:'🎯',title:'Taxa de Comparecimento em 127,3%',body:`Comparecimentos 14 sobre 11 agendamentos do próprio dia = <strong>127,3%</strong> (reflexo de agendamentos anteriores), acima da terça 18/08 (60,0%, +67,3pp) e do horizontal 17/07 (100,0%, +27,3pp).`},
-    {type:'warn',icon:'📉',title:'Agendamentos e Leads Novos Seguem em Queda',body:`Agendamentos 11 (-26,7% vs terça, +57,1% vs horizontal). Leads Novos 34 (-44,3% vs terça, -74,0% vs horizontal — efeito do pico de importação em lote de 17/07). Com At.Tel+At.Msg=87 estável sobre base de Novos pequena, %At./Novos fica em <strong>255,9%</strong> (+137,9pp vs terça, +178,8pp vs horizontal) — distorção estatística, não ganho real de eficiência.`},
-    {type:'info',icon:'⭐',title:'Ranking do Dia — Luana Assume a Liderança',body:`<strong>Luana</strong> 1º (score 47,2 — 1 fechamento por leads + 1 por indicação, 2 comparecimentos, 172 ligações em Botafogo). <strong>Waleska</strong> 2º (score 40,3 — 1 lead + 1 indicação, 3 comparecimentos, 193 ligações em Goiânia). <strong>Fabi</strong> 3º (score 33,0 — 1 fechamento por indicação, 3 comparecimentos entre Botafogo e Barra). <strong>Jordana</strong> 4º (score 31,6 — 1 fechamento por leads, 3 comparecimentos em Botafogo). <strong>Joyce</strong> 5º (score 30,7 — 197 ligações em Barra, sem fechamento).`},
-    {type:'info',icon:'🏢',title:'Por Filial — Botafogo com 3 SDRs, Barra Ganha Fabi',body:`Botafogo (Jordana + Luana + Fabi): 57 rotina, 18 novos, 298 ligações, 8 agendamentos, 7 comparecimentos, 3 fechamentos (2 leads + 1 indicação). Barra (Joyce + Fabi): 26 rotina, 5 novos, 197 ligações, 2 agendamentos, 4 comparecimentos, 1 fechamento por indicação (Fabi, sem funil de entrada). Goiânia (Waleska): 25 rotina, 11 novos, 193 ligações, 1 agendamento, 3 comparecimentos, 1 fechamento por leads + 1 por indicação.`},
-    {type:'info',icon:'💰',title:'Vendas dos Closers: Não Informado',body:`Nenhuma venda de closer foi reportada para 19/08 até o momento. Campo mantido zerado — não inventar valores; Karina pode informar posteriormente para atualização.`},
-    {type:'good',icon:'📅',title:'Semana S3 (17-19/08, 3 Dias) — Taxa de Comparecimento em 100%',body:`Rotina 306 · Novos 141 · Ligações 1.778 · At.Tel 150 · At.Msg 80 · Agendamentos 33 · Comparecimentos 33 (taxa <strong>100,0%</strong>) · Fechamentos SDR 13 (6 leads + 7 indicação). Comparado aos mesmos 3 dias da Semana 2 (Segunda+Terça+Quarta, 10-12/08, reextraído fresh: fechamentos revisados de 6 para 5 por correção de Fabi/Barra em 12/08): rotina +28,6%, novos -8,4%, ligações -1,1%, agendamentos -25,0%, comparecimentos +43,5% (23→33), <strong>fechamentos SDR +160,0%</strong> (5→13) — conversão bem mais forte que a semana anterior no mesmo ponto.`},
-    {type:'good',icon:'📅',title:'Acumulado Agosto — 13 Dias Úteis, Waleska Segue na Liderança de Fechamentos',body:`Rotina 1.137 · Novos 735 · At.Tel 500 · At.Msg 434 (%At./Novos 127,1%) · Agendamentos 167 · Comparecimentos 121 (taxa <strong>72,5%</strong>, acima da meta de 65%) · Fechamentos SDR 48 (26 leads + 22 indicação). <strong>Waleska lidera os fechamentos acumulados do mês</strong> (16, sendo 6 leads + 10 indicação), à frente de Fabi (12, estável — ganhou 1 indicação em Barra hoje mas perdeu 1 na correção de 12/08), Joyce (11), Luana (6, subiu de 5 com a indicação extra de hoje) e Jordana (3).`}
+    {type:'info',icon:'🆕',title:'Nova Métrica: Pré Agenda Adicionada à Planilha',body:`A Karina incluiu hoje uma nova coluna "Pré Agenda" na planilha (quantidade de pacientes pré-agendados), presente nas 3 filiais a partir de 24/08. Total do dia: <strong>17</strong> (Botafogo 10, Barra 4, Goiânia 3). Como a coluna só existe a partir de hoje, ainda não há histórico para comparação vertical/horizontal nem para a semana passada — os deltas passam a aparecer progressivamente nos próximos dias. Métrica incorporada em KPIs, funil, tabelas mensal/semanal e comparativos, conforme pedido.`},
+    {type:'bad',icon:'🏆',title:'Fechamentos do Dia: 2 (1 Lead + 1 Indicação)',body:`<strong>Joyce</strong> fechou por leads em Botafogo (sem funil de entrada lançado no dia) e <strong>Waleska</strong> fechou por indicação em Goiânia. Abaixo de sexta 21/08 (3, -33,3%) e bem abaixo do horizontal 24/07 (9, -77,8%).`},
+    {type:'good',icon:'🎯',title:'Taxa de Comparecimento em 76,5%, Acima da Meta',body:`Comparecimentos 13 sobre 17 agendamentos = <strong>76,5%</strong>, acima da meta de 65%, acima de sexta 21/08 (54,2%, +22,3pp) e do horizontal 24/07 (54,5%, +22,0pp).`},
+    {type:'warn',icon:'📉',title:'Leads Novos e Agendamentos em Forte Queda vs Sexta',body:`Leads Novos 22 (-68,6% vs sexta 21/08, -78,8% vs horizontal 24/07) — normalização após o pico de importação em lote de sexta. Agendamentos 17 (-29,2% vs sexta, -22,7% vs horizontal). Com atendimento (At.Tel+At.Msg=74) praticamente estável sobre base de novos muito menor, %At./Novos dispara para <strong>336,4%</strong> (+175,0pp vs sexta, +268,1pp vs horizontal) — distorção estatística por base pequena, não ganho real de eficiência.`},
+    {type:'info',icon:'⭐',title:'Ranking do Dia — Waleska na Liderança',body:`<strong>Waleska</strong> 1º (score 51,7 — 1 fechamento por indicação, 3 comparecimentos, 247 ligações em Goiânia). <strong>Luana</strong> 2º (score 31,9 — 4 comparecimentos, 119 ligações, 43 at.tel em Botafogo, sem fechamento). <strong>Joyce</strong> 3º (score 31,0 — 1 fechamento por leads, 5 comparecimentos em Barra, sem ligações lançadas — padrão de comparecimento sem funil completo). <strong>Fabi</strong> 4º (score 19,0). <strong>Jordana</strong> 5º (score 18,6).`},
+    {type:'info',icon:'🏢',title:'Por Filial — Botafogo Concentra o Volume, Barra e Goiânia com Funil Parcial',body:`Botafogo (Jordana + Luana + fechamento avulso da Joyce): 60 rotina, 13 novos, 345 ligações, 9 agendamentos, 6 comparecimentos, 1 fechamento por leads (Joyce, sem funil de entrada lançado). Barra (Joyce parcial): rotina e ligações zeradas, 4 novos/pré-agenda, 4 agendamentos, 3 comparecimentos, sem fechamento — mesmo padrão de lançamento parcial já documentado no projeto. Goiânia (Waleska): 30 rotina, 5 novos, 247 ligações, 4 agendamentos, 4 comparecimentos, 1 fechamento por indicação.`},
+    {type:'info',icon:'💰',title:'Vendas dos Closers: Não Informado',body:`Nenhuma venda de closer foi reportada para 24/08 até o momento. Campo mantido zerado — não inventar valores; Karina pode informar posteriormente para atualização.`},
+    {type:'good',icon:'📅',title:'Semana S4 (24/08, 1º Dia) vs Mesmo Dia da Semana Passada',body:`Rotina 90 (+7,1% vs Seg 17/08) · Novos 22 (-52,2%) · Ligações 592 (+11,1%) · Agendamentos 17 (+70,0%) · Comparecimentos 13 (+30,0%) · Fechamentos SDR 2 (-33,3% vs 3). Início de semana com menos leads novos, mas ritmo de conversão (agendamentos e comparecimentos) mais forte que o mesmo dia da semana anterior.`},
+    {type:'good',icon:'📅',title:'Acumulado Agosto — 16 Dias Úteis, Waleska Lidera Fechamentos',body:`Rotina 1.446 · Novos 849 · At.Tel 680 · At.Msg 520 (%At./Novos 141,3%) · Pré Agenda 17 (métrica nova, só hoje) · Agendamentos 231 · Comparecimentos 155 (taxa <strong>67,1%</strong>, acima da meta de 65%) · Fechamentos SDR 55 (31 leads + 24 indicação). <strong>Waleska lidera os fechamentos acumulados do mês</strong> (17, sendo 6 leads + 11 indicação), à frente de Joyce (14, 12 leads + 2 indicação), Fabi (12, 5 leads + 7 indicação), Luana (7) e Jordana (5).`}
   ];
   document.getElementById('insights-grid')
 .innerHTML=ins.map(i=>`
